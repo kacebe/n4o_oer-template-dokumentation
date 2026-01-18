@@ -1,0 +1,151 @@
+---
+title: "Quarto-Templates für FAIRedelte OER"
+subtitle: "Ein Angebot der Task Area 6 von NFDI4Objects"
+lang: de
+date: 2026-01-19
+date-modified: last-modified
+date-format: "DD.MM.YYYY"
+abstract: |
+  Diese Website dokumentiert und erläutert Quarto-Templates zur Erstellung FAIRer Open Educational Resources.
+  Im Fokus stehen Struktur, Nutzung, Anpassung und Weiterentwicklung der Templates als technische Produktionsinfrastruktur.
+
+  Sie richtet sich an Lehrende genauso wie an Praktiker:innen sowie an interessierte Entwickler:innen. Die Templates entstehen im Kontext der Nationalenforschungsdateninfrastruktur (NFDI) und werden von der Task Area 6 von NFDI4Objects bereit gestellt und gepflegt. Die Templates sind aber für viele andere Lehr- und Lernszenarien geeignet.
+keywords: OER, FAIR, Templates, Quarto
+toc: true
+toc-location: left
+number-sections: false
+---
+
+::: {.callout-warning}
+## Hinweis: Seite im Aufbau
+
+Diese Seite ist noch im Aufbau.
+Inhalte und Struktur werden derzeit erarbeitet und werden sich ändern.
+:::
+
+Diese Website dokumentiert und erläutert Quarto-Templates zur Erstellung
+FAIRer Open Educational Resources (OER).
+
+Im Mittelpunkt stehen die Templates selbst:
+
+- ihr Aufbau, 
+- die Möglichkeiten ihrer Nutzung, 
+- ihre Anpassung an eigene Designvorgaben
+- ihre Bereitstellung und kooperative Weiterentwicklung.
+
+Die Website stellt **keine Lehr- und Lernmaterialien** bereit und
+diskutiert **keine didaktischen Konzepte** oder fachlichen Inhalte.
+
+Ziel ist es, die Erstellung FAIRer OER technisch zu vereinfachen.
+
+## Worum es hier geht
+
+Die vorgestellten Templates bieten eine technische Grundlage, um:
+
+- FAIRe OER effizient zu erstellen,
+- Struktur und Metadaten zu vereinheitlichen,
+- Quarto als Publikationsumgebung kennen zu lernen,
+- OER nachhaltig und maschinenlesbar bereitzustellen und mit anderen zu teilen.
+
+Technische Hürden werden reduziert, ohne die inhaltliche Ausprägung der Materialien einzuschränken.
+
+## Worum es hier nicht geht
+
+Diese Website:
+
+- erklärt keine fachlichen Themen zum Forschungsdatenmanagement,
+- enthält keine fertigen Lehr- oder Lernmaterialien,
+- gibt nur sehr eingeschränkt didaktischen Empfehlungen,
+- stellt keine Kurs- oder Schulungsszenarien vor.
+
+Alle Inhalte beziehen sich ausschliesslich auf die Templates und ihre technische Nutzung.
+
+## Wie diese Website aufgebaut ist
+
+Die Navigation folgt fünf Bereichen, die unterschiedliche Zugriffe auf dieselben Templates ermöglichen.
+
+### Kontext
+
+Der Bereich *Kontext* ordnet die Templates ein.
+
+Er behandelt:
+
+- was unter FAIRen OER zu verstehen ist,
+- warum Quarto als technische Grundlage besonders geeignet ist,
+- welche Rolle OER zu Forschungsdatenmanagement im Rahmen der Nationalen Forschungsdateninfrastruktur (NFDI) spielen,
+- wie sich die Arbeiten in verwandte nationale und internationale Projekte einbetten,
+- welche Bereitstellungsszenarien möglich sind.
+
+### Nutzen
+
+Der Bereich *Nutzen* beschreibt, wie die Templates praktisch verwendet werden.
+
+Er umfasst:
+
+- einen Schnellstart,
+- die grundlegende Projektstruktur,
+- die Pflege der aktuell implementierten Metadaten,
+- den Build-Prozess und die Ausgabeformate.
+
+Der Fokus liegt auf reproduzierbaren und plattformneutralen Workflows.
+
+### Templates
+
+Der Bereich *Templates* dokumentiert die verfügbaren Template-Typen.
+
+Aktuell werden behandelt:
+
+- Skript-Templates
+- Übungs-Templates
+
+Geplante Erweiterungen:
+
+- Präsentations-Templates
+- Kurs-Templates
+
+Die Beschreibungen beziehen sich ausschliesslich auf
+Struktur, Bestandteile und Erweiterungspunkte der Templates.
+
+### Referenz
+
+Der Bereich *Referenz* dient als Nachschlagewerk.
+
+Er enthält:
+
+- eine Übersicht zentraler Dateien,
+- relevante Konfigurationsoptionen,
+
+Dieser Bereich ist bewusst kompakt und technisch gehalten.
+
+### Mitgestalten
+
+Der Bereich *Mitgestalten* richtet sich an Personen,
+die sich an der Weiterentwicklung der Templates beteiligen möchten.
+
+Er beschreibt:
+
+- wie Beiträge eingebracht werden können,
+- wie Seitentypen entlang bestehender Kategorien erweitert werden könnten,
+- wie Metadatenfelder im Kontext zusätzlicher OER-Schemata entwickelt werden können,
+- wie Repositories auf unterschiedlichen Plattformen genutzt werden,
+- welche Weiterentwicklungen geplant sind.
+
+Die Weiterentwicklung bezieht sich auf Struktur und Technik, nicht auf Inhalte.
+
+## Einstieg finden
+
+Je nach Interesse können Sie:
+
+- mit dem [Kontext](kontext.qmd) beginnen, um den Rahmen zu verstehen,
+- direkt zum [Nutzen](nutzen.qmd) wechseln, um die Templates anzuwenden,
+- sich unter [Templates](templates.qmd) einen Überblick verschaffen,
+- gezielt Informationen in der [Referenz](referenz.qmd) nachschlagen,
+- oder sich unter [Mitgestalten](mitgestalten.qmd) an der Weiterentwicklung beteiligen.
+
+Alle Bereiche sind gleichwertig und unabhängig voneinander nutzbar.
+
+## Disclaimer: Einsatz von LLM {.appendix}
+
+Bei der Erarbeitung dieser Website wurde ChatGPT 5.2 zur Unterstützung eingesetzt. Die Nutzung umfasste die Strukturierung und Diskussion der Inhalte sowie grammatikalische und orthographische Korrekturen.
+
+Es wird ausdrücklich darauf hingewiesen, dass die endgültige Verantwortung für die inhaltliche Richtigkeit beim Autor liegt.

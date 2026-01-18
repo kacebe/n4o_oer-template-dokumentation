@@ -1,0 +1,112 @@
+# Quarto-Templates für FAIRe OER – Website
+
+Dieses Repository enthält das Quarto-Projekt für die Website
+**„Quarto-Templates für FAIRe OER“**.
+
+Die Website dokumentiert und erläutert Quarto-Templates zur Erstellung
+FAIRer Open Educational Resources (OER).
+Das Repository selbst stellt **keine Templates** und **keine Lehr- oder Lernmaterialien** bereit.
+
+---
+
+## Zweck des Repositories
+
+Dieses Repository dient ausschließlich der:
+
+- Entwicklung und Pflege der Website,
+- Dokumentation von Quarto-Templates,
+- Beschreibung ihrer Nutzung, Anpassung und Weiterentwicklung,
+- Einordnung der Templates in fachliche, infrastrukturelle und institutionelle Kontexte.
+
+Die eigentlichen Templates werden in **separaten Repositories** bereitgestellt
+und von dieser Website referenziert.
+
+---
+
+## Inhaltlicher Fokus der Website
+
+Die Website behandelt:
+
+- technische Struktur und Aufbau der Templates,
+- Nutzung der Templates mit Quarto,
+- Pflege und Erweiterung von Metadaten,
+- Weiterentwicklung von Seitentypen und Metadatenschemata,
+- Bereitstellungsszenarien für OER,
+- Einbettung in den Kontext von FAIRen OER,
+  Forschungsdatenmanagement und Infrastrukturarbeit.
+
+Die Website behandelt **nicht**:
+
+- fachliche Inhalte,
+- didaktische Konzepte,
+- konkrete Lehr- oder Lernmaterialien,
+- Kurse, Übungen oder Skripte als Inhalte.
+
+---
+
+## Institutioneller Kontext
+
+Die Website ist ein Angebot der Task Area 6 von
+:contentReference[oaicite:0]{index=0}.
+
+Sie richtet sich an Praktiker:innen, die mit den materiellen Hinterlassenschaften
+der Menschheitsgeschichte arbeiten, insbesondere im Umfeld von:
+
+- Archäologie
+- Denkmalpflege
+- Sammlungen und Museen
+- Digital Humanities
+- Forschungsdatenmanagement
+
+---
+
+## Technische Basis
+
+- Quarto (Website-Projekt)
+- Markdown / Quarto Markdown
+- Git-basierte Versionsverwaltung
+
+Das Projekt ist plattformneutral und kann mit GitHub, GitLab oder Codeberg
+entwickelt und betrieben werden.
+
+---
+
+## Projektstruktur
+
+Das Repository folgt einer bewusst reduzierten Struktur:
+
+- eine Seite pro Hauptnavigationspunkt,
+- Unterthemen als Anker innerhalb der jeweiligen Seite,
+- klare Trennung zwischen Kontext, Nutzung, Referenz und Mitgestaltung.
+
+Diese Struktur dient der langfristigen Wartbarkeit
+und der klaren Nutzerführung.
+
+---
+
+## Weiterentwicklung und Beiträge
+
+Beiträge zu diesem Repository betreffen ausschließlich:
+
+- Inhalte der Website,
+- Struktur und Navigation,
+- Präzisierung der Dokumentation,
+- technische Verbesserung des Quarto-Projekts.
+
+Beiträge zu den Templates selbst erfolgen in den jeweiligen
+Template-Repositories.
+
+---
+
+## Lizenz
+
+Die Lizenzierung der Inhalte und des Quarto-Projekts
+ist in der entsprechenden Lizenzdatei dokumentiert.
+Bitte beachten Sie diese Angaben bei Nachnutzung.
+
+---
+
+## Hinweis
+
+Wenn Sie auf der Suche nach konkreten Quarto-Templates sind,
+nutzen Sie bitte die in der Website verlinkten Template-Repositories.

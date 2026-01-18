@@ -1,0 +1,34 @@
+# Beschreibende Metadaten
+website:
+  title: "Quarto-Templates für FAIRe OER"
+  description: "Ein Angebot der Task Area 6 von NFDI4Objects für Praktiker:innen im Umgang mit materiellen Hinterlassenschaften der Menschheitsgeschichte"
+
+subtitle: "Kurs-Untertitel"
+abstract-title: |
+  Zusammenfassung
+abstract: |
+  Diese Website dokumentiert und erläutert Quarto-Templates zur Erstellung FAIRer Open Educational Resources.
+  Im Fokus stehen Struktur, Nutzung, Anpassung und Weiterentwicklung der Templates als technische Produktionsinfrastruktur.
+
+  Die Templates zielen darauf ab, die Erstellung FAIRer OER zu vereinfachen, wiederkehrende Struktur- und Metadatenfragen zu standardisieren und plattformneutrale, reproduzierbare Workflows zu ermöglichen. Technische Hürden werden reduziert, ohne inhaltliche Ausprägungen oder fachliche Schwerpunkte vorzugeben.
+
+  Das Angebot ist im Kontext der Task Area 6 von NFDI4Objects verortet und richtet sich an Praktiker:innen, die mit materiellen Hinterlassenschaften der Menschheitsgeschichte arbeiten. Neben der Dokumentation der Templates ordnet die Website diese in den Kontext von FAIRen OER, Forschungsdatenmanagement, nationalen und internationalen Infrastrukturen sowie unterschiedlichen Bereitstellungsszenarien ein.
+
+  Die Website stellt keine Lehr- oder Lernmaterialien bereit und behandelt keine didaktischen Konzepte. Alle Inhalte beziehen sich ausschließlich auf die Templates und ihre technische Nutzung.
+
+keywords:
+  - Forschungsdatenmanagement
+  - FAIR
+  - OER
+  - Quarto
+  - Templates
+  - Vorlagen
+
+# Technische Metadaten
+site-url: "https://example.com"
+repo-url: "https://example.com"
+
+# Rechtliche Metadaten
+copyright: "Kai-Christian Bruhn"
+license: CC BY # Optionen für Lizensierungsangaben: https://quarto.org/docs/authoring/front-matter.html#license
+

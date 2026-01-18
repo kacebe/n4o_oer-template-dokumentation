@@ -1,0 +1,29 @@
+---
+title: "Kontext"
+subtitle: "Untertitel"
+lang: de
+date: 2026-01-19
+date-modified: last-modified
+date-format: "DD.MM.YYYY"
+abstract: "Diese Website dokumentiert und erläutert Quarto-Templates zur Erstellung FAIRer Open Educational Resources.
+  Im Fokus stehen Struktur, Nutzung, Anpassung und Weiterentwicklung der Templates als technische Produktionsinfrastruktur."
+keywords: OER, FAIR, Templates, Quarto
+toc: true
+toc-location: left
+number-sections: false
+---
+
+::: {.callout-warning}
+## Hinweis: Seite im Aufbau
+
+Diese Seite ist noch im Aufbau.
+Inhalte und Struktur werden derzeit erarbeitet und werden sich ändern.
+:::
+
+## FAIRe OER und Quarto
+
+## FDM-OER in der NFDI
+
+## Verwandte Projekte
+
+## Bereitstellungsszenarien

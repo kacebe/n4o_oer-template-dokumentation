@@ -1,0 +1,289 @@
+---
+title: "Nutzen"
+subtitle: "Untertitel"
+lang: de
+date: 2026-01-19
+date-modified: last-modified
+date-format: "DD.MM.YYYY"
+abstract: "Diese Website dokumentiert und erläutert Quarto-Templates zur Erstellung FAIRer Open Educational Resources.
+  Im Fokus stehen Struktur, Nutzung, Anpassung und Weiterentwicklung der Templates als technische Produktionsinfrastruktur."
+keywords: OER, FAIR, Templates, Quarto
+toc: true
+toc-location: left
+number-sections: false
+---
+
+::: {.callout-warning}
+## Hinweis: Seite im Aufbau
+
+Diese Seite ist noch im Aufbau.
+Inhalte und Struktur werden derzeit erarbeitet und werden sich ändern.
+:::
+
+## Schnellstart
+
+## Projektstruktur
+
+## Metadaten pflegen
+
+## Bereitstellung über ein Git-Repository
+
+In diesem Abschnitt wird zwischen zwei Ebenen der Bereitstellung unterschieden:
+
+1. der Bereitstellung des Quarto-Projekts selbst über ein Git-Repository  
+2. der Veröffentlichung der daraus erzeugten HTML-Seiten als sogenannte Pages
+
+Nicht jedes Quarto-Projekt, das über ein Git-Repository verwaltet wird, muss auch über die jeweilige Plattform als Website veröffentlicht werden. In vielen Szenarien werden die gerenderten HTML-Seiten über andere Infrastrukturen bereitgestellt, z. B. über eine institutionelle Website, ein Lernmanagementsystem oder eine projektinterne Publikationsplattform.
+
+Die folgenden Abschnitte beschreiben daher sowohl die Bereitstellung des Quarto-Projekts über Git als auch optionale Wege zur Veröffentlichung der erzeugten Seiten.
+
+### GitHub
+
+::: {.callout-note}
+## Warum GitHub Pages derzeit die praktikabelste Lösung ist
+
+Trotz möglicher Vorbehalte gegenüber einzelnen Plattformen ist die Nutzung von
+GitHub Pages aktuell der am besten unterstützte Weg zur Veröffentlichung
+von Quarto-Projekten.
+
+Dies hat vor allem drei technische Gründe:
+
+- Der Befehl `quarto publish` ist explizit auf GitHub ausgerichtet
+  und unterstützt GitHub Pages nativ.
+- Für andere Git-basierte Plattformen (z. B. GitLab oder Codeberg)
+  existieren bislang nur wenige etablierte Workflows,
+  und diese werden in der Quarto-Community kaum systematisch unterstützt.
+- Der von Quarto vorgesehene Publish-Workflow stellt sicher,
+  dass jede Änderung an den Daten oder Inhalten im Repository
+  automatisch zu einer Aktualisierung der veröffentlichten Pages führt.
+
+Für reproduzierbare, wartungsarme Veröffentlichungen ist GitHub Pages
+daher derzeit die robusteste und am besten dokumentierte Option.
+:::
+
+
+Diese Anleitung beschreibt einen Standard-Workflow, um den Quellcode eines **lokalen Quarto-Projekts** erstmals auf GitHub zu veröffentlichen. Im Anschluss werden die mit Quarto erzeugten HTML-Seiten automatisiert mit GitHub Actions als GitHub Pages Site publiziert.
+
+Der Ausgangspunkt ist ein **lokales Verzeichnis**, das bisher **nicht** mit einem GitHub-Repository verknüpft ist.
+
+#### Voraussetzungen
+
+:white_check_mark: Auf Ihrem lokalen Rechner:
+
+- ein [GitHub-Account](https://github.com/signup)
+- [Git](https://github.com/git-guides/install-git) ist installiert
+- [Quarto](https://quarto.org/docs/get-started/) ist installiert
+- ein lauffähiges Quarto-Projekt in einem lokalen Verzeichnis (`quarto render` liefert keine Fehlermeldungen)
+
+:white_check_mark: Auf GitHub:
+
+- Wenn Sie mit Ihrem Account das Repository in einer *Organisation* anlegen wollen: Berechtigung, neue Repositories anzulegen
+- Zugriff auf GitHub Actions und GitHub Pages (bei eigenen, öffentlichen Repositories standardmäßig gegeben)
+
+#### Verzeichnis mit GitHub-Repository verbinden
+
+**Schritt 1: Lokales Verzeichnis initialisieren**
+
+Wechseln Sie über die Konsole in das lokale Projektverzeichnis und initialisieren Sie ein Git-Repository mit dem Befehl:
+
+```bash
+git init
+```
+
+Das Verzeichnis ist nun ein lokales Git-Repository, aber noch nicht mit GitHub verbunden.
+
+**Schritt 2: GitHub-Repository anlegen**
+
+Loggen Sie sich über den Browser auf [GitHub](https://github.com) ein und legen ein neues, leeres Repository an:
+
+- ohne README
+- ohne .gitignore
+- ohne Lizenzdatei
+
+Notieren Sie sich die Repository-URL, z. B.:
+
+```
+https://github.com/username/projektname.git
+```
+
+::: {.callout-note}
+**Hinweis zu Repository- und Seiten-URLs**
+
+Bei GitHub bestehen Repository- und Pages-URLs ausschließlich aus
+Benutzer- oder Organisationsname und Repository-Name.
+
+Beispiel:
+
+Repository: https://github.com/organisation/quarto-faire-oer-website  
+
+Pages-URL: https://organisation.github.io/quarto-faire-oer-website/
+
+Wählen Sie den Repository-Namen daher bewusst und dauerhaft.
+:::
+
+**Schritt 3: Lokales Repository mit GitHub verknüpfen**
+
+Verknüpfen Sie das lokale Repository mit dem GitHub-Repository:
+
+```bash
+git remote add origin https://github.com/username/projektname.git
+```
+Der Link am Ende des Befehls entspricht dem Link aus Schritt 2.
+
+Setzen Sie anschließend den Standard-Branch (empfohlen: main):
+
+```bash
+git branch -M main
+```
+
+**Schritt 4: Initialer Commit und Push**
+
+Committen Sie den aktuellen Projektstand und pushen Sie ihn zu GitHub:
+
+```bash
+git add .
+git commit -m "Initial commit"
+git push -u origin main
+```
+
+Ab jetzt existiert:
+
+- ein lokales Repository auf Ihrem Rechner in dem Verzeichnis mit dem Quarto-Projekt
+- ein Remote-Repository auf GitHub
+
+#### Bereitstellung über GitHub Pages
+
+::: {.callout-note}
+**Hinweis zur Unterstützung bei der Publikation**
+
+Diese Website dokumentiert Quarto-Templates und deren Nutzung.
+Sie bietet **keine Unterstützung bei der Publikation von Quarto-Projekten** und kann **keinen technischen Support** für Build-, Deploy- oder CI-Probleme leisten.
+
+Die folgenden Hinweise dienen ausschließlich der Orientierung.
+
+Für verbindliche Anleitungen, aktuelle Änderungen und Problemlösungen nutzen Sie bitte die offizielle Quarto-Dokumentation sowie die etablierten Support- und Diskussionsplattformen.
+
+
+**Offizielle Quarto-Dokumentation:**
+
+- Quarto: Publishing mit GitHub Pages  
+  https://quarto.org/docs/publishing/github-pages.html
+
+- Quarto: GitHub Actions  
+  https://quarto.org/docs/publishing/github-actions.html
+
+- Quarto: Command Line Interface  
+  https://quarto.org/docs/reference/command-line-interface.html
+
+**Weiterführende Anleitung:**
+
+- Mickaël Canouil: *Quarto – Publishing to GitHub Pages*  
+  https://mickael.canouil.fr/posts/2024-12-30-quarto-github-pages/
+
+:::
+
+**Schritt 1: Einmalige Publikationsvorbereitung mit Quarto**
+
+Führen Sie folgenden Befehl über die Konsole lokal im Projektverzeichnis aus:
+
+```bash
+quarto publish gh-pages
+```
+
+Dieser Schritt erfüllt zwei Funktionen:
+
+1. Quarto prüft die Projektkonfiguration
+2. Quarto erzeugt die notwendige Publishing-Konfiguration (insbesondere die Datei _publish.yml)
+
+**Je nach Umfang des Projekts kann der erste *deploy* einige Zeit in Anspruch nehmen**
+
+**Schritt 2: GitHub Pages auf Deployment über Actions einstellen**
+
+Öffnen Sie auf GitHub im Browser die Repository-Einstellungen:
+
+- Settings → Pages
+- Source: GitHub Actions
+
+Damit wird festgelegt, dass GitHub Pages nicht aus einem Branch, sondern über einen Actions-Workflow deployed wird.
+
+**Schritt 3: GitHub-Actions-Workflow anlegen**
+
+Legen Sie im lokalen Repository ein neues Unterverzeichnis 
+
+`.github/workflows/` 
+
+an und erstellen darin eine neue Datei mit der Bezeichnung
+
+`quarto-publish.yml`
+
+Kopieren Sie folgenden Inhalt in diese neue Datei:
+
+```yaml
+name: Quarto-Projekt auf GitHub Pages publizieren
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Repository auschecken
+        uses: actions/checkout@v4
+
+      - name: Quarto einrichten
+        uses: quarto-dev/quarto-actions/setup@v2
+
+      - name: Projekt rendern
+        uses: quarto-dev/quarto-actions/render@v2
+
+      - name: Pages-Artefakt hochladen
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    steps:
+      - name: Deployment zu GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
+
+```
+
+Committen und pushen Sie den Workflow über die Konsole:
+
+```bash
+git add .github/workflows/quarto-publish.yml
+git commit -m "Add GitHub Actions workflow for Quarto Pages"
+git push
+```
+
+Nach dem Push wird automatisch ein Workflow-Lauf gestartet. Nach erfolgreichem Abschluss ist die Website unter der von GitHub angezeigten Pages-URL erreichbar. Es empfiehlt sich, die Pages-URL in die Beschreibung des Repositories zu übernehmen. Dann ist sie schnell erreichbar.
+
+### GitLab
+
+
+
+## Disclaimer: Einsatz von LLM {.appendix}
+
+Bei der Erarbeitung dieser Website wurde ChatGPT 5.2 zur Unterstützung eingesetzt. Die Nutzung umfasste die Strukturierung und Diskussion der Inhalte sowie grammatikalische und orthographische Korrekturen.
+
+Es wird ausdrücklich darauf hingewiesen, dass die endgültige Verantwortung für die inhaltliche Richtigkeit beim Autor liegt.

@@ -1,0 +1,28 @@
+project:
+  type: website
+website:
+  repo-actions:
+    - source
+    - issue
+  cookie-consent:
+    type: express
+    style: interstitial
+    palette: light
+    language: DE
+    prefs-text: Cookie-Einstellungen
+
+format:
+  html:
+    theme: 
+      - default
+      - assets/n4o_oer_html.scss
+    brand: _brand.yml
+metadata-files:
+  - _layout.yml
+  - _autor_innen.yml
+  - _kurs_metadaten.yml
+  - _nav_top.yml
+  - _nav_rechts.yml
+
+
+

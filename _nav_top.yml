@@ -1,0 +1,66 @@
+# Navigation (Header)
+website:
+  search: 
+    location: navbar
+    type: overlay
+  reader-mode: true
+  navbar:
+    title: "FAIR-OER Templates"
+    pinned: true
+    left:
+      - text: "Kontext"
+        menu:
+          - text: "FAIRe OER und Quarto"
+            href: kontext.qmd
+          - text: "FDM-OER in der NFDI"
+            href: kontext.qmd#fdm-oer-in-der-nfdi
+          - text: "Verwandte Projekte"
+            href: kontext.qmd#verwandte-projekte
+          - text: "Bereitstellungsszenarien"
+            href: kontext.qmd#bereitstellungsszenarien
+
+      - text: "Nutzen"
+        menu:
+          - text: "Schnellstart"
+            href: nutzen.qmd
+          - text: "Projektstruktur"
+            href: nutzen.qmd#projektstruktur
+          - text: "Metadaten pflegen"
+            href: nutzen.qmd#metadaten-pflegen
+          - text: "Bereitstellung über ein Git-Repository"
+            href: nutzen.qmd#bereitstellung-%C3%BCber-ein-git-repository
+      - text: "Templates"
+        menu:
+          - text: "Übungs-Template"
+            href: templates.qmd
+          - text: "Skript-Template"
+            href: templates.qmd#skript-template
+          - text: "Praesentations-Templates"
+            href: templates.qmd#praesentations-templates
+          - text: "Kurs-Templates"
+            href: templates.qmd#kurs-templates
+
+      - text: "Referenz"
+        menu:
+          - text: "Dateien"
+            href: referenz.qmd
+          - text: "Konfiguration"
+            href: referenz.qmd#konfiguration
+          - text: "Begriffe"
+            href: referenz.qmd#begriffe
+          - text: "FAQ"
+            href: referenz.qmd#faq
+
+      - text: "Mitgestalten"
+        menu:
+          - text: "Beitragen"
+            href: mitgestalten.qmd
+          - text: "Seitentypen (HCRT)"
+            href: mitgestalten.qmd#seitentypen-hcrt
+          - text: "Metadaten erweitern"
+            href: mitgestalten.qmd#metadaten-erweitern
+          - text: "Repositories"
+            href: mitgestalten.qmd#repositories
+          - text: "Roadmap"
+            href: mitgestalten.qmd#roadmap
+    
