@@ -1,0 +1,233 @@
+[
+  {
+    "objectID": "kontext.html",
+    "href": "kontext.html",
+    "title": "Kontext",
+    "section": "",
+    "text": "WarnungHinweis: Seite im Aufbau\n\n\n\nDiese Seite ist noch im Aufbau. Inhalte und Struktur werden derzeit erarbeitet und werden sich ändern."
+  },
+  {
+    "objectID": "kontext.html#faire-oer-und-quarto",
+    "href": "kontext.html#faire-oer-und-quarto",
+    "title": "Kontext",
+    "section": "FAIRe OER und Quarto",
+    "text": "FAIRe OER und Quarto"
+  },
+  {
+    "objectID": "kontext.html#fdm-oer-in-der-nfdi",
+    "href": "kontext.html#fdm-oer-in-der-nfdi",
+    "title": "Kontext",
+    "section": "FDM-OER in der NFDI",
+    "text": "FDM-OER in der NFDI"
+  },
+  {
+    "objectID": "kontext.html#verwandte-projekte",
+    "href": "kontext.html#verwandte-projekte",
+    "title": "Kontext",
+    "section": "Verwandte Projekte",
+    "text": "Verwandte Projekte"
+  },
+  {
+    "objectID": "kontext.html#bereitstellungsszenarien",
+    "href": "kontext.html#bereitstellungsszenarien",
+    "title": "Kontext",
+    "section": "Bereitstellungsszenarien",
+    "text": "Bereitstellungsszenarien"
+  },
+  {
+    "objectID": "mitgestalten.html",
+    "href": "mitgestalten.html",
+    "title": "Mitgestalten",
+    "section": "",
+    "text": "WarnungHinweis: Seite im Aufbau\n\n\n\nDiese Seite ist noch im Aufbau. Inhalte und Struktur werden derzeit erarbeitet und werden sich ändern."
+  },
+  {
+    "objectID": "mitgestalten.html#beitragen",
+    "href": "mitgestalten.html#beitragen",
+    "title": "Mitgestalten",
+    "section": "Beitragen",
+    "text": "Beitragen\n\nEigene Templates\n\nGitHub\nDiese Anleitung richtet sich an Nutzende, die eigene Quarto-Templates auf GitHub bereitstellen möchten. In der Begrifflichkeit von Quarto nutzen wir hier Starter-Templates.\n\nVoraussetzungen\nAuf Ihrem Rechner:\n\nGitHub-Account\nGit installiert\nQuarto installiert\nein lokales Verzeichnis mit Ihrem Starter-Template (vgl. Schritt 1 unten)\n\nAuf GitHub:\n\nBerechtigung, Repositories anzulegen (im persönlichen Account oder in einer Organisation)\nbei Organisationsnutzung: passende Berechtigungen im Ziel-Team bzw. in der Organisation\n\n\n\nTemplate vorbereiten\n\nLokales Verzeichnis: Ihr Ordner auf dem Rechner, der die Template-Dateien enthält.\nRepository auf GitHub: das Remote-Repository, in dem Sie dieses Template veröffentlichen.\n\nSchritt 1: Starter-Template im lokalen Verzeichnis vorbereiten\nLegen Sie in Ihrem lokalen Verzeichnis genau die Dateien ab, die beim Erzeugen neuer Projekte aus dem Template kopiert werden sollen.\nWichtig: Quarto kopiert bei Starter-Templates grundsätzlich fast alles aus dem Repository, jedoch typischerweise nicht:\n\nversteckte Dateien/Ordner, die mit . beginnen (z. B. .gitignore)\ntypische Repository-Dateien wie README.md und LICENSE\n\nDas ist hilfreich, weil Sie so Dokumentation und Lizenz im Template-Repository pflegen können, ohne dass sie bei jeder Template-Nutzung automatisch im erzeugten Projekt landen.\nEmpfehlung:\n\nHalten Sie die Template-Dateien bewusst minimal.\nNutzen Sie neutrale Platzhalter statt fachlicher Beispielmaterialien.\n\nSchritt 2: Lokales Verzeichnis als Git-Repository initialisieren\nWechseln Sie in das lokale Verzeichnis und initialisieren Sie Git:\ngit init\nErstellen Sie einen ersten Commit:\ngit add .\ngit commit -m \"Initial commit (starter template)\"\nSchritt 3: Repository auf GitHub anlegen\nAb hier unterscheidet sich das Vorgehen je nach Ziel:\nVariante A: Persönliches Repository\n\nVariante B: Repository in einer Organisation (mit Teams)\nDie technischen Schritte sind ähnlich, aber Owner, Sichtbarkeit und Berechtigungen unterscheiden sich.\nVariante A: Persönliches Repository\nSchritt A1: Leeres Repository im persönlichen Account erstellen\nErstellen Sie auf GitHub ein neues Repository unter Ihrem persönlichen Account.\nEmpfehlungen:\n\nvergeben Sie einen sprechenden Namen (z. B. quarto-template-)\nsetzen Sie eine klare Kurzbeschreibung (was das Template erzeugt)\ninitialisieren Sie das Repository nicht mit README/License, weil diese lokal bereits vorhanden sein können\n\nSchritt A2: Lokales Repository mit dem GitHub-Repository verknüpfen\nFügen Sie die Remote-URL hinzu:\ngit remote add origin https://github.com/&lt;username&gt;/&lt;repo&gt;.git\nSetzen Sie den Standard-Branch (empfohlen: main) und pushen Sie:\ngit branch -M main\ngit push -u origin main\nSchritt A3: Repository als Template aktivieren\nAktivieren Sie im GitHub-Repository die Template-Funktion, damit Nutzende über „Use this template“ ein neues Repository daraus erstellen können.\nOptional (aber hilfreich): Ergänzen Sie Topics wie quarto und template, damit das Repository auffindbarer ist.\nSchritt A4: Nutzung testen\nTesten Sie lokal, ob Quarto das Starter-Template korrekt zieht:\nquarto use template &lt;username&gt;/&lt;repo&gt;\nDamit sehen Sie unmittelbar, welche Dateien in ein neues Projekt kopiert werden.\n\nVariante B: Repository in einer Organisation (mit Teams)\nSchritt B1: Leeres Repository in der Organisation erstellen\nErstellen Sie das Repository unter der Organisation als Owner.\n!!!! Ausführlicher !!!\nAchten Sie dabei insbesondere auf:\n\nOwner: Organisation (nicht Ihr persönlicher Account)\nSichtbarkeit: public/internal/private entsprechend Ihrer Zielgruppe\nZugriff: Team(s) mit Write/Admin-Rechten, die das Template pflegen sollen\n\nHinweis:\n\nWenn das Template breit nachgenutzt werden soll, ist ein öffentliches Repository meist am unkompliziertesten. -In Organisationen wird der Zugriff üblicherweise über Teams gesteuert.\n\nSchritt B2: Lokales Repository mit dem Organisations-Repository verknüpfen\nSetzen Sie die Remote-URL auf die Organisationsadresse:\ngit remote add origin https://github.com/&lt;org&gt;/&lt;repo&gt;.git\nPushen Sie wie oben:\ngit branch -M main\ngit push -u origin main\nSchritt B3: Template-Funktion aktivieren und Team-Zugriffe prüfen\nAktivieren Sie im Repository die Template-Funktion, damit Teams und externe Nutzende (je nach Sichtbarkeit) das Repository als Vorlage verwenden können.\nPrüfen Sie anschließend:\n\nWelche Teams dürfen Issues bearbeiten?\nWer darf Pull Requests mergen?\nWer darf Releases/Tags erstellen (falls Sie Versionierung nutzen)?\n\nEmpfehlung:\n\nLegen Sie klar fest, welches Team für Reviews und Releases verantwortlich ist.\nDokumentieren Sie den Beitragspfad im Repository (z. B. im README oder in CONTRIBUTING.md).\n\nSchritt B4: Nutzung testen\nTesten Sie auch hier lokal:\nquarto use template &lt;org&gt;/&lt;repo&gt;\nWenn das Repository nicht öffentlich ist, benötigen Nutzende passende GitHub-Rechte, damit der Zugriff funktioniert.\nSchritt 4: Minimale Nutzungsanleitung im Template-Repository ergänzen\nAuch wenn README.md typischerweise nicht in neue Projekte kopiert wird, ist sie für Ihre Nutzenden im Template-Repository zentral.\nEmpfehlung für Inhalte der README:\n\nZweck des Starter-Templates\nwie das Template genutzt wird (quarto use template … und/oder „Use this template“)\nwelche Dateien beim Erzeugen neuer Projekte kopiert werden (und welche nicht)\nwie Beiträge eingebracht werden (Issues, Pull Requests)"
+  },
+  {
+    "objectID": "mitgestalten.html#seitentypen-hcrt",
+    "href": "mitgestalten.html#seitentypen-hcrt",
+    "title": "Mitgestalten",
+    "section": "Seitentypen (HCRT)",
+    "text": "Seitentypen (HCRT)"
+  },
+  {
+    "objectID": "mitgestalten.html#metadaten-erweitern",
+    "href": "mitgestalten.html#metadaten-erweitern",
+    "title": "Mitgestalten",
+    "section": "Metadaten erweitern",
+    "text": "Metadaten erweitern"
+  },
+  {
+    "objectID": "mitgestalten.html#repositories",
+    "href": "mitgestalten.html#repositories",
+    "title": "Mitgestalten",
+    "section": "Repositories",
+    "text": "Repositories"
+  },
+  {
+    "objectID": "mitgestalten.html#roadmap",
+    "href": "mitgestalten.html#roadmap",
+    "title": "Mitgestalten",
+    "section": "Roadmap",
+    "text": "Roadmap"
+  },
+  {
+    "objectID": "templates.html",
+    "href": "templates.html",
+    "title": "Templates",
+    "section": "",
+    "text": "WarnungHinweis: Seite im Aufbau\n\n\n\nDiese Seite ist noch im Aufbau. Inhalte und Struktur werden derzeit erarbeitet und werden sich ändern."
+  },
+  {
+    "objectID": "templates.html#übungs-template",
+    "href": "templates.html#übungs-template",
+    "title": "Templates",
+    "section": "Übungs-Template",
+    "text": "Übungs-Template"
+  },
+  {
+    "objectID": "templates.html#skript-template",
+    "href": "templates.html#skript-template",
+    "title": "Templates",
+    "section": "Skript-Template",
+    "text": "Skript-Template"
+  },
+  {
+    "objectID": "templates.html#präsentations-templates",
+    "href": "templates.html#präsentations-templates",
+    "title": "Templates",
+    "section": "Präsentations-Templates",
+    "text": "Präsentations-Templates"
+  },
+  {
+    "objectID": "templates.html#kurs-templates",
+    "href": "templates.html#kurs-templates",
+    "title": "Templates",
+    "section": "Kurs-Templates",
+    "text": "Kurs-Templates"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Quarto-Templates für FAIRedelte OER",
+    "section": "",
+    "text": "WarnungHinweis: Seite im Aufbau\n\n\n\nDiese Seite ist noch im Aufbau. Inhalte und Struktur werden derzeit erarbeitet und werden sich ändern.\nDiese Website dokumentiert und erläutert Quarto-Templates zur Erstellung FAIRer Open Educational Resources (OER).\nIm Mittelpunkt stehen die Templates selbst:\nDie Website stellt keine Lehr- und Lernmaterialien bereit und diskutiert keine didaktischen Konzepte oder fachlichen Inhalte.\nZiel ist es, die Erstellung FAIRer OER technisch zu vereinfachen."
+  },
+  {
+    "objectID": "index.html#worum-es-hier-geht",
+    "href": "index.html#worum-es-hier-geht",
+    "title": "Quarto-Templates für FAIRedelte OER",
+    "section": "Worum es hier geht",
+    "text": "Worum es hier geht\nDie vorgestellten Templates bieten eine technische Grundlage, um:\n\nFAIRe OER effizient zu erstellen,\nStruktur und Metadaten zu vereinheitlichen,\nQuarto als Publikationsumgebung kennen zu lernen,\nOER nachhaltig und maschinenlesbar bereitzustellen und mit anderen zu teilen.\n\nTechnische Hürden werden reduziert, ohne die inhaltliche Ausprägung der Materialien einzuschränken."
+  },
+  {
+    "objectID": "index.html#worum-es-hier-nicht-geht",
+    "href": "index.html#worum-es-hier-nicht-geht",
+    "title": "Quarto-Templates für FAIRedelte OER",
+    "section": "Worum es hier nicht geht",
+    "text": "Worum es hier nicht geht\nDiese Website:\n\nerklärt keine fachlichen Themen zum Forschungsdatenmanagement,\nenthält keine fertigen Lehr- oder Lernmaterialien,\ngibt nur sehr eingeschränkt didaktischen Empfehlungen,\nstellt keine Kurs- oder Schulungsszenarien vor.\n\nAlle Inhalte beziehen sich ausschliesslich auf die Templates und ihre technische Nutzung."
+  },
+  {
+    "objectID": "index.html#wie-diese-website-aufgebaut-ist",
+    "href": "index.html#wie-diese-website-aufgebaut-ist",
+    "title": "Quarto-Templates für FAIRedelte OER",
+    "section": "Wie diese Website aufgebaut ist",
+    "text": "Wie diese Website aufgebaut ist\nDie Navigation folgt fünf Bereichen, die unterschiedliche Zugriffe auf dieselben Templates ermöglichen.\n\nKontext\nDer Bereich Kontext ordnet die Templates ein.\nEr behandelt:\n\nwas unter FAIRen OER zu verstehen ist,\nwarum Quarto als technische Grundlage besonders geeignet ist,\nwelche Rolle OER zu Forschungsdatenmanagement im Rahmen der Nationalen Forschungsdateninfrastruktur (NFDI) spielen,\nwie sich die Arbeiten in verwandte nationale und internationale Projekte einbetten,\nwelche Bereitstellungsszenarien möglich sind.\n\n\n\nNutzen\nDer Bereich Nutzen beschreibt, wie die Templates praktisch verwendet werden.\nEr umfasst:\n\neinen Schnellstart,\ndie grundlegende Projektstruktur,\ndie Pflege der aktuell implementierten Metadaten,\nden Build-Prozess und die Ausgabeformate.\n\nDer Fokus liegt auf reproduzierbaren und plattformneutralen Workflows.\n\n\nTemplates\nDer Bereich Templates dokumentiert die verfügbaren Template-Typen.\nAktuell werden behandelt:\n\nSkript-Templates\nÜbungs-Templates\n\nGeplante Erweiterungen:\n\nPräsentations-Templates\nKurs-Templates\n\nDie Beschreibungen beziehen sich ausschliesslich auf Struktur, Bestandteile und Erweiterungspunkte der Templates.\n\n\nReferenz\nDer Bereich Referenz dient als Nachschlagewerk.\nEr enthält:\n\neine Übersicht zentraler Dateien,\nrelevante Konfigurationsoptionen,\n\nDieser Bereich ist bewusst kompakt und technisch gehalten.\n\n\nMitgestalten\nDer Bereich Mitgestalten richtet sich an Personen, die sich an der Weiterentwicklung der Templates beteiligen möchten.\nEr beschreibt:\n\nwie Beiträge eingebracht werden können,\nwie Seitentypen entlang bestehender Kategorien erweitert werden könnten,\nwie Metadatenfelder im Kontext zusätzlicher OER-Schemata entwickelt werden können,\nwie Repositories auf unterschiedlichen Plattformen genutzt werden,\nwelche Weiterentwicklungen geplant sind.\n\nDie Weiterentwicklung bezieht sich auf Struktur und Technik, nicht auf Inhalte."
+  },
+  {
+    "objectID": "index.html#einstieg-finden",
+    "href": "index.html#einstieg-finden",
+    "title": "Quarto-Templates für FAIRedelte OER",
+    "section": "Einstieg finden",
+    "text": "Einstieg finden\nJe nach Interesse können Sie:\n\nmit dem Kontext beginnen, um den Rahmen zu verstehen,\ndirekt zum Nutzen wechseln, um die Templates anzuwenden,\nsich unter Templates einen Überblick verschaffen,\ngezielt Informationen in der Referenz nachschlagen,\noder sich unter Mitgestalten an der Weiterentwicklung beteiligen.\n\nAlle Bereiche sind gleichwertig und unabhängig voneinander nutzbar."
+  },
+  {
+    "objectID": "index.html#disclaimer-einsatz-von-llm",
+    "href": "index.html#disclaimer-einsatz-von-llm",
+    "title": "Quarto-Templates für FAIRedelte OER",
+    "section": "Disclaimer: Einsatz von LLM",
+    "text": "Disclaimer: Einsatz von LLM\n\nBei der Erarbeitung dieser Website wurde ChatGPT 5.2 zur Unterstützung eingesetzt. Die Nutzung umfasste die Strukturierung und Diskussion der Inhalte sowie grammatikalische und orthographische Korrekturen.\nEs wird ausdrücklich darauf hingewiesen, dass die endgültige Verantwortung für die inhaltliche Richtigkeit beim Autor liegt."
+  },
+  {
+    "objectID": "nutzen.html",
+    "href": "nutzen.html",
+    "title": "Nutzen",
+    "section": "",
+    "text": "WarnungHinweis: Seite im Aufbau\n\n\n\nDiese Seite ist noch im Aufbau. Inhalte und Struktur werden derzeit erarbeitet und werden sich ändern."
+  },
+  {
+    "objectID": "nutzen.html#schnellstart",
+    "href": "nutzen.html#schnellstart",
+    "title": "Nutzen",
+    "section": "Schnellstart",
+    "text": "Schnellstart"
+  },
+  {
+    "objectID": "nutzen.html#projektstruktur",
+    "href": "nutzen.html#projektstruktur",
+    "title": "Nutzen",
+    "section": "Projektstruktur",
+    "text": "Projektstruktur"
+  },
+  {
+    "objectID": "nutzen.html#metadaten-pflegen",
+    "href": "nutzen.html#metadaten-pflegen",
+    "title": "Nutzen",
+    "section": "Metadaten pflegen",
+    "text": "Metadaten pflegen"
+  },
+  {
+    "objectID": "nutzen.html#bereitstellung-über-ein-git-repository",
+    "href": "nutzen.html#bereitstellung-über-ein-git-repository",
+    "title": "Nutzen",
+    "section": "Bereitstellung über ein Git-Repository",
+    "text": "Bereitstellung über ein Git-Repository\nIn diesem Abschnitt wird zwischen zwei Ebenen der Bereitstellung unterschieden:\n\nder Bereitstellung des Quarto-Projekts selbst über ein Git-Repository\n\nder Veröffentlichung der daraus erzeugten HTML-Seiten als sogenannte Pages\n\nNicht jedes Quarto-Projekt, das über ein Git-Repository verwaltet wird, muss auch über die jeweilige Plattform als Website veröffentlicht werden. In vielen Szenarien werden die gerenderten HTML-Seiten über andere Infrastrukturen bereitgestellt, z. B. über eine institutionelle Website, ein Lernmanagementsystem oder eine projektinterne Publikationsplattform.\nDie folgenden Abschnitte beschreiben daher sowohl die Bereitstellung des Quarto-Projekts über Git als auch optionale Wege zur Veröffentlichung der erzeugten Seiten.\n\nGitHub\n\n\n\n\n\n\nHinweisWarum GitHub Pages derzeit die praktikabelste Lösung ist\n\n\n\nTrotz möglicher Vorbehalte gegenüber einzelnen Plattformen ist die Nutzung von GitHub Pages aktuell der am besten unterstützte Weg zur Veröffentlichung von Quarto-Projekten.\nDies hat vor allem drei technische Gründe:\n\nDer Befehl quarto publish ist explizit auf GitHub ausgerichtet und unterstützt GitHub Pages nativ.\nFür andere Git-basierte Plattformen (z. B. GitLab oder Codeberg) existieren bislang nur wenige etablierte Workflows, und diese werden in der Quarto-Community kaum systematisch unterstützt.\nDer von Quarto vorgesehene Publish-Workflow stellt sicher, dass jede Änderung an den Daten oder Inhalten im Repository automatisch zu einer Aktualisierung der veröffentlichten Pages führt.\n\nFür reproduzierbare, wartungsarme Veröffentlichungen ist GitHub Pages daher derzeit die robusteste und am besten dokumentierte Option.\n\n\nDiese Anleitung beschreibt einen Standard-Workflow, um den Quellcode eines lokalen Quarto-Projekts erstmals auf GitHub zu veröffentlichen. Im Anschluss werden die mit Quarto erzeugten HTML-Seiten automatisiert mit GitHub Actions als GitHub Pages Site publiziert.\nDer Ausgangspunkt ist ein lokales Verzeichnis, das bisher nicht mit einem GitHub-Repository verknüpft ist.\n\nVoraussetzungen\n✅ Auf Ihrem lokalen Rechner:\n\nein GitHub-Account\nGit ist installiert\nQuarto ist installiert\nein lauffähiges Quarto-Projekt in einem lokalen Verzeichnis (quarto render liefert keine Fehlermeldungen)\n\n✅ Auf GitHub:\n\nWenn Sie mit Ihrem Account das Repository in einer Organisation anlegen wollen: Berechtigung, neue Repositories anzulegen\nZugriff auf GitHub Actions und GitHub Pages (bei eigenen, öffentlichen Repositories standardmäßig gegeben)\n\n\n\nVerzeichnis mit GitHub-Repository verbinden\nSchritt 1: Lokales Verzeichnis initialisieren\nWechseln Sie über die Konsole in das lokale Projektverzeichnis und initialisieren Sie ein Git-Repository mit dem Befehl:\ngit init\nDas Verzeichnis ist nun ein lokales Git-Repository, aber noch nicht mit GitHub verbunden.\nSchritt 2: GitHub-Repository anlegen\nLoggen Sie sich über den Browser auf GitHub ein und legen ein neues, leeres Repository an:\n\nohne README\nohne .gitignore\nohne Lizenzdatei\n\nNotieren Sie sich die Repository-URL, z. B.:\nhttps://github.com/username/projektname.git\n\n\n\n\n\n\nHinweis\n\n\n\nHinweis zu Repository- und Seiten-URLs\nBei GitHub bestehen Repository- und Pages-URLs ausschließlich aus Benutzer- oder Organisationsname und Repository-Name.\nBeispiel:\nRepository: https://github.com/organisation/quarto-faire-oer-website\nPages-URL: https://organisation.github.io/quarto-faire-oer-website/\nWählen Sie den Repository-Namen daher bewusst und dauerhaft.\n\n\nSchritt 3: Lokales Repository mit GitHub verknüpfen\nVerknüpfen Sie das lokale Repository mit dem GitHub-Repository:\ngit remote add origin https://github.com/username/projektname.git\nDer Link am Ende des Befehls entspricht dem Link aus Schritt 2.\nSetzen Sie anschließend den Standard-Branch (empfohlen: main):\ngit branch -M main\nSchritt 4: Initialer Commit und Push\nCommitten Sie den aktuellen Projektstand und pushen Sie ihn zu GitHub:\ngit add .\ngit commit -m \"Initial commit\"\ngit push -u origin main\nAb jetzt existiert:\n\nein lokales Repository auf Ihrem Rechner in dem Verzeichnis mit dem Quarto-Projekt\nein Remote-Repository auf GitHub\n\n\n\nBereitstellung über GitHub Pages\n\n\n\n\n\n\nHinweis\n\n\n\nHinweis zur Unterstützung bei der Publikation\nDiese Website dokumentiert Quarto-Templates und deren Nutzung. Sie bietet keine Unterstützung bei der Publikation von Quarto-Projekten und kann keinen technischen Support für Build-, Deploy- oder CI-Probleme leisten.\nDie folgenden Hinweise dienen ausschließlich der Orientierung.\nFür verbindliche Anleitungen, aktuelle Änderungen und Problemlösungen nutzen Sie bitte die offizielle Quarto-Dokumentation sowie die etablierten Support- und Diskussionsplattformen.\nOffizielle Quarto-Dokumentation:\n\nQuarto: Publishing mit GitHub Pages\nhttps://quarto.org/docs/publishing/github-pages.html\nQuarto: GitHub Actions\nhttps://quarto.org/docs/publishing/github-actions.html\nQuarto: Command Line Interface\nhttps://quarto.org/docs/reference/command-line-interface.html\n\nWeiterführende Anleitung:\n\nMickaël Canouil: Quarto – Publishing to GitHub Pages\nhttps://mickael.canouil.fr/posts/2024-12-30-quarto-github-pages/\n\n\n\nSchritt 1: Einmalige Publikationsvorbereitung mit Quarto\nFühren Sie folgenden Befehl über die Konsole lokal im Projektverzeichnis aus:\nquarto publish gh-pages\nDieser Schritt erfüllt zwei Funktionen:\n\nQuarto prüft die Projektkonfiguration\nQuarto erzeugt die notwendige Publishing-Konfiguration (insbesondere die Datei _publish.yml)\n\nJe nach Umfang des Projekts kann der erste deploy einige Zeit in Anspruch nehmen\nSchritt 2: GitHub Pages auf Deployment über Actions einstellen\nÖffnen Sie auf GitHub im Browser die Repository-Einstellungen:\n\nSettings → Pages\nSource: GitHub Actions\n\nDamit wird festgelegt, dass GitHub Pages nicht aus einem Branch, sondern über einen Actions-Workflow deployed wird.\nSchritt 3: GitHub-Actions-Workflow anlegen\nLegen Sie im lokalen Repository ein neues Unterverzeichnis\n.github/workflows/\nan und erstellen darin eine neue Datei mit der Bezeichnung\nquarto-publish.yml\nKopieren Sie folgenden Inhalt in diese neue Datei:\nname: Quarto-Projekt auf GitHub Pages publizieren\n\non:\n  push:\n    branches: [ main ]\n  workflow_dispatch:\n\npermissions:\n  contents: read\n  pages: write\n  id-token: write\n\nconcurrency:\n  group: pages\n  cancel-in-progress: true\n\njobs:\n  build:\n    runs-on: ubuntu-latest\n\n    steps:\n      - name: Repository auschecken\n        uses: actions/checkout@v4\n\n      - name: Quarto einrichten\n        uses: quarto-dev/quarto-actions/setup@v2\n\n      - name: Projekt rendern\n        uses: quarto-dev/quarto-actions/render@v2\n\n      - name: Pages-Artefakt hochladen\n        uses: actions/upload-pages-artifact@v3\n        with:\n          path: _site\n\n  deploy:\n    needs: build\n    runs-on: ubuntu-latest\n    environment:\n      name: github-pages\n      url: ${{ steps.deployment.outputs.page_url }}\n\n    steps:\n      - name: Deployment zu GitHub Pages\n        id: deployment\n        uses: actions/deploy-pages@v4\nCommitten und pushen Sie den Workflow über die Konsole:\ngit add .github/workflows/quarto-publish.yml\ngit commit -m \"Add GitHub Actions workflow for Quarto Pages\"\ngit push\nNach dem Push wird automatisch ein Workflow-Lauf gestartet. Nach erfolgreichem Abschluss ist die Website unter der von GitHub angezeigten Pages-URL erreichbar. Es empfiehlt sich, die Pages-URL in die Beschreibung des Repositories zu übernehmen. Dann ist sie schnell erreichbar.\n\n\n\nGitLab"
+  },
+  {
+    "objectID": "nutzen.html#disclaimer-einsatz-von-llm",
+    "href": "nutzen.html#disclaimer-einsatz-von-llm",
+    "title": "Nutzen",
+    "section": "Disclaimer: Einsatz von LLM",
+    "text": "Disclaimer: Einsatz von LLM\n\nBei der Erarbeitung dieser Website wurde ChatGPT 5.2 zur Unterstützung eingesetzt. Die Nutzung umfasste die Strukturierung und Diskussion der Inhalte sowie grammatikalische und orthographische Korrekturen.\nEs wird ausdrücklich darauf hingewiesen, dass die endgültige Verantwortung für die inhaltliche Richtigkeit beim Autor liegt."
+  },
+  {
+    "objectID": "referenz.html",
+    "href": "referenz.html",
+    "title": "Referenz",
+    "section": "",
+    "text": "WarnungHinweis: Seite im Aufbau\n\n\n\nDiese Seite ist noch im Aufbau. Inhalte und Struktur werden derzeit erarbeitet und werden sich ändern."
+  },
+  {
+    "objectID": "referenz.html#dateien",
+    "href": "referenz.html#dateien",
+    "title": "Referenz",
+    "section": "Dateien",
+    "text": "Dateien"
+  },
+  {
+    "objectID": "referenz.html#konfiguration",
+    "href": "referenz.html#konfiguration",
+    "title": "Referenz",
+    "section": "Konfiguration",
+    "text": "Konfiguration"
+  },
+  {
+    "objectID": "referenz.html#begriffe",
+    "href": "referenz.html#begriffe",
+    "title": "Referenz",
+    "section": "Begriffe",
+    "text": "Begriffe"
+  },
+  {
+    "objectID": "referenz.html#faq",
+    "href": "referenz.html#faq",
+    "title": "Referenz",
+    "section": "FAQ",
+    "text": "FAQ"
+  }
+]
