@@ -2,13 +2,13 @@ logo:
   images:
     icon-logo:
       path: assets/logos/n4o_logo_verlauf_200px.png
-      alt: "Icon NFDI4Objects"
+      alt: "Icon"
     institution-logo:
       path: assets/logos/n4o_logo_verlauf_claim_kurz_h200px.png
-      alt: "Logo NFDI4Objects"
+      alt: "Logo der Institution"
     projekt-logo:
-      path: assets/logos/n4o_logog_oer_hsm.png
-      alt: "Logo für OER der Hochschule Mainz"
+      path: assets/logos/n4o_logo_oer_hsm.png
+      alt: "Logo des Projekts"
   small: icon-logo
   medium: institution-logo
   large: projekt-logo
@@ -81,6 +81,8 @@ typography:
     weight: normal
     color: text
     decoration: underline
+
+# Überschreiben der Bootstrap-Defaults
 # https://quarto.org/docs/output-formats/html-themes.html#sass-variables
 # https://github.com/quarto-dev/quarto-cli/blob/main/src/resources/formats/html/bootstrap/_bootstrap-variables.scss
 defaults:
@@ -132,14 +134,14 @@ defaults:
       nav-link-font-size: 1.2rem
       nav-link-font-weight: 400
       nav-link-color: $brand-text
-      nav-tabs-border-color: $brand-hintergrund
-      nav-tabs-border-width: 3px
+      nav-tabs-border-color: $brand-akzent
+      nav-tabs-border-width: 2px
       nav-tabs-border-radius: 5px
-      nav-tabs-link-hover-border-color: $brand-hintergrund
+      nav-tabs-link-hover-border-color: $brand-akzent
       nav-tabs-link-active-color: $brand-text
       nav-tabs-link-active-bg: $brand-hintergrund
-      nav-tabs-link-active-border-color: $brand-hintergrund
-      nav-pills-border-radius: 5px
+      nav-tabs-link-active-border-color: $brand-akzent
+      nav-pills-border-radius: 1px
       nav-pills-link-active-color: $brand-text
       nav-pills-link-active-bg: $brand-hintergrund
       nav-underline-gap: 1rem

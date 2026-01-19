@@ -17,18 +17,22 @@ website:
           - text: "Verwandte Projekte"
             href: kontext.qmd#verwandte-projekte
           - text: "Bereitstellungsszenarien"
-            href: kontext.qmd#bereitstellungsszenarien
+            href: kontext.qmd#bereitstellung
 
       - text: "Nutzen"
         menu:
-          - text: "Schnellstart"
+          - text: "Schnelleinstieg"
             href: nutzen.qmd
           - text: "Projektstruktur"
             href: nutzen.qmd#projektstruktur
-          - text: "Metadaten pflegen"
-            href: nutzen.qmd#metadaten-pflegen
-          - text: "Bereitstellung über ein Git-Repository"
-            href: nutzen.qmd#bereitstellung-%C3%BCber-ein-git-repository
+          - text: "Design und Layout anpassen"
+            href: nutzen.qmd#Design
+          - text: "Metadaten erfassen und pflegen"
+            href: nutzen.qmd#Metadaten
+          - text: "Inhalte erstellen"
+            href: nutzen.qmd#Inhalte
+          - text: "Bereitstellung"
+            href: nutzen.qmd#Bereitstellung
       - text: "Templates"
         menu:
           - text: "Übungs-Template"

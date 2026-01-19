@@ -1,12 +1,21 @@
 ---
-title: "Nutzen"
-subtitle: "Untertitel"
+title: "OER-Templates nutzen"
+subtitle: "Alles Wesentliche zum Erstellen, Anpassen, Anreichern und Ändern der Templates und der Nutzung und Bereitstellung der OER"
 lang: de
 date: 2026-01-19
 date-modified: last-modified
 date-format: "DD.MM.YYYY"
-abstract: "Diese Website dokumentiert und erläutert Quarto-Templates zur Erstellung FAIRer Open Educational Resources.
-  Im Fokus stehen Struktur, Nutzung, Anpassung und Weiterentwicklung der Templates als technische Produktionsinfrastruktur."
+abstract: |
+  Hier ist aufgeschrieben, wie die Quarto-Templates praktisch genutzt werden können.
+
+  Die Templates bilden eine technische Grundlage für die Erstellung FAIRer Open Educational Resources. Sie sind so angelegt, dass Gestaltung und Corporate Identity an eigene institutionelle Anforderungen angepasst werden können, ohne die zugrunde liegende Struktur zu verändern.
+
+  Zentrale Metadatenfelder sind vollständig vorbereitet und können mit projektspezifischen Angaben befüllt werden.
+  Damit unterstützen die Templates eine konsistente, nachnutzbare Beschreibung der Materialien im Sinne der FAIR-Prinzipien.
+
+  Die erzeugten Quarto-HTML-Dokumente sind flexibel einsetzbar. Sie können lokal genutzt, in bestehende Systeme integriert oder online veröffentlicht werden. Eine öffentliche Bereitstellung wird durch die Templates erleichtert,
+  ist jedoch keine Voraussetzung für ihre Nutzung.
+
 keywords: OER, FAIR, Templates, Quarto
 toc: true
 toc-location: left
@@ -18,15 +27,164 @@ number-sections: false
 
 Diese Seite ist noch im Aufbau.
 Inhalte und Struktur werden derzeit erarbeitet und werden sich ändern.
+
+**Den Link bitte noch nicht weitergeben. Die URL wird nach der Publikation eine andere sein**
 :::
 
-## Schnellstart
+## Schnelleinstieg
+
+In diesem Schnellstart erstellen Sie aus einem Template ein lokales Quarto-Projekt, rendern es einmal und nehmen anschließend eine erste kleine Änderung vor. Sie brauchen dafür keine Veröffentlichung im Internet und keine Verbindung zu einem eigenen Git-Repository.
+
+Am Ende haben Sie ein funktionierendes Projektverzeichnis und die HTML-Seiten auf Ihrem Rechner, die Sie anschließend direkt nutzen und gezielt anpassen können.
+
+**Voraussetzungen**
+
+Für die Nutzung der Templates muss Quarto auf dem Rechner installiert sein (Version >=1.8.0). Einen guten Einstieg bietet das [*Get Started*-Tutorial](https://quarto.org/docs/get-started/) auf der Website des Projekts.
+
+Die NFDI4Objects OER-Templates wurden mit [VSCodium](https://vscodium.com/) und der [Extension for the Quarto scientific and technical publishing system.](https://open-vsx.org/extension/quarto/quarto) entwickelt.
+
+::: {.callout-note}
+Screenshots und Anleitung beziehen sich im folgenden auf VSCodium mit Quarto-Erweiterung.
+:::
+
+Prüfen Sie die Version und die Installation von Quarto, indem Sie in einem Terminal (*Menü - Terminal - Neues Terminal*) auf der Konsole unten im Programmfenster: `quarto --version` eintippen und mit {{< kbd Enter >}} bestätigen.
+
+![Terminal in Quarto starten](img/vscodium_terminal_01.png){alt="Screenshot der Menüzeile "}
+
+![Befehl im Terminal eingeben und Antwort prüfen (hier ist Version 1.8.26 von Quarto installiert)](img/vscodium_terminal_02.png)
+
+Wenn eine Versionsnummer angezeigt wird, ist Quarto verfügbar.
+
+**Schritt 1: Lokales Projektverzeichnis anlegen und sinnvoll benennen**
+
+Legen Sie zuerst ein neues, leeres Verzeichnis auf Ihrem Rechner für Ihr Projekt an. Wählen Sie den Namen bewusst, weil er als Projektname dient und sich in vielen Fällen auch in Dateinamen wiederfindet. Verwenden Sie einen kurzen, sprechenden Namen ohne Leer- und Sonderzeichen.
+
+Beispiele für geeignete Verzeichnisnamen:
+
+- oer-templates-test
+- skript-template-demo
+- modul03_datenbanken
+
+Wenn Sie das Verzeichnis im Dateimanager anlegen, öffnen Sie anschließend ein Terminal in genau diesem Verzeichnis oder wechseln Sie im Terminal dorthin (das Vorgehen ist abhängig vom genutzten Betriebssystem. Nutzen Sie die Suchmaschine Ihres Vertrauens mit *\<Betriebssystem\> Terminal in Ordner öffnen*).
+
+**Schritt 2: Template in das Projektverzeichnis übernehmen**
+
+Sie können ein Template auf zwei gleichwertige Arten in ein lokales Projekt überführen. Wählen Sie die Variante, die für Sie am einfachsten ist:
+
+::: {.panel-tabset}
+### Template mit `quarto use template` laden
+
+Wenn Sie Templates wiederholt nutzen möchten, ist diese Variante meist am angenehmsten. Sie führen dabei einen Quarto-Befehl aus, der ein neues Projektverzeichnis aus dem Template erstellt.
+
+Wechseln Sie in ein Verzeichnis, in dem das neue Projekt entstehen soll und führen Sie dann `quarto use template <Platzhalter>` aus.
+
+Für die OER-Templates von NFDI4Objects ergibt sich mit der Syntax:
+
+- Übungs-Template: `quarto use template nfdi4objects/oer-template-uebung`
+
+- Skript-Template: `quarto use template nfdi4objects/oer-template-skript`
+
+Beantworten Sie die Fragen im Terminal. Schließlich wird das Template in dem Ordner installiert.
+
+### ZIP-Archiv herunterladen
+
+Öffnen Sie die Seite des Template-Repositories im Browser:
+
+- Übungs-Template: <https://github.com/nfdi4objects/oer-template-uebung>
+- Skript-Template: <https://github.com/nfdi4objects/oer-template-skript>
+
+Laden Sie dort das Repository als ZIP-Datei herunter und entpacken Sie das Archiv. 
+
+![](img/screen_github_zip-download.png)
+
+Achten Sie darauf, dass die Dateien des Templates direkt in Ihrem Projektverzeichnis liegen. Häufig entsteht beim Entpacken ein zusätzlicher Ordner. In diesem Fall verschieben Sie die Inhalte aus diesem Ordner in Ihr Projektverzeichnis.
+
+Am Ende dieses Schritts sollte Ihr Projektverzeichnis mehrere Dateien und Unterverzeichnisse enthalten.
+
+:::
+
+**Ergebnis**
+
+Je nach der gewählten Variante haben Sie in ihrem Projektverzeichnis folgende Dateien:
+
+::: {layout-ncol=2}
+
+![Dateien und Verzeichnisse nach `quarto use template`](img/screen_ergebnis_use_template.png)
+
+![Dateien und Verzeichnisse aus dem ZIP-Archiv](img/screen_ergebnis_github_zip.png)
+
+:::
+
+**Unterschiede**
+
+Die Ergebnisse unterscheiden sich in zwei Aspekten:
+
+1. Im Verzeichnis aus dem zip-Archiv liegen alle Daten aus dem github-Repository des Templates. Den Ordner `.github` und die Datei `.gitignore` sollten Sie löschen. Stellen Sie dafür sicher, das "versteckte" Dateien im Dateimanager sichtbar sind.
+
+2. Beide Verzeichnisse enthalten **eine .qmd-Datei**. Die Dateinamen weichen voneinander ab: Die Datei aus dem ZIP-Archiv heißt `template.qmd` und die mit `quarto use template` erzeugte übernimmt den Namen des Projektverzeichnisses. **Auch deshalb ist es sinnvoll, einen aussagekräftigen Namen für das Projektverzeichnis zu wählen**. Sie können die .qmd-Dateien aber auch beliebig umbenennen.
+
+**Schritt 3: Projekt lokal rendern**
+
+Rendern bedeutet: Quarto erzeugt aus der .qmd-Datei eine HTML-Ausgabe. Führen Sie im Terminal des Projektverzeichnis' folgenden Befehl aus: `quarto render`
+
+Quarto verarbeitet nun die Dateien und erzeugt ein HTML-Dokument.
+
+Nach dem Rendern finden Sie das Ergebnis im Ordner `_site`. 
+
+![Dateien und Verzeichnisse im Verzeichnis `_site`](img/screen_dateien_site.png)
+
+**Schritt 4: Ergebnis lokal öffnen**
+
+Öffnen Sie die gerenderte Startseite im Browser. Sie können die Datei im Dateimanager per Doppelklick öffnen oder den Pfad direkt im Browser öffnen.
+
+![Screenshot der Ansicht der gerenderten HTML-Seite im Browser](img/screen_template_uebung.png)
+
+**Schritt 5: Erste sichtbare Änderung vornehmen**
+
+Nehmen Sie eine kleine, gut sichtbare Änderung vor, um zu verstehen, wie Quarto funktioniert. Geeignet ist zum Beispiel der Titel der Website.
+
+Öffnen Sie dazu die .qmd-Datei in Ihrem Editor. Am Anfang der .qmd-Datei stehen zwei Schlüssel: `title` und `subtitle`. Hier das Beispiel aus dem Übungs-Template:
+
+```yaml
+---
+title: "OER-Übung"
+subtitle: "Untertitel der OER-Übung"
+```
+
+Ändern Sie den Wert des Titels und des Untertitels. Speichern Sie anschließend die Datei.
+
+Rendern Sie das Projekt erneut: `quarto render`
+
+Öffnen Sie die Seite im Browser noch einmal oder laden Sie sie neu. Der geänderte Titel und Untertitel sollten nun angezeigt werden. Damit ist bestätigt, dass Ihr lokaler Workflow funktioniert und Änderungen zuverlässig in der Ausgabe ankommen.
+
+::: {.callout-note}
+**Cache des Browsers**
+
+Zuweilen behält der Browser die Daten im Cache und die Änderungen nach `quarto render` werden angezeigt. Häufig hilft die Tastenkombination {{< kbd Strg >}} + {{< kbd F5 >}} im Browser
+
+:::
+
+**Nächste Schritte**
+
+Nach dem Schnellstart können Sie das Template auf drei Ebenen weiter bearbeiten. Für jede Ebene gibt es eigene Unterabschnitte.
+
+[Design und Layout anpassen](): Sie passen die Gestaltung der HTML-Seiten einer Corporate Identity an.
+
+[Metadaten erfassen und pflegen](): Sie befüllen die Metadatenfelder mit Ihren Angaben, um wirklichh FAIRedelte OER zu erstellen.
+
+[Inhalte erstellen](): Sie ergänzen oder ändern Inhalte in der vorgesehenen .qmd-Datei.
+
+Wenn Sie anschließend eine Veröffentlichung planen, ist der Abschnitt [Bereitstellung](#bereitstellung) relevant. Dort wird beschrieben, wie HTML-Ausgaben je nach Szenario bereitgestellt werden können, ohne dass eine öffentliche Online-Publikation zwingend erforderlich ist.
 
 ## Projektstruktur
 
-## Metadaten pflegen
+## Design und Layout anpassen {#Design}
 
-## Bereitstellung über ein Git-Repository
+## Metadaten erfassen und pflegen {#Metadaten}
+
+## Inhalte erstellen {#Inhalte}
+
+## Bereitstellung {#Bereitstellung}
 
 In diesem Abschnitt wird zwischen zwei Ebenen der Bereitstellung unterschieden:
 
@@ -37,10 +195,10 @@ Nicht jedes Quarto-Projekt, das über ein Git-Repository verwaltet wird, muss au
 
 Die folgenden Abschnitte beschreiben daher sowohl die Bereitstellung des Quarto-Projekts über Git als auch optionale Wege zur Veröffentlichung der erzeugten Seiten.
 
-### GitHub
+### GitHub {#Bereitstellung-GitHub}
 
 ::: {.callout-note}
-## Warum GitHub Pages derzeit die praktikabelste Lösung ist
+**Warum GitHub Pages derzeit die praktikabelste Lösung ist**
 
 Trotz möglicher Vorbehalte gegenüber einzelnen Plattformen ist die Nutzung von
 GitHub Pages aktuell der am besten unterstützte Weg zur Veröffentlichung
@@ -278,7 +436,7 @@ git push
 
 Nach dem Push wird automatisch ein Workflow-Lauf gestartet. Nach erfolgreichem Abschluss ist die Website unter der von GitHub angezeigten Pages-URL erreichbar. Es empfiehlt sich, die Pages-URL in die Beschreibung des Repositories zu übernehmen. Dann ist sie schnell erreichbar.
 
-### GitLab
+### Alternative git-Repositories {#Bereitstellung-Alternativen}
 
 
 
