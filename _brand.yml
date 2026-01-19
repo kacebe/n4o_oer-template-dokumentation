@@ -15,7 +15,7 @@ logo:
 
 color:
   palette:
-    hintergrund: "#EEEAE0"         # Seitenhintergrund
+    hintergrund: "#FFFFFF"         # Seitenhintergrund
     text: "#13294B"                # Standard-Textfarbe
     akzent: "#0084FF"              # Hauptakzent (Links, Fokus, Buttons)
     akzent-sekundaer: "#E7C6AC"    # Abgeschwächter Akzent
