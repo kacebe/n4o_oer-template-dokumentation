@@ -38,6 +38,12 @@ format:
     image-alt: "Projektlogo"
 # Für die Nutzung von shortcodes für Emojis in Quarto-Markdown vgl. https://quarto.org/docs/visual-editor/content.html#emojis und https://gist.github.com/rxaviers/7360908
 from: markdown+emoji
+# LightboxJS-Styling für Bilder vgl. https://quarto.org/docs/output-formats/html-lightbox-figures.html
+lightbox:
+  match: auto
+  effect: zoom
+  desc-position: bottom
+  loop: false
 # Anpassungen der automatisch erzeugten Bezeichnungen in der Dokumentstruktur. vgl. https://github.com/quarto-dev/quarto-cli/blob/main/src/resources/language/_language.yml?
 crossref:
   sec-prefix: Abschnitt

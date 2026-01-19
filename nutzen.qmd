@@ -22,11 +22,10 @@ toc-location: left
 number-sections: false
 ---
 
-::: {.callout-warning}
+::: callout-warning
 ## Hinweis: Seite im Aufbau
 
-Diese Seite ist noch im Aufbau.
-Inhalte und Struktur werden derzeit erarbeitet und werden sich ändern.
+Diese Seite ist noch im Aufbau. Inhalte und Struktur werden derzeit erarbeitet und werden sich ändern.
 
 **Den Link bitte noch nicht weitergeben. Die URL wird nach der Publikation eine andere sein**
 :::
@@ -39,17 +38,17 @@ Am Ende haben Sie ein funktionierendes Projektverzeichnis und die HTML-Seiten au
 
 **Voraussetzungen**
 
-Für die Nutzung der Templates muss Quarto auf dem Rechner installiert sein (Version >=1.8.0). Einen guten Einstieg bietet das [*Get Started*-Tutorial](https://quarto.org/docs/get-started/) auf der Website des Projekts.
+:white_check_mark: Quarto: Für die Nutzung der Templates muss Quarto auf dem Rechner installiert sein (Version \>=1.8.0). Einen guten Einstieg bietet das [*Get Started*-Tutorial](https://quarto.org/docs/get-started/) auf der Website des Projekts.
 
-Die NFDI4Objects OER-Templates wurden mit [VSCodium](https://vscodium.com/) und der [Extension for the Quarto scientific and technical publishing system.](https://open-vsx.org/extension/quarto/quarto) entwickelt.
+:white_check_mark: Entwicklungsumgebung: Die NFDI4Objects OER-Templates wurden mit [VSCodium](https://vscodium.com/) als Entwicklungsumgebung und der [Extension for the Quarto scientific and technical publishing system.](https://open-vsx.org/extension/quarto/quarto) entwickelt. Weitere Entwicklunsumgebungen sind der [Quarto-Dokumentation](https://quarto.org/docs/faq/#what-editing-tools-can-i-use-with-quarto) zu entnehmen.
 
-::: {.callout-note}
-Screenshots und Anleitung beziehen sich im folgenden auf VSCodium mit Quarto-Erweiterung.
+::: callout-note
+**Hinweis** Screenshots und Anleitung beziehen sich im folgenden auf VSCodium mit Quarto-Erweiterung.
 :::
 
 Prüfen Sie die Version und die Installation von Quarto, indem Sie in einem Terminal (*Menü - Terminal - Neues Terminal*) auf der Konsole unten im Programmfenster: `quarto --version` eintippen und mit {{< kbd Enter >}} bestätigen.
 
-![Terminal in Quarto starten](img/vscodium_terminal_01.png){alt="Screenshot der Menüzeile "}
+![Screenshot der Menüzeile ](img/vscodium_terminal_01.png)
 
 ![Befehl im Terminal eingeben und Antwort prüfen (hier ist Version 1.8.26 von Quarto installiert)](img/vscodium_terminal_02.png)
 
@@ -61,9 +60,9 @@ Legen Sie zuerst ein neues, leeres Verzeichnis auf Ihrem Rechner für Ihr Projek
 
 Beispiele für geeignete Verzeichnisnamen:
 
-- oer-templates-test
-- skript-template-demo
-- modul03_datenbanken
+-   oer-templates-test
+-   skript-template-demo
+-   modul03_datenbanken
 
 Wenn Sie das Verzeichnis im Dateimanager anlegen, öffnen Sie anschließend ein Terminal in genau diesem Verzeichnis oder wechseln Sie im Terminal dorthin (das Vorgehen ist abhängig vom genutzten Betriebssystem. Nutzen Sie die Suchmaschine Ihres Vertrauens mit *\<Betriebssystem\> Terminal in Ordner öffnen*).
 
@@ -71,7 +70,7 @@ Wenn Sie das Verzeichnis im Dateimanager anlegen, öffnen Sie anschließend ein 
 
 Sie können ein Template auf zwei gleichwertige Arten in ein lokales Projekt überführen. Wählen Sie die Variante, die für Sie am einfachsten ist:
 
-::: {.panel-tabset}
+::: panel-tabset
 ### Template mit `quarto use template` laden
 
 Wenn Sie Templates wiederholt nutzen möchten, ist diese Variante meist am angenehmsten. Sie führen dabei einen Quarto-Befehl aus, der ein neues Projektverzeichnis aus dem Template erstellt.
@@ -80,9 +79,9 @@ Wechseln Sie in ein Verzeichnis, in dem das neue Projekt entstehen soll und füh
 
 Für die OER-Templates von NFDI4Objects ergibt sich mit der Syntax:
 
-- Übungs-Template: `quarto use template nfdi4objects/oer-template-uebung`
+-   Übungs-Template: `quarto use template nfdi4objects/oer-template-uebung`
 
-- Skript-Template: `quarto use template nfdi4objects/oer-template-skript`
+-   Skript-Template: `quarto use template nfdi4objects/oer-template-skript`
 
 Beantworten Sie die Fragen im Terminal. Schließlich wird das Template in dem Ordner installiert.
 
@@ -90,38 +89,35 @@ Beantworten Sie die Fragen im Terminal. Schließlich wird das Template in dem Or
 
 Öffnen Sie die Seite des Template-Repositories im Browser:
 
-- Übungs-Template: <https://github.com/nfdi4objects/oer-template-uebung>
-- Skript-Template: <https://github.com/nfdi4objects/oer-template-skript>
+-   Übungs-Template: <https://github.com/nfdi4objects/oer-template-uebung>
+-   Skript-Template: <https://github.com/nfdi4objects/oer-template-skript>
 
-Laden Sie dort das Repository als ZIP-Datei herunter und entpacken Sie das Archiv. 
+Laden Sie dort das Repository als ZIP-Datei herunter und entpacken Sie das Archiv.
 
 ![](img/screen_github_zip-download.png)
 
 Achten Sie darauf, dass die Dateien des Templates direkt in Ihrem Projektverzeichnis liegen. Häufig entsteht beim Entpacken ein zusätzlicher Ordner. In diesem Fall verschieben Sie die Inhalte aus diesem Ordner in Ihr Projektverzeichnis.
 
 Am Ende dieses Schritts sollte Ihr Projektverzeichnis mehrere Dateien und Unterverzeichnisse enthalten.
-
 :::
 
 **Ergebnis**
 
 Je nach der gewählten Variante haben Sie in ihrem Projektverzeichnis folgende Dateien:
 
-::: {layout-ncol=2}
-
+::: {layout-ncol="2"}
 ![Dateien und Verzeichnisse nach `quarto use template`](img/screen_ergebnis_use_template.png)
 
 ![Dateien und Verzeichnisse aus dem ZIP-Archiv](img/screen_ergebnis_github_zip.png)
-
 :::
 
 **Unterschiede**
 
 Die Ergebnisse unterscheiden sich in zwei Aspekten:
 
-1. Im Verzeichnis aus dem zip-Archiv liegen alle Daten aus dem github-Repository des Templates. Den Ordner `.github` und die Datei `.gitignore` sollten Sie löschen. Stellen Sie dafür sicher, das "versteckte" Dateien im Dateimanager sichtbar sind.
+1.  Im Verzeichnis aus dem zip-Archiv liegen alle Daten aus dem github-Repository des Templates. Den Ordner `.github` und die Datei `.gitignore` sollten Sie löschen. Stellen Sie dafür sicher, das "versteckte" Dateien im Dateimanager sichtbar sind.
 
-2. Beide Verzeichnisse enthalten **eine .qmd-Datei**. Die Dateinamen weichen voneinander ab: Die Datei aus dem ZIP-Archiv heißt `template.qmd` und die mit `quarto use template` erzeugte übernimmt den Namen des Projektverzeichnisses. **Auch deshalb ist es sinnvoll, einen aussagekräftigen Namen für das Projektverzeichnis zu wählen**. Sie können die .qmd-Dateien aber auch beliebig umbenennen.
+2.  Beide Verzeichnisse enthalten **eine .qmd-Datei**. Die Dateinamen weichen voneinander ab: Die Datei aus dem ZIP-Archiv heißt `template.qmd` und die mit `quarto use template` erzeugte übernimmt den Namen des Projektverzeichnisses. **Auch deshalb ist es sinnvoll, einen aussagekräftigen Namen für das Projektverzeichnis zu wählen**. Sie können die .qmd-Dateien aber auch beliebig umbenennen.
 
 **Schritt 3: Projekt lokal rendern**
 
@@ -129,7 +125,7 @@ Rendern bedeutet: Quarto erzeugt aus der .qmd-Datei eine HTML-Ausgabe. Führen S
 
 Quarto verarbeitet nun die Dateien und erzeugt ein HTML-Dokument.
 
-Nach dem Rendern finden Sie das Ergebnis im Ordner `_site`. 
+Nach dem Rendern finden Sie das Ergebnis im Ordner `_site`.
 
 ![Dateien und Verzeichnisse im Verzeichnis `_site`](img/screen_dateien_site.png)
 
@@ -145,7 +141,7 @@ Nehmen Sie eine kleine, gut sichtbare Änderung vor, um zu verstehen, wie Quarto
 
 Öffnen Sie dazu die .qmd-Datei in Ihrem Editor. Am Anfang der .qmd-Datei stehen zwei Schlüssel: `title` und `subtitle`. Hier das Beispiel aus dem Übungs-Template:
 
-```yaml
+``` yaml
 ---
 title: "OER-Übung"
 subtitle: "Untertitel der OER-Übung"
@@ -157,11 +153,10 @@ Rendern Sie das Projekt erneut: `quarto render`
 
 Öffnen Sie die Seite im Browser noch einmal oder laden Sie sie neu. Der geänderte Titel und Untertitel sollten nun angezeigt werden. Damit ist bestätigt, dass Ihr lokaler Workflow funktioniert und Änderungen zuverlässig in der Ausgabe ankommen.
 
-::: {.callout-note}
+::: callout-note
 **Cache des Browsers**
 
 Zuweilen behält der Browser die Daten im Cache und die Änderungen nach `quarto render` werden angezeigt. Häufig hilft die Tastenkombination {{< kbd Strg >}} + {{< kbd F5 >}} im Browser
-
 :::
 
 **Nächste Schritte**
@@ -178,17 +173,16 @@ Wenn Sie anschließend eine Veröffentlichung planen, ist der Abschnitt [Bereits
 
 ## Projektstruktur
 
-Quarto bietet sehr umfangreiche Möglichkeiten zur Steuerung von Struktur, Gestaltung, Metadaten und Ausgabe.
-Wer diese Möglichkeiten vollständig ausschöpfen möchte, landet jedoch schnell bei sehr langen und unübersichtlichen Headern in einzelnen `.yml`- oder `.qmd`-Dateien.
+Quarto bietet sehr umfangreiche Möglichkeiten zur Steuerung von Struktur, Gestaltung, Metadaten und Ausgabe. Wer diese Möglichkeiten vollständig ausschöpfen möchte, landet jedoch schnell bei sehr langen und unübersichtlichen Headern in einzelnen `.yml`- oder `.qmd`-Dateien.
 
-Das Template begegnet diesem Problem durch eine Aufteilung der Konfiguration auf mehrere Dateien. Statt viele unterschiedliche Aspekte in einem einzigen Header zu bündeln, werden Konfiguration, Metadaten, Gestaltung und Inhalte in jeweils eigenen Dateien gepflegt. Dies erhöht die Lesbarkeit, erleichtert Anpassungen
-und reduziert die Gefahr unbeabsichtigter Änderungen.
+Das Template begegnet diesem Problem durch eine Aufteilung der Konfiguration auf mehrere Dateien. Statt viele unterschiedliche Aspekte in einem einzigen Header zu bündeln, werden Konfiguration, Metadaten, Gestaltung und Inhalte in jeweils eigenen Dateien gepflegt. Dies erhöht die Lesbarkeit, erleichtert Anpassungen und reduziert die Gefahr unbeabsichtigter Änderungen.
 
 Die Projektstruktur des Templates ist daher bewusst klar und übersichtlich gehalten. Sie orientiert sich an der Trennung von Konfiguration, Metadaten, Inhalten und unterstützenden Ressourcen:
 
-::: {#Projektstruktur .txt lst-cap="Dateien und Verzeichnisse im Template"}
 
-```txt
+**Dateien und Verzeichnisse im Template:**
+
+``` txt
 
 ├── assets
 │   ├── csl
@@ -222,33 +216,24 @@ Die Projektstruktur des Templates ist daher bewusst klar und übersichtlich geha
 ├── _quarto.yml
 └── template.qmd
 ```
-:::
 
-Mehrere Dateien im Projektverzeichnis beginnen mit einem Unterstrich. Diese Benennung folgt einer Konvention in Quarto-Projekten. Dateien mit einem führenden Unterstrich werden nicht als eigenständige Inhalte gerendert,
-sondern dienen der Konfiguration, der strukturierten Beschreibung oder der Einbindung in andere Dateien.
-Sie bilden den technischen Rahmen des Projekts.
+Mehrere Dateien im Projektverzeichnis beginnen mit einem Unterstrich. Diese Benennung folgt einer Konvention in Quarto-Projekten. Dateien mit einem führenden Unterstrich werden nicht als eigenständige Inhalte gerendert, sondern dienen der Konfiguration, der strukturierten Beschreibung oder der Einbindung in andere Dateien. Sie bilden den technischen Rahmen des Projekts.
 
-Das Verzeichnis `assets` enthält unterstützende Ressourcen, die für Gestaltung und Ausgabe benötigt werden.
-Dazu gehören unter anderem Zitationsstile, Schriftarten und weitere gestalterische Dateien. Innerhalb dieses Verzeichnisses ist die Datei `n4o_oer_html.scss` von besonderer Bedeutung. Sie definiert projektspezifische Stilregeln
-für die HTML-Ausgabe und ergänzt die in `_brand.yml` festgelegten Gestaltungsvorgaben.
+Das Verzeichnis `assets` enthält unterstützende Ressourcen, die für Gestaltung und Ausgabe benötigt werden. Dazu gehören unter anderem Zitationsstile, Schriftarten und weitere gestalterische Dateien. Innerhalb dieses Verzeichnisses ist die Datei `n4o_oer_html.scss` von besonderer Bedeutung. Sie definiert projektspezifische Stilregeln für die HTML-Ausgabe und ergänzt die in `_brand.yml` festgelegten Gestaltungsvorgaben.
 
 Weitere Verzeichnisse wie `img` oder `data` dienen der Ablage von Abbildungen und Datensätzen, die in der Übung verwendet werden können.
 
-Die Datei `_quarto.yml` ist die zentrale Projektkonfiguration. Sie definiert grundlegende Eigenschaften des Projekts,
-unter anderem den Dokumenttyp, globale Optionen sowie die Einbindung weiterer Konfigurations- und Metadatendateien.
-Änderungen an dieser Datei wirken sich immer auf das gesamte Projekt aus. Da die Templates jeweils nur eine HTML-Datei erzeugen und die dafür notwendigen Angaben alle in den anderen Dateien vorhanden sind, ist die `_quarto.yml` der Templates quasi leer. De facto braucht es aber einer `_quarto.yml`-Datei, um das Repository als Template anbieten zu können.
+Die Datei `_quarto.yml` ist die zentrale Projektkonfiguration. Sie definiert grundlegende Eigenschaften des Projekts, unter anderem den Dokumenttyp, globale Optionen sowie die Einbindung weiterer Konfigurations- und Metadatendateien. Änderungen an dieser Datei wirken sich immer auf das gesamte Projekt aus. Da die Templates jeweils nur eine HTML-Datei erzeugen und die dafür notwendigen Angaben alle in den anderen Dateien vorhanden sind, ist die `_quarto.yml` der Templates quasi leer. De facto braucht es aber einer `_quarto.yml`-Datei, um das Repository als Template anbieten zu können.
 
 Die `.qmd`-Datei ist die zentrale Inhaltsdatei des Templates. Sie enthält die Struktur und den Text der Übung oder des Skripts und ist der primäre Arbeitsort für inhaltliche Anpassungen. In dieser Datei werden Inhalte ergänzt, verändert oder entfernt. Projektweite Einstellungen oder strukturierte Metadaten werden hier bewusst nicht gepflegt.
 
-Die Datei `_oer_metadata.yml` enthält strukturierte Metadaten zur Beschreibung der Übung als Open Educational Resource.
-Hier werden Angaben erfasst, die für Auffindbarkeit, Nachnutzbarkeit und maschinelle Verarbeitung relevant sind. In ihr können können zusätzlich sogenannte [Quarto-Shortcodes](https://quarto.org/docs/extensions/shortcodes.html) definiert werden, also benannte Platzhalter, die an zentraler Stelle einmal festgelegt und anschließend im gesamten Projekt wiederverwendet werden. Diese Shortcuts können in `.qmd`-Dateien wie normale Variablen referenziert werden und erleichtern es, wiederkehrende Angaben konsistent zu verwenden und bei Änderungen nur an einer Stelle anzupassen.
+Die Datei `_oer_metadata.yml` enthält strukturierte Metadaten zur Beschreibung der Übung als Open Educational Resource. Hier werden Angaben erfasst, die für Auffindbarkeit, Nachnutzbarkeit und maschinelle Verarbeitung relevant sind. In ihr können können zusätzlich sogenannte [Quarto-Shortcodes](https://quarto.org/docs/extensions/shortcodes.html) definiert werden, also benannte Platzhalter, die an zentraler Stelle einmal festgelegt und anschließend im gesamten Projekt wiederverwendet werden. Diese Shortcuts können in `.qmd`-Dateien wie normale Variablen referenziert werden und erleichtern es, wiederkehrende Angaben konsistent zu verwenden und bei Änderungen nur an einer Stelle anzupassen.
 
 Die Datei `_autor_innen.yml` dient der Erfassung von detaillierten Angaben zu Autor:innen. Sie ermöglicht eine konsistente Pflege von Namen, Rollen und weiteren beschreibenden Informationen und kann an mehreren Stellen im Projekt referenziert werden. Auch diese Datei wird nicht direkt gerendert, sondern in andere Projektbestandteile eingebunden.
 
 Die Datei `_brand.yml` steuert Aspekte der visuellen Gestaltung und der Corporate Identity. Hier werden unter anderem Logos, Farben, Schriften und weitere gestalterische Parameter definiert. Die Datei bildet die Grundlage für eine institutionelle Anpassung des Erscheinungsbildes, ohne Inhalte verändern zu müssen.
 
-Die Datei `_layout.yml` definiert strukturelle Aspekte der Ausgabe. Sie steuert, wie Inhalte angeordnet werden
-und welche Layoutelemente verwendet werden. Die Trennung von Layout und Inhalt ermöglicht es, die Darstellung zu verändern, ohne die inhaltlichen Dateien anzupassen.
+Die Datei `_layout.yml` definiert strukturelle Aspekte der Ausgabe. Sie steuert, wie Inhalte angeordnet werden und welche Layoutelemente verwendet werden. Die Trennung von Layout und Inhalt ermöglicht es, die Darstellung zu verändern, ohne die inhaltlichen Dateien anzupassen.
 
 Die Datei `bibliographie.bib` enthält die bibliographischen Referenzen im BibTeX-Format. Sie wird für Zitate und Literaturverweise genutzt und ist unabhängig von den eigentlichen Inhalten organisiert. Auf diese Weise können Literaturangaben gepflegt und in unterschiedlichen Kontexten wiederverwendet werden.
 
@@ -257,7 +242,7 @@ Beim Rendern des Projekts erzeugt Quarto eine HTML-Ausgabe in einem separaten Ou
 Die klare Benennung und Trennung der Dateien im Template ermöglicht es, Anpassungen gezielt vorzunehmen. Inhalte, Metadaten, Gestaltung und Konfiguration sind voneinander getrennt und können unabhängig weiterentwickelt werden.
 
 | Datei | Funktion |
-|------|----------|
+|:------|:---------|
 | `n4o_oer_html.scss` | Enthält projektspezifische Stilregeln für die HTML-Ausgabe und ergänzt die Branding-Einstellungen |
 | `_autor_innen.yml` | Erfasst Autor:innenangaben und Rollen in strukturierter Form |
 | `bibliographie.bib` | Verwaltet bibliographische Referenzen für Zitate und Literaturverweise |
@@ -271,14 +256,12 @@ Die klare Benennung und Trennung der Dateien im Template ermöglicht es, Anpassu
 
 Alle genannten Dateien sind ausführlich kommentiert, sodass ihre Funktion und die vorgesehenen Anpassungspunkte direkt im jeweiligen Dateiinhalt nachvollzogen werden können.
 
-::: {.callout-note}
+::: callout-note
 **Hinweis zum aktuellen Stand der Templates und zu Ausgabeformaten**
 
 Die hier beschriebene Projektstruktur bezieht sich auf die aktuell verfügbaren Templates, die bewusst einfach gehalten sind. In Planung befinden sich die Templates **Kursbaustein** und **Kurs**. Da Kurse aus Kursbausteinen zusammengesetzt werden und hierfür eine deutlich komplexere Projektstruktur erforderlich ist, wird diese Beschreibung ergänzt, sobald die entsprechenden Templates veröffentlicht sind.
 
-Quarto kann Projekte in viele weitere Ausgabeformate rendern. Diese Formate erfordern jedoch zusätzliche Abhängigkeiten
-und eine erweiterte Konfiguration. Aus allgemeinen Erwägungen und im Sinne einer FAIRen Bereitstellung
-konzentrieren sich die Templates daher auf die Ausgabe von HTML.
+Quarto kann Projekte in viele weitere Ausgabeformate rendern. Diese Formate erfordern jedoch zusätzliche Abhängigkeiten und eine erweiterte Konfiguration. Aus allgemeinen Erwägungen und im Sinne einer FAIRen Bereitstellung konzentrieren sich die Templates daher auf die Ausgabe von HTML.
 :::
 
 ## Design und Layout anpassen {#Design}
@@ -291,38 +274,30 @@ konzentrieren sich die Templates daher auf die Ausgabe von HTML.
 
 In diesem Abschnitt wird zwischen zwei Ebenen der Bereitstellung unterschieden:
 
-1. der Bereitstellung des Quarto-Projekts selbst über ein Git-Repository  
-2. der Veröffentlichung der daraus erzeugten HTML-Seiten als sogenannte Pages
+1.  der Bereitstellung des Quarto-Projekts selbst über ein Git-Repository\
+2.  der Veröffentlichung der daraus erzeugten HTML-Seiten als sogenannte Pages
 
 Nicht jedes Quarto-Projekt, das über ein Git-Repository verwaltet wird, muss auch über die jeweilige Plattform als Website veröffentlicht werden. In vielen Szenarien werden die gerenderten HTML-Seiten über andere Infrastrukturen bereitgestellt, z. B. über eine institutionelle Website, ein Lernmanagementsystem oder eine projektinterne Publikationsplattform.
 
-Die folgenden Abschnitte beschreiben daher sowohl die Bereitstellung des Quarto-Projekts über Git als auch optionale Wege zur Veröffentlichung der erzeugten Seiten.
+Die folgenden Abschnitte beschreiben daher sowohl die Bereitstellung des Quarto-Projekts über GitHub als auch optionale Wege zur Veröffentlichung der erzeugten Seiten.
 
 ### GitHub {#Bereitstellung-GitHub}
 
-::: {.callout-note}
-**Warum GitHub Pages derzeit die praktikabelste Lösung ist**
+::: callout-note
+**Warum GitHub Pages derzeit die praktikabelste Lösung ist:**
 
-Trotz möglicher Vorbehalte gegenüber einzelnen Plattformen ist die Nutzung von
-GitHub Pages aktuell der am besten unterstützte Weg zur Veröffentlichung
-von Quarto-Projekten.
+Trotz möglicher Vorbehalte gegenüber einzelnen Plattformen ist die Nutzung von GitHub Pages aktuell der am besten unterstützte Weg zur Veröffentlichung von Quarto-Projekten.
 
-Dies hat vor allem drei technische Gründe:
+Dies hat vor allem technische Gründe:
 
-- Der Befehl `quarto publish` ist explizit auf GitHub ausgerichtet
-  und unterstützt GitHub Pages nativ.
-- Für andere Git-basierte Plattformen (z. B. GitLab oder Codeberg)
-  existieren bislang nur wenige etablierte Workflows,
-  und diese werden in der Quarto-Community kaum systematisch unterstützt.
-- Der von Quarto vorgesehene Publish-Workflow stellt sicher,
-  dass jede Änderung an den Daten oder Inhalten im Repository
-  automatisch zu einer Aktualisierung der veröffentlichten Pages führt.
+-   Der Befehl `quarto publish` ist explizit auf GitHub ausgerichtet und unterstützt GitHub Pages nativ.
+-   Für andere Git-basierte Plattformen (z. B. GitLab oder Codeberg) existieren bislang nur wenige etablierte Workflows, und diese werden in der Quarto-Community kaum systematisch unterstützt.
+-   Der von Quarto vorgesehene Publish-Workflow stellt sicher, dass jede Änderung an den Daten oder Inhalten im Repository automatisch zu einer Aktualisierung der veröffentlichten Pages führt.
 
-Für reproduzierbare, wartungsarme Veröffentlichungen ist GitHub Pages daher derzeit die robusteste und am besten dokumentierte Option.
+Für eine reproduzierbare, wartungsarme Bereitstellung ist GitHub Pages daher derzeit die robusteste und am besten dokumentierte Option.
 :::
 
-
-Diese Anleitung beschreibt einen Standard-Workflow, um den Quellcode eines **lokalen Quarto-Projekts** erstmals auf GitHub zu veröffentlichen. Im Anschluss werden die mit Quarto erzeugten HTML-Seiten automatisiert mit GitHub Actions als GitHub Pages Site publiziert.
+Diese Anleitung beschreibt einen Standard-Workflow, um den Quellcode eines **lokalen Quarto-Projekts** erstmals auf GitHub zu veröffentlichen. Im Anschluss werden die mit Quarto erzeugten HTML-Seiten automatisiert mit GitHub Actions als GitHub Pages publiziert.
 
 Der Ausgangspunkt ist ein **lokales Verzeichnis**, das bisher **nicht** mit einem GitHub-Repository verknüpft ist.
 
@@ -330,77 +305,101 @@ Der Ausgangspunkt ist ein **lokales Verzeichnis**, das bisher **nicht** mit eine
 
 :white_check_mark: Auf Ihrem lokalen Rechner:
 
-- ein [GitHub-Account](https://github.com/signup)
-- [Git](https://github.com/git-guides/install-git) ist installiert
-- [Quarto](https://quarto.org/docs/get-started/) ist installiert
-- ein lauffähiges Quarto-Projekt in einem lokalen Verzeichnis (`quarto render` liefert keine Fehlermeldungen)
+-   ein [GitHub-Account](https://github.com/signup)
+-   [Git](https://github.com/git-guides/install-git) ist installiert
+-   [Quarto](https://quarto.org/docs/get-started/) ist installiert
+-   ein lauffähiges Quarto-Projekt in einem lokalen Verzeichnis (`quarto render` liefert keine Fehlermeldungen)
 
 :white_check_mark: Auf GitHub:
 
-- Wenn Sie mit Ihrem Account das Repository in einer *Organisation* anlegen wollen: Berechtigung, neue Repositories anzulegen
-- Zugriff auf GitHub Actions und GitHub Pages (bei eigenen, öffentlichen Repositories standardmäßig gegeben)
+-   Wenn Sie mit Ihrem Account das Repository in einer *Organisation* anlegen wollen: Berechtigung, neue Repositories anzulegen
+-   Zugriff auf GitHub Actions und GitHub Pages (bei eigenen, öffentlichen Repositories standardmäßig gegeben)
 
 #### Verzeichnis mit GitHub-Repository verbinden
+
+------------------------------------------------------------------------
 
 **Schritt 1: Lokales Verzeichnis initialisieren**
 
 Wechseln Sie über die Konsole in das lokale Projektverzeichnis und initialisieren Sie ein Git-Repository mit dem Befehl:
 
-```bash
+``` bash
 git init
 ```
 
+![Screenshot eines Quarto-Projekts mit Konsole in VSCodium](img/screen_vscodium_terminal_03.png)
+
 Das Verzeichnis ist nun ein lokales Git-Repository, aber noch nicht mit GitHub verbunden.
+
+------------------------------------------------------------------------
 
 **Schritt 2: GitHub-Repository anlegen**
 
-Loggen Sie sich über den Browser auf [GitHub](https://github.com) ein und legen ein neues, leeres Repository an:
-
-- ohne README
-- ohne .gitignore
-- ohne Lizenzdatei
-
-Notieren Sie sich die Repository-URL, z. B.:
-
-```
-https://github.com/username/projektname.git
-```
-
-::: {.callout-note}
+::: callout-note
 **Hinweis zu Repository- und Seiten-URLs**
 
-Bei GitHub bestehen Repository- und Pages-URLs ausschließlich aus
-Benutzer- oder Organisationsname und Repository-Name.
+Bei GitHub bestehen Repository- und Pages-URLs ausschließlich aus Benutzer- oder Organisationsname und Repository-Name.
 
 Beispiel:
 
-Repository: https://github.com/organisation/quarto-faire-oer-website  
+Repository: https://github.com/organisation/quarto-faire-oer-website
 
 Pages-URL: https://organisation.github.io/quarto-faire-oer-website/
 
 Wählen Sie den Repository-Namen daher bewusst und dauerhaft.
 :::
 
+Loggen Sie sich über den Browser auf [GitHub](https://github.com) ein und legen ein neues, leeres Repository an:
+
+![Screenshot von GitHub mit Hinweis auf Menüpunkt "New Repository"](img/screen_github_repo_neu.png)
+
+Achten Sie bei den Einstellungen auf
+
+-   ohne README
+-   ohne .gitignore
+-   ohne Lizenzdatei
+
+![Für den hier beschriebenen Workflow empfohlene Einstellungen für ein neues Repository auf GitHub](img/screen_github_repo_neu2.png)
+
+Notieren Sie sich die Repository-URL im nächsten Dialog.
+
+Syntax: `https://github.com/username/projektname.git`
+
+Sie können auch den 
+
+![Repository-URL kopieren](img/screen_github_repo_neu3.png)
+
+------------------------------------------------------------------------
+
 **Schritt 3: Lokales Repository mit GitHub verknüpfen**
 
-Verknüpfen Sie das lokale Repository mit dem GitHub-Repository:
+Wechseln Sie zurück in die Entwicklungsumgebung.
 
-```bash
+``` bash
 git remote add origin https://github.com/username/projektname.git
 ```
-Der Link am Ende des Befehls entspricht dem Link aus Schritt 2.
 
-Setzen Sie anschließend den Standard-Branch (empfohlen: main):
+verknüpft das lokale Repository mit dem GitHub-Repository:
 
-```bash
-git branch -M main
-```
+Der Link am Ende des Befehls entspricht der Reposiotory-URL aus Schritt 2.
+
+------------------------------------------------------------------------
 
 **Schritt 4: Initialer Commit und Push**
 
+Setzen Sie anschließend den Standard-Branch (empfohlen: main):
+
+``` bash
+git branch -M main
+```
+
+------------------------------------------------------------------------
+
+**Schritt 5: Initialer Commit und Push**
+
 Committen Sie den aktuellen Projektstand und pushen Sie ihn zu GitHub:
 
-```bash
+``` bash
 git add .
 git commit -m "Initial commit"
 git push -u origin main
@@ -408,77 +407,123 @@ git push -u origin main
 
 Ab jetzt existiert:
 
-- ein lokales Repository auf Ihrem Rechner in dem Verzeichnis mit dem Quarto-Projekt
-- ein Remote-Repository auf GitHub
+-   ein lokales Repository auf Ihrem Rechner in dem Verzeichnis mit dem Quarto-Projekt
+-   ein Remote-Repository auf GitHub
+
+**Wenn Sie den Quarto-Code bereitstellen, das gerenderte HTML aber über andere Dienste oder in anderer Umgebung nutzen wollen, ist damit die Publikation abgeschlossen. Nutzen Sie gerne die Möglichkeiten von GitHub, Ihr [Repository besser auffindbar zu machen](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository).**
 
 #### Bereitstellung über GitHub Pages
 
-::: {.callout-note}
-**Hinweis zur Unterstützung bei der Publikation**
+::: callout-note
+**Hinweis zur Unterstützung bei der Bereitstellung**
 
-Diese Website dokumentiert Quarto-Templates und deren Nutzung.
-Sie bietet **keine Unterstützung bei der Publikation von Quarto-Projekten** und kann **keinen technischen Support** für Build-, Deploy- oder CI-Probleme leisten.
+Diese Website dokumentiert Quarto-Templates und deren Nutzung. Sie bietet **keine Unterstützung bei der Publikation von Quarto-Projekten** und kann **keinen technischen Support** für Build-, Deploy- oder CI-Probleme leisten.
 
 Die folgenden Hinweise dienen ausschließlich der Orientierung.
 
 Für verbindliche Anleitungen, aktuelle Änderungen und Problemlösungen nutzen Sie bitte die offizielle Quarto-Dokumentation sowie die etablierten Support- und Diskussionsplattformen.
 
-
 **Offizielle Quarto-Dokumentation:**
 
-- Quarto: Publishing mit GitHub Pages  
-  https://quarto.org/docs/publishing/github-pages.html
-
-- Quarto: GitHub Actions  
-  https://quarto.org/docs/publishing/github-actions.html
-
-- Quarto: Command Line Interface  
-  https://quarto.org/docs/reference/command-line-interface.html
+-   [Quarto: Publishing mit GitHub Pages](https://quarto.org/docs/publishing/github-pages.html)
+-   [Quarto: GitHub Actions](https://quarto.org/docs/publishing/github-actions.html)
+-   [Quarto: Command Line Interface](https://quarto.org/docs/reference/command-line-interface.html)
 
 **Weiterführende Anleitung:**
 
-- Mickaël Canouil: *Quarto – Publishing to GitHub Pages*  
-  https://mickael.canouil.fr/posts/2024-12-30-quarto-github-pages/
-
+-   [Mickaël Canouil: *Quarto – Publishing to GitHub Pages*](https://mickael.canouil.fr/posts/2024-12-30-quarto-github-pages/)
 :::
+
+**Die Schritte aus dem vorhergehenden Abschnitt werden vorausgesetzt.**
 
 **Schritt 1: Einmalige Publikationsvorbereitung mit Quarto**
 
 Führen Sie folgenden Befehl über die Konsole lokal im Projektverzeichnis aus:
 
-```bash
+``` bash
 quarto publish gh-pages
 ```
 
 Dieser Schritt erfüllt zwei Funktionen:
 
-1. Quarto prüft die Projektkonfiguration
-2. Quarto erzeugt die notwendige Publishing-Konfiguration (insbesondere die Datei _publish.yml)
+1.  Quarto prüft die Projektkonfiguration
+2.  Quarto erzeugt die notwendige Publishing-Konfiguration auf GitHub.
 
-**Je nach Umfang des Projekts kann der erste *deploy* einige Zeit in Anspruch nehmen**
+Je nach Umfang des Projekts kann der erste *deploy* einige Zeit in Anspruch nehmen.
 
 **Schritt 2: GitHub Pages auf Deployment über Actions einstellen**
 
 Öffnen Sie auf GitHub im Browser die Repository-Einstellungen:
 
-- Settings → Pages
-- Source: GitHub Actions
+![](img/screen_github_repo_settings.png)
+
+Wählen Sie *Pages* unten links auf dem Bildschirm:
+
+![](img/screen_github_repo_pages.png)
+
+Ändern Sie unter *Source* den Eintrag auf **GitHub Actions**:
+
+![](img/screen_github_repo_pages_action.png)
 
 Damit wird festgelegt, dass GitHub Pages nicht aus einem Branch, sondern über einen Actions-Workflow deployed wird.
 
 **Schritt 3: GitHub-Actions-Workflow anlegen**
 
-Legen Sie im lokalen Repository ein neues Unterverzeichnis 
+Für diesen Schritt gibt es zwei Vorgehensweisen:
 
-`.github/workflows/` 
+::: {.panel-tabset}
+
+##### 3a: Über die Browseroberfläche
+
+Nachdem Sie in Schritt 2 auf *GitHub Actions* umgestellt haben, erscheint darunter die Aufforderung vorhandene *Workflows* für die *Action* zu verwenden oder eine eigene zu generieren. Wählen Sie die zweite Option **create your own**:
+
+![](img/screen_github_repo_pages_action2.png)
+
+Ein neues Fenster wird geöffnet, das drei Eingaben erwartet:
+
+1.  den Namen des neu zu generierenden *Workflows*. Hier **muss** `quarto-publish.yml` eingetragen werden
+
+2.  Löschen Sie den vorgegebenen Text in dem Feld indem Sie hineinklicken, mit {{< kbd Strg >}} + {{< kbd a >}} alles auswählen und mit {{< kbd Entf/Del >}} alles löschen. Kopieren Sie anschließend den Inhalt der **Codebox unten** in das Feld hinein.
+
+3.  Wenn der Dateiname richtig eingetragen und der Inhalt des Textfeldes ersetzt ist, klicken Sie auf *Commit changes...*.
+
+![](img/screen_github_repo_pages_action3.png)
+
+In dem erscheinenden Dialog belassen Sie die *Commit Message* (1) wie vorgegeben oder ändern sie etwa in `Add GitHub Actions workflow for Quarto Pages`. Damit wird dokumentiert, was die Änderung am Datenbestand umfasst.
+
+Beenden Sie den Vorgang mit *Commit changes* (2).
+
+![](img/screen_github_repo_pages_action4.png)
+
+Nach dem Commit wird automatisch ein Workflow-Lauf gestartet.
+
+##### 3b: Über das Terminal
+
+Legen Sie im lokalen Repository ein neues Unterverzeichnis
+
+`.github/workflows/`
 
 an und erstellen darin eine neue Datei mit der Bezeichnung
 
 `quarto-publish.yml`
 
-Kopieren Sie folgenden Inhalt in diese neue Datei:
+Kopieren Sie anschließend den Inhalt der **Codebox unten** in die Datei und speichern Sie diese ab.
 
-```yaml
+Committen und pushen Sie den Workflow über die Konsole:
+
+``` bash
+git add .github/workflows/quarto-publish.yml
+git commit -m "Add GitHub Actions workflow for Quarto Pages"
+git push
+```
+
+Nach dem Push wird automatisch ein Workflow-Lauf gestartet.
+
+:::
+
+**Inhalt für die quarto-publish.yml**
+
+``` yaml
 name: Quarto-Projekt auf GitHub Pages publizieren
 
 on:
@@ -525,22 +570,11 @@ jobs:
       - name: Deployment zu GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
-
 ```
 
-Committen und pushen Sie den Workflow über die Konsole:
-
-```bash
-git add .github/workflows/quarto-publish.yml
-git commit -m "Add GitHub Actions workflow for Quarto Pages"
-git push
-```
-
-Nach dem Push wird automatisch ein Workflow-Lauf gestartet. Nach erfolgreichem Abschluss ist die Website unter der von GitHub angezeigten Pages-URL erreichbar. Es empfiehlt sich, die Pages-URL in die Beschreibung des Repositories zu übernehmen. Dann ist sie schnell erreichbar.
+Nach erfolgreichem Abschluss ist die Website unter der von GitHub angezeigten Pages-URL erreichbar. Es empfiehlt sich, die Pages-URL in die Beschreibung des Repositories zu übernehmen. Dann ist sie schnell erreichbar.
 
 ### Alternative git-Repositories {#Bereitstellung-Alternativen}
-
-
 
 ## Disclaimer: Einsatz von LLM {.appendix}
 
