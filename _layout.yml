@@ -34,7 +34,7 @@ format:
     appendix-style: default
     appendix-cite-as: true
 # Pfad und Alternativtext für Vorschau-Bild
-    image: assets/logos/logo_gross.png
+    image: /assets/logos/logo_gross.png
     image-alt: "Projektlogo"
 # Für die Nutzung von shortcodes für Emojis in Quarto-Markdown vgl. https://quarto.org/docs/visual-editor/content.html#emojis und https://gist.github.com/rxaviers/7360908
 from: markdown+emoji

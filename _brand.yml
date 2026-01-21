@@ -18,7 +18,7 @@ color:
     hintergrund: "#FFFFFF"         # Seitenhintergrund
     text: "#13294B"                # Standard-Textfarbe
     akzent: "#0084FF"              # Hauptakzent (Links, Fokus, Buttons)
-    akzent-sekundaer: "#E7C6AC"    # Abgeschwächter Akzent
+    cd-farbe: "#E7C6AC"            # Hauptfarbe des CD
     cd-farbe-abstufung1: "#CD8255" # Weitere CD-Farbabstufung
     cd-farbe-abstufung2: "#BCA089" # Weitere CD-Farbabstufung
     cd-farbe-abstufung3: "#CFC5BA" # Weitere CD-Farbabstufung
@@ -31,7 +31,7 @@ color:
   background: hintergrund
   foreground: text
   primary: akzent
-  secondary: flaeche
+  secondary: cd-farbe-abstufung1
   tertiary: flaeche
   success: erfolg
   info: hinweis
@@ -90,7 +90,7 @@ defaults:
     defaults:
   # Vorder- und Hintergrund
       body-bg: $brand-hintergrund
-      navbar-bg: $brand-akzent-sekundaer
+      navbar-bg: $brand-cd-farbe
       navbar-fg: $brand-text
   # Abstände
       spacer: 1rem
@@ -101,24 +101,31 @@ defaults:
       h4-font-size: 1.25rem
       h5-font-size: 1.25rem
   # Code-Blocks
-      code-block-bg: $brand-flaeche
+      code-block-bg: $brand-cd-farbe-abstufung3
       code-block-border-left: $brand-akzent
-      code-block-border-left-size: 1px
+      code-block-border-left-size: 2px
       code-block-padding-left: 0.6rem
       code-block-bg-padding: 0.4rem
+      code-block-border-width: 2px
+      code-block-border-color: $brand-akzent
+      code-block-border-radius: 4px
+      code-block-font-size: 0.85rem
+      code-inline-font-size: 0.85rem
       btn-code-copy-color: $brand-akzent
       btn-code-copy-color-active: $brand-akzent
   # Inline-Code
       code-bg: $brand-flaeche
       code-color: $brand-text
+      code-font-size: 0.85rem
   # Table of Contents
       toc-font-size: 0.9rem
       toc-color: $brand-text
       toc-active-border: $brand-akzent
       toc-active-border-width: 10px 
-      toc-inactive-border: $brand-flaeche
+      toc-inactive-border: $brand-cd-farbe-abstufung3
   # Callout
       callout-border-width: 2px
+      callout-border-radius: 4px
       callout-border-scale: 0%
       callout-icon-scale: 10%
       callout-margin-top: 1.25rem
@@ -136,7 +143,7 @@ defaults:
       nav-link-color: $brand-text
       nav-tabs-border-color: $brand-akzent
       nav-tabs-border-width: 2px
-      nav-tabs-border-radius: 5px
+      nav-tabs-border-radius: 4px
       nav-tabs-link-hover-border-color: $brand-akzent
       nav-tabs-link-active-color: $brand-text
       nav-tabs-link-active-bg: $brand-hintergrund

@@ -24,6 +24,8 @@ metadata-files:
   - _kurs_metadaten.yml
   - _nav_top.yml
   - _nav_rechts.yml
+execute:
+  freeze: auto
 
 
 

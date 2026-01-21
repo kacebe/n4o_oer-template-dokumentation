@@ -6,11 +6,19 @@ p, li, a {
   letter-spacing: 0.01em;
 }
 
+.smaller {
+  font-size: 0.85em;
+  line-height: 1.2;
+}
+
+// Abschnittsnummerierung
+
 .header-section-number {
   color: $brand-text !important;
 }
 
-/* Kolophon (z.B. Lernziele) */
+// Kolophon
+
 .kolophon {
   font-size: 1em;
   line-height: 1.1;
@@ -28,7 +36,8 @@ p, li, a {
   line-height: inherit;
 }
 
-/* Metadatenblock + Abstract: gemeinsame Basistypografie */
+// Metadatenblock + Abstract: gemeinsame Basistypografie
+
 .quarto-title-meta-author,
 .quarto-title-meta,
 .keywords,
@@ -45,7 +54,8 @@ p, li, a {
   line-height: inherit;
 }
 
-/* Block-Titel (Keywords/Abstract) und Meta-Heading: keine Versalien */
+// Block-Titel (Keywords/Abstract) und Meta-Heading: keine Versalien
+
 .quarto-title-meta-heading,
 .keywords .block-title,
 .abstract .block-title {
@@ -54,7 +64,6 @@ p, li, a {
   line-height: inherit;
 }
 
-/* Feintuning Abstract */
 .abstract p {
   margin-bottom: 0.5rem;
 }
@@ -65,7 +74,8 @@ p, li, a {
   margin-bottom: 0.2rem;
 }
 
-/* Appendices (global) */
+// Appendices
+
 #quarto-appendix.default .quarto-appendix-heading {
   border-bottom-width: 1px;
   border-bottom-style: solid;
@@ -78,7 +88,6 @@ p, li, a {
   line-height: 1.5;
 }
 
-/* Appendices: Lizenz + Urheber:innen kompakter */
 #quarto-appendix.default #quarto-reuse,
 #quarto-appendix.default #quarto-copyright {
   padding-bottom: 0.4rem;
@@ -100,14 +109,14 @@ p, li, a {
   line-height: 1;
 }
 
-/* Vererbung im Appendix-Inhalt (inkl. Links) */
 #quarto-appendix.default #quarto-reuse .quarto-appendix-contents :is(p, div, a),
 #quarto-appendix.default #quarto-copyright .quarto-appendix-contents :is(p, div, a) {
   font-size: inherit;
   line-height: inherit;
 }
 
-/* TOC/Margin */
+// TOC in linker Spalte
+
 .quarto-margin-sidebar {
   line-height: 1.2rem;
   font-weight: bold;
@@ -122,14 +131,18 @@ p, li, a {
   border-left: 2px solid $brand-akzent !important;
 }
 
+// Navigation rechte Spalte 
+
 .column-margin {
   font-size: 0.9rem !important;
   color: $brand-text !important;
 }
 
-/* Bildunterschriften */
+// Bildunterschriften
+
 figure figcaption,
 .quarto-figure figcaption {
   color: $brand-text;
-  font-size: 0.85rem;
+  font-size: 0.5rem;
 }
+

@@ -2,4 +2,4 @@ website:
   margin-header: |
     {{< brand logo large >}}
 
-    ![](img/dfg_logo_schriftzug_blau_foerderung_4c.jpg){fig-alt="Logo der DFG"}
+    ![](/img/dfg_logo_schriftzug_blau_foerderung_4c.jpg){fig-alt="Logo der DFG"}

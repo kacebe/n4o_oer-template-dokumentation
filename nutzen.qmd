@@ -578,6 +578,6 @@ Nach erfolgreichem Abschluss ist die Website unter der von GitHub angezeigten Pa
 
 ## Disclaimer: Einsatz von LLM {.appendix}
 
-Bei der Erarbeitung dieser Website wurde ChatGPT 5.2 zur Unterstützung eingesetzt. Die Nutzung umfasste die Strukturierung und Diskussion der Inhalte sowie grammatikalische und orthographische Korrekturen.
-
+Bei der Erarbeitung dieser Website wurde ChatGPT 5.2 zur Unterstützung eingesetzt. Die Nutzung umfasste die Strukturierung und Diskussion der Inhalte sowie `inline-code` grammatikalische und orthographische Korrekturen.
+`inline-code`
 Es wird ausdrücklich darauf hingewiesen, dass die endgültige Verantwortung für die inhaltliche Richtigkeit beim Autor liegt.
