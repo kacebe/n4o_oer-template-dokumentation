@@ -489,13 +489,15 @@ Ein neues Fenster wird geöffnet, das drei Eingaben erwartet:
 
 ![](img/screen_github_repo_pages_action3.png)
 
-In dem erscheinenden Dialog belassen Sie die *Commit Message* (1) wie vorgegeben oder ändern sie etwa in `Add GitHub Actions workflow for Quarto Pages`. Damit wird dokumentiert, was die Änderung am Datenbestand umfasst.
+::: {layout-ncol=2}
 
-Beenden Sie den Vorgang mit *Commit changes* (2).
+1. In dem erscheinenden Dialog belassen Sie die *Commit Message* wie vorgegeben oder ändern sie etwa in `Add GitHub Actions workflow for Quarto Pages`. Damit wird dokumentiert, was die Änderung am Datenbestand umfasst.
+2. Beenden Sie den Vorgang mit *Commit changes*. 
+Nach dem Commit wird automatisch ein Workflow-Lauf gestartet.
 
 ![](img/screen_github_repo_pages_action4.png)
 
-Nach dem Commit wird automatisch ein Workflow-Lauf gestartet.
+:::
 
 ##### 3b: Über das Terminal
 

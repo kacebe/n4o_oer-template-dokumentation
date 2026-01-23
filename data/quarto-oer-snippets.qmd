@@ -1,0 +1,446 @@
+---
+title: OER-Snippets
+subtitle: Cheatsheet für Quarto-Markdown
+description: |
+  Diese Seite stellt die wesentlichen Elemente für die Gestaltung von Quarto-Dokumenten zusammen, die sich insbesondere aber nicht nur für die Erarbeitung von offenen Lehr- und Lernmaterialien eignen.
+abstract: ""
+abstract-title: ""
+categories: 
+  - File
+keywords:
+  - Branding
+  - Corporate Design
+date: 2026-01-23
+date-modified: last-modified
+date-format: "DD.MM.YYYY"
+author:
+  - name:
+      given: Kai-Christian
+      family: Bruhn
+copyright: "Kai-Christian Bruhn"
+license: CC BY # Optionen für Lizensierungsangaben: https://quarto.org/docs/authoring/front-matter.html#license
+toc: true
+toc-location: left
+number-sections: true
+html:
+  page-layout: article
+execute:
+  freeze: false
+---
+
+## Vorbemerkungen
+
+Hier sind einige in der Dokumentation von Quarto versteckte Möglichkeiten zusammengestellt, Lehr- und Lernmaterialien abwechslungsreich zu gestalten.
+
+Der Abschnitt [Markdown-Basics](https://quarto.org/docs/authoring/markdown-basics.html) aus der Quarto-Dokumentation wird hier nicht zusammengefasst und wird zur Lektüre ausdrücklich empfohlen. 
+
+## Barrierefreiheit
+
+Ein einfacher Accessibility-Check kann beim Rendern mit 
+
+```{=yaml}
+format:
+  html:
+    axe: true
+```
+
+im Header der qmd-Datei ausgelöst werden.
+
+Ausführliche Informationen in der [Quarto-Dokumentation](https://quarto.org/docs/output-formats/html-accessibility.html)
+
+## Strukturierende Elemente
+
+### Callouts
+
+::: {.callout-note title="Titel"}
+
+Callout-Notiz
+
+:::
+
+``` markdown
+::: {.callout-note title="Titel"}
+
+Callout-Notiz
+
+:::
+```
+
+### Spalten
+
+**Zwei einfache Spalten mit `layout-ncol`:**
+
+::: {layout-ncol="2"}
+Erste Spalte
+
+Zweite Spalte
+:::
+
+``` markdown
+::: {layout-ncol=2}
+
+Erste Spalte
+
+Zweite Spalte
+
+:::
+```
+
+**Zwei Spalten mit `.columns`:**
+
+::::: columns
+::: {.column width="20%"}
+Linke Spalte (20%)
+:::
+
+::: {.column width="80%"}
+Rechte Spalte (80%)
+:::
+:::::
+
+``` markdown
+:::: {.columns}
+
+::: {.column width="20%"}
+
+Linke Spalte (20%)
+
+:::
+
+::: {.column width="80%"}
+
+Rechte Spalte (80%)
+
+:::
+
+::::
+```
+
+**Inhalte mit `layout=""` anordnen:**
+
+::: {layout="[[1,1], [1]]"}
+oben links
+
+oben rechts
+
+unten
+:::
+
+```
+::: {layout="[[1,1], [1]]"}
+oben links
+
+oben rechts
+
+unten
+:::
+```
+### Fußnoten
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sagittis posuere ligula sit amet lacinia. Duis dignissim pellentesque magna, rhoncus congue sapien finibus mollis[^anmerkung]. Ut eu sem laoreet, vehicula ipsum in, convallis erat. Vestibulum magna sem, blandit pulvinar augue sit amet, auctor malesuada sapien. Nullam faucibus leo eget eros hendrerit, non laoreet ipsum lacinia^[Inline: Anmerkungen lassen sich leichter schreiben, da Sie keinen Bezeichner auswählen und nach unten scrollen müssen, um den Text der Anmerkung einzugeben.].
+
+[^anmerkung]: Hier ist etwas anzumerken.
+
+
+## Interaktiv
+
+### ObservableJS
+
+Für die Einbettung von ObservableJS sind in Quarto keine zusätzlichen Laufzeitumgebungen erforderlich. Der JavaScript-Code wird clientseitig im Browser ausgeführt und ist Bestandteil des gerenderten HTML-Dokuments. Dadurch lassen sich interaktive und didaktische Elemente ohne zusätzliche Installationen integrieren, was die Zugänglichkeit, Nachnutzbarkeit und didaktische Gestaltung von OER-Materialien deutlich verbessert.
+
+Mit ObservableJS lassen sich zahlreiche interaktive didaktische Elemente umsetzen, die häufig mit plattformgebundenen H5P-Inhalten realisiert werden[^h5p].
+
+[^h5p]: H5P ist als Software offen lizenziert. In der Praxis erfolgt die Erstellung und Nutzung von H5P-Inhalten jedoch häufig über spezifische Lernplattformen oder gehostete Dienste. Dadurch entstehen funktionale Abhängigkeiten von Plattformen, Editoren und Update-Zyklen, die sich von der Nutzung systemunabhängiger, statischer Webinhalte unterscheiden.
+:
+
+**Multiple Choice**  
+
+-----
+
+Aufgabe: Wählen Sie den Begriff, der ein Dateiformat beschreibt.
+
+```{ojs code-copy=false}
+//| echo: false
+
+viewof begriff = Inputs.select(
+  ["", "Python", "Datenbank", "jpeg"],
+  { label: "Auswahl" }
+)
+
+begriff === ""
+  ? html``
+  : begriff === "jpeg"
+    ? html`<p>Richtig! <strong>${begriff}</strong> ist ein Dateiformat.</p>`
+    : html`<p>Leider nicht richtig: Prüfen Sie, ob <strong>${begriff}</strong> ein Dateiformat ist.</p>`
+```
+
+-----
+
+ObservableJS-Code:
+
+````
+Aufgabe: Wählen Sie den Begriff, der ein Dateiformat beschreibt.
+
+```{ojs code-copy=false}
+//| echo: false
+
+viewof begriff = Inputs.select(
+  ["", "Python", "Datenbank", "jpeg"],
+  { label: "Auswahl" }
+)
+
+begriff === ""
+  ? html``
+  : begriff === "jpeg"
+    ? html`<p>Richtig! <strong>${begriff}</strong> ist ein Dateiformat.</p>`
+    : html`<p>Leider nicht richtig: Prüfen Sie, ob <strong>${begriff}</strong> ein Dateiformat ist.</p>`
+```
+````
+
+
+### IIIF Image Viewer
+
+```{=html}
+<!-- Load OpenSeadragon library -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/openseadragon/2.4.2/openseadragon.min.js"></script>
+
+<!-- Create a container for the viewer -->
+<div id="openseadragon-viewer" style="width: 100%; height: 500px;"></div>
+
+<script>
+// Initialize the OpenSeadragon viewer
+var viewer = OpenSeadragon({
+  id: "openseadragon-viewer",
+  prefixUrl: "https://cdnjs.cloudflare.com/ajax/libs/openseadragon/2.4.2/images/",
+  tileSources: "https://heidicon.ub.uni-heidelberg.de/iiif/2/201277%3A218424/info.json",
+  showNavigator: true,
+});
+</script>
+```
+
+**HTML-Code für IIIF Image Viewer**
+
+```{html}
+<!-- OpenSeadragon laden -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/openseadragon/2.4.2/openseadragon.min.js"></script>
+
+<!-- Container für den Viewer erzeugen -->
+<div id="openseadragon-viewer" style="width: 100%; height: 500px;"></div>
+
+<script>
+// OpenSeadragon viewer initialisieren
+var viewer = OpenSeadragon({
+  id: "openseadragon-viewer",
+  prefixUrl: "https://cdnjs.cloudflare.com/ajax/libs/openseadragon/2.4.2/images/",
+  tileSources: "https://heidicon.ub.uni-heidelberg.de/iiif/2/201277%3A218424/info.json",
+  showNavigator: true,
+});
+</script>
+```
+
+## Gestaltende Elemente
+
+### Bilder
+
+**Lokales Bild mit allen Optionen**
+
+![Platzhalter-Graphik: *Ein Mensch hält einen Platz*](../img/placeholder.png){#fig-placeholder fig-alt="Graphik von einem Menschen, der das Karten-Symbol für einen Platz in den Händen hält." width=300}
+
+
+**Eingebundenes Bild mit vollständigem Nachweis**
+
+!["[Jubilee and Munin, Ravens, Tower of London](https://commons.wikimedia.org/w/index.php?curid=48615973)" by [Colin](https://commons.wikimedia.org/wiki/User:Colin) from Wikimedia Commons, [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0)](https://upload.wikimedia.org/wikipedia/commons/thumb/3/30/Jubilee_and_Munin%2C_Ravens%2C_Tower_of_London_2016-04-30.jpg/1024px-Jubilee_and_Munin%2C_Ravens%2C_Tower_of_London_2016-04-30.jpg){#Raben fig-alt="Jubilee und Munin, zwei der Tower-Raben. Jubilee ist 2012 in Somerset geschlüpft und trägt einen goldenen Ring. Er wurde der Queen zu ihrem Diamantenen Thronjubiläum überreicht. Munin ist 1995 in North Uise geschlüpft und trägt einen hellgrünen Ring. Sie ist der älteste Rabe im Tower. Die Identifikation der Raben wurde von Chris Skaife, dem Ravenmaster („Rabenmeister“), bestätigt."}
+
+```{=markdown}
+!["[Jubilee and Munin, Ravens, Tower of London](https://commons.wikimedia.org/w/index.php?curid=48615973)" by [Colin](https://commons.wikimedia.org/wiki/User:Colin) from Wikimedia Commons, [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0)](https://upload.wikimedia.org/wikipedia/commons/thumb/3/30/Jubilee_and_Munin%2C_Ravens%2C_Tower_of_London_2016-04-30.jpg/1024px-Jubilee_and_Munin%2C_Ravens%2C_Tower_of_London_2016-04-30.jpg){#fig-Raben fig-alt="Jubilee und Munin, zwei der Tower-Raben. Jubilee ist 2012 in Somerset geschlüpft und trägt einen goldenen Ring. Er wurde der Queen zu ihrem Diamantenen Thronjubiläum überreicht. Munin ist 1995 in North Uise geschlüpft und trägt einen hellgrünen Ring. Sie ist der älteste Rabe im Tower. Die Identifikation der Raben wurde von Chris Skaife, dem Ravenmaster („Rabenmeister“), bestätigt."}
+```
+
+### Emojis und Symbole
+
+::: callout-tip
+Benötigt
+
+``` yaml
+from: markdown+emoji
+```
+
+Im Header der qmd-Datei.
+:::
+
+| Shortcode                   | Darstellung               |
+|-----------------------------|---------------------------|
+| `:bell:`                    | :bell:                    |
+| `:tada:`                    | :tada:                    |
+| `:mag:`                     | :mag:                     |
+| `:white_check_mark:`        | :white_check_mark:        |
+| `:x:`                       | :x:                       |
+| `:bangbang:`                | :bangbang:                |
+| `:one:`                     | :one:                     |
+| `:two`                      | :two:                     |
+| `:arrow_forward:`           | :arrow_forward:           |
+| `:floppy_disk:`             | :floppy_disk:             |
+| `:no_entry:`                | :no_entry:                |
+| `:page_facing_up:`          | :page_facing_up:          |
+| `:notebook:`                | :notebook:                |
+| `:book:`                    | :book:                    |
+| `:computer:`                | :computer:                |
+| `:sparkles:`                | :sparkles:                |
+| `:star:`                    | :star:                    |
+| `:exclamation:`             | :exclamation:             |
+| `:question:`                | :question:                |
+| `:+1:`                      | :+1:                      |
+| `:information_desk_person:` | :information_desk_person: |
+
+
+### Layout
+
+#### Workaround für Textumlauf um Bilder:
+
+::: {style="float: right;"}
+![Text](/img/placeholder.png "Ein Platzhalter"){fig-alt="Illustration eines Platzhalters." width="250"}
+:::
+
+{{< lipsum 1 >}}
+
+```{=markdown}
+::: {style="float: right; margin: 5px;"}
+![Text](/img/placeholder.png "Ein Platzhalter"){fig-alt="Illustration eines Platzhalters." width="250"}
+:::
+
+{{< lipsum 1 >}}
+```
+
+### Anmerkungen in der rechten Spalte
+
+::: column-margin
+Mit {.column-margin} können *Mark**Down***-Texte in die rechte Spalte geschrieben werden
+:::
+
+```{=yaml}
+::: {.column-margin}
+Mit {.column-margin} können *Mark**Down***-Texte in die rechte Spalte geschrieben werden
+:::
+```
+
+[Ein `span` mit der Klasse `aside`, dessen Inhalt am Rand platziert wird.]{.aside}
+
+`[Ein span mit der Klasse aside, dessen Inhalt am Rand platziert wird:]{.aside}`
+
+### Optionen von *page-layout: article*
+
+Dieses Dokument hat die Einstellung `page-layout: article` ( in der `_layout.yml`). Damit stehen einige weitere Optionen für die Gestaltung zur Verfügung:
+
+**Position und Breite des Inhaltsbereichs**
+
+::: column-body-outset
+``` yaml
+:::{.column-body-outset}
+
+:::
+```
+:::
+
+::: column-page
+``` yaml
+:::{.column-page}
+
+:::
+```
+:::
+
+::: column-screen
+``` yaml
+::: {.column-screen}
+
+:::
+```
+:::
+
+::: column-screen-inset
+``` yaml
+::: {.column-screen-inset}
+
+:::
+```
+:::
+
+::: column-body-outset-right
+``` yaml
+::: {.column-body-outset-right}
+
+:::
+```
+:::
+
+::: column-page-inset-right
+``` yaml
+::: {.column-page-inset-right}
+
+:::
+```
+:::
+
+::: column-page-right
+``` yaml
+::: {.column-page-right}
+
+:::
+```
+:::
+
+::: column-screen-inset-right
+``` yaml
+::: {.column-screen-inset-right}
+
+:::
+```
+:::
+
+::: column-screen-right
+``` yaml
+::: {.column-screen-right}
+
+:::
+```
+:::
+
+::: column-body-outset-left
+``` yaml
+::: {.column-body-outset-left}
+
+:::
+```
+:::
+
+::: column-page-inset-left
+``` yaml
+::: {.column-page-inset-left}
+
+:::
+```
+:::
+
+::: column-page-left
+``` yaml
+::: {.column-page-left}
+
+:::
+```
+:::
+
+::: column-screen-inset-left
+``` yaml
+::: {.column-screen-inset-left}
+
+:::
+```
+:::
+
+::: column-screen-left
+``` yaml
+::: {.column-screen-left}
+
+:::
+```
+:::
+
