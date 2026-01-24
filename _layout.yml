@@ -8,7 +8,7 @@ format:
 # embed-resources: true erstellt eine eigenständige HTML-Datei ohne externe Abhängigkeiten für die Übernahme in LMS wie Moodle oder OLAT.
     embed-resources: false
 # Einstellungen für Webpage-Funktionen
-    code-tools: # Symbol mit Beschriftung .md in der Kopfzeile zum Anzeigen des Markdown-Quellcodes der Seite
+    code-tools: # Symbol mit Beschriftung .qmd in der Kopfzeile zum Anzeigen des Markdown-Quellcodes der Seite
       source: true
       toggle: false
       caption: "qmd"
@@ -30,6 +30,10 @@ format:
     highlight-style: github
     respect-user-color-scheme: true
     cap-location: bottom
+# Callout-Optionen
+    callout:
+      icon: false # Kein Icon im Header
+      appearance: default # Alternativen: simple/minimal
 # Für die Steuerung der Appendices vgl. https://quarto.org/docs/authoring/appendices.html
     appendix-style: default
     appendix-cite-as: true

@@ -98,12 +98,11 @@ Zitat:
 
 Eine Codebox:
 
-```{=html}
+```{.html}
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="de" xml:lang="de"><head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-
 ```
 
 Das ist `inline-code`.
@@ -124,9 +123,9 @@ Callout Tip
 
 :::
 
-::: {.callout-warning}
+::: {.callout-important}
 
-Callout Warning
+Callout Important
 
 :::
 
@@ -136,12 +135,11 @@ Callout Caution
 
 :::
 
-::: {.callout-important}
+::: {.callout-warning}
 
-Callout Important
+Callout Warning
 
 :::
-
 
 ::: {.callout-note title="Inline Code macht gerne Ärger"}
 Einige Buchstaben, noch mehr Buchstaben, noch mehr Buchstaben, noch mehr Buchstaben, noch mehr Buchstaben, noch mehr Buchstaben, **Callout-Notiz mit** `inline code` und einem [Link](#). noch mehr Buchstaben, noch mehr Buchstaben, noch mehr Buchstaben, noch mehr Buchstaben, noch mehr Buchstaben, noch mehr Buchstaben, noch mehr Buchstaben, noch mehr Buchstaben, noch mehr Buchstaben...

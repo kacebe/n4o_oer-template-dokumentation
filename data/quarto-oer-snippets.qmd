@@ -34,11 +34,31 @@ Hier sind einige in der Dokumentation von Quarto versteckte Möglichkeiten zusam
 
 Der Abschnitt [Markdown-Basics](https://quarto.org/docs/authoring/markdown-basics.html) aus der Quarto-Dokumentation wird hier nicht zusammengefasst und wird zur Lektüre ausdrücklich empfohlen. 
 
-## Barrierefreiheit
+## Barrierefreiheit {#sec-barrierefreiheit}
+
+Quarto setzt konsequent HTML5-Standards um und ermöglicht die Erstellung sehr barrierearmer Lehrmaterialien. Folgendes sollte beim Verfassen von `.qmd`-Dateien berücksichtigt werden:
+
+- Überschriften-Hierarchie: Pro Seite genau ein H1 (kommt i.d.R. vom title), danach H2/H3 … ohne Sprünge. Abschnitte im qmd starten also mit `## h2`
+
+- Aussagekräftige Linktexte: 
+    - "weitere Informationen finden sie [im Datenportal des Anbieters](#)"" statt 
+    - "weitere Informationen finden sie [hier](*)."
+
+- Fremdsprachige Inhalte mit inline: `<span lang="en">…</span>` auszeichnen
+
+- Alternativtexte: Jede inhaltstragende Grafik hat `alt`/`fig-alt`; rein dekorative Bilder haben leeres `alt=""`.
+
+    `![Text](../img/placeholder.png)`: Der Text in eckigen Klammern wird als `fig-caption` gerendert.
+
+    `![Text](../img/placeholder.png){fig-alt="Illustration eines Platzhalters."}`: Bild mit `fig-caption` und `alt-text`.
+
+    `![Text](../img/placeholder.png "Ein Platzhalter"){fig-alt="Illustration eines Platzhalters."}`: Bild mit `fig-caption`, `title` (erscheint beim hovern) und `alt-text`.
+
+    ![Text](../img/placeholder.png "Ein Platzhalter"){fig-alt="Illustration eines Platzhalters." width="200px"}
 
 Ein einfacher Accessibility-Check kann beim Rendern mit 
 
-```{=yaml}
+```{.yaml}
 format:
   html:
     axe: true
@@ -46,7 +66,7 @@ format:
 
 im Header der qmd-Datei ausgelöst werden.
 
-Ausführliche Informationen in der [Quarto-Dokumentation](https://quarto.org/docs/output-formats/html-accessibility.html)
+Ausführliche Informationen in der [Quarto-Dokumentation](https://quarto.org/docs/output-formats/html-accessibility.html). Beachten Sie auch @sec-definitionen unten.
 
 ## Strukturierende Elemente
 
@@ -70,11 +90,15 @@ Callout-Notiz
 
 **Zwei einfache Spalten mit `layout-ncol`:**
 
+-----
+
 ::: {layout-ncol="2"}
 Erste Spalte
 
 Zweite Spalte
 :::
+
+------
 
 ``` markdown
 ::: {layout-ncol=2}
@@ -88,6 +112,8 @@ Zweite Spalte
 
 **Zwei Spalten mit `.columns`:**
 
+------
+
 ::::: columns
 ::: {.column width="20%"}
 Linke Spalte (20%)
@@ -98,8 +124,10 @@ Rechte Spalte (80%)
 :::
 :::::
 
+------
+
 ``` markdown
-:::: {.columns}
+::::: {.columns}
 
 ::: {.column width="20%"}
 
@@ -113,11 +141,13 @@ Rechte Spalte (80%)
 
 :::
 
-::::
+:::::
 ```
 
 **Inhalte mit `layout=""` anordnen:**
 
+------
+
 ::: {layout="[[1,1], [1]]"}
 oben links
 
@@ -126,7 +156,9 @@ oben rechts
 unten
 :::
 
-```
+------
+
+```{.markdown}
 ::: {layout="[[1,1], [1]]"}
 oben links
 
@@ -135,12 +167,58 @@ oben rechts
 unten
 :::
 ```
+
 ### Fußnoten
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sagittis posuere ligula sit amet lacinia. Duis dignissim pellentesque magna, rhoncus congue sapien finibus mollis[^anmerkung]. Ut eu sem laoreet, vehicula ipsum in, convallis erat. Vestibulum magna sem, blandit pulvinar augue sit amet, auctor malesuada sapien. Nullam faucibus leo eget eros hendrerit, non laoreet ipsum lacinia^[Inline: Anmerkungen lassen sich leichter schreiben, da Sie keinen Bezeichner auswählen und nach unten scrollen müssen, um den Text der Anmerkung einzugeben.].
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sagittis posuere ligula sit amet lacinia. Duis dignissim pellentesque magna, rhoncus congue sapien finibus mollis[^anmerkung]. Ut eu sem laoreet, vehicula ipsum in, convallis erat. Vestibulum magna sem, blandit pulvinar augue sit amet, auctor malesuada sapien. Nullam faucibus leo eget eros hendrerit, non laoreet ipsum lacinia.
 
 [^anmerkung]: Hier ist etwas anzumerken.
 
+```{.markdown}
+..., rhoncus congue sapien finibus mollis[^anmerkung]. Ut eu sem laoreet, ...
+
+[^anmerkung]: Hier ist etwas anzumerken. Die Zählung ist automatisiert.
+```
+
+### Begriffsdefinitionen und Abkürzungen {#sec-definitionen}
+
+HTML bietet die Möglichkeit, Begriffe und Abkürzungen maschinenlesbar und barrierearm bereitzustellen:
+
+```{.markdown}
+Begriff
+: Definition
+```
+
+wird gerendert als
+
+Begriff
+: Definition
+
+und erzeugt diese HTML-Ausgabe:
+
+```{.html}
+<dl>
+  <dt>Begriff</dt>
+  <dd>Definition</dd>
+</dl>
+
+``` 
+
+-----
+
+`<dfn><abbr title="Forschungsdatenmanagement">FDM</abbr></dfn>` im Fließtext wird so: <dfn><abbr title="Forschungsdatenmanagement">FDM</abbr></dfn> gerendert und liefert beim Hovern mit der Maus die Auflösung der Abkürzung.
+
+Das HTML dazu:
+
+```{.html}
+<dfn>
+    <abbr title="Forschungsdatenmanagement">FDM</abbr>
+</dfn>
+```
+
+Es können aber auch einfache <abbr title="Abkürzung">Abk.</abbr> ohne Definition in den Fließtext integriert werden.
+
+`Es können aber auch einfache <abbr title="Abkürzung">Abk.</abbr> ohne Definition in den Fließtext integriert werden.`
 
 ## Interaktiv
 
@@ -220,7 +298,7 @@ var viewer = OpenSeadragon({
 
 **HTML-Code für IIIF Image Viewer**
 
-```{html}
+```{.html}
 <!-- OpenSeadragon laden -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/openseadragon/2.4.2/openseadragon.min.js"></script>
 
@@ -242,16 +320,13 @@ var viewer = OpenSeadragon({
 
 ### Bilder
 
-**Lokales Bild mit allen Optionen**
-
-![Platzhalter-Graphik: *Ein Mensch hält einen Platz*](../img/placeholder.png){#fig-placeholder fig-alt="Graphik von einem Menschen, der das Karten-Symbol für einen Platz in den Händen hält." width=300}
-
+Zu barrierearmer Auszeichnung von Bildern vgl. @sec-barrierefreiheit
 
 **Eingebundenes Bild mit vollständigem Nachweis**
 
 !["[Jubilee and Munin, Ravens, Tower of London](https://commons.wikimedia.org/w/index.php?curid=48615973)" by [Colin](https://commons.wikimedia.org/wiki/User:Colin) from Wikimedia Commons, [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0)](https://upload.wikimedia.org/wikipedia/commons/thumb/3/30/Jubilee_and_Munin%2C_Ravens%2C_Tower_of_London_2016-04-30.jpg/1024px-Jubilee_and_Munin%2C_Ravens%2C_Tower_of_London_2016-04-30.jpg){#Raben fig-alt="Jubilee und Munin, zwei der Tower-Raben. Jubilee ist 2012 in Somerset geschlüpft und trägt einen goldenen Ring. Er wurde der Queen zu ihrem Diamantenen Thronjubiläum überreicht. Munin ist 1995 in North Uise geschlüpft und trägt einen hellgrünen Ring. Sie ist der älteste Rabe im Tower. Die Identifikation der Raben wurde von Chris Skaife, dem Ravenmaster („Rabenmeister“), bestätigt."}
 
-```{=markdown}
+```{.markdown}
 !["[Jubilee and Munin, Ravens, Tower of London](https://commons.wikimedia.org/w/index.php?curid=48615973)" by [Colin](https://commons.wikimedia.org/wiki/User:Colin) from Wikimedia Commons, [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0)](https://upload.wikimedia.org/wikipedia/commons/thumb/3/30/Jubilee_and_Munin%2C_Ravens%2C_Tower_of_London_2016-04-30.jpg/1024px-Jubilee_and_Munin%2C_Ravens%2C_Tower_of_London_2016-04-30.jpg){#fig-Raben fig-alt="Jubilee und Munin, zwei der Tower-Raben. Jubilee ist 2012 in Somerset geschlüpft und trägt einen goldenen Ring. Er wurde der Queen zu ihrem Diamantenen Thronjubiläum überreicht. Munin ist 1995 in North Uise geschlüpft und trägt einen hellgrünen Ring. Sie ist der älteste Rabe im Tower. Die Identifikation der Raben wurde von Chris Skaife, dem Ravenmaster („Rabenmeister“), bestätigt."}
 ```
 
@@ -260,7 +335,7 @@ var viewer = OpenSeadragon({
 ::: callout-tip
 Benötigt
 
-``` yaml
+```{.yaml}
 from: markdown+emoji
 ```
 
@@ -302,12 +377,12 @@ Im Header der qmd-Datei.
 
 {{< lipsum 1 >}}
 
-```{=markdown}
+```{.markdown}
 ::: {style="float: right; margin: 5px;"}
 ![Text](/img/placeholder.png "Ein Platzhalter"){fig-alt="Illustration eines Platzhalters." width="250"}
 :::
 
-{{< lipsum 1 >}}
+Ihr Absatztext
 ```
 
 ### Anmerkungen in der rechten Spalte
@@ -316,7 +391,7 @@ Im Header der qmd-Datei.
 Mit {.column-margin} können *Mark**Down***-Texte in die rechte Spalte geschrieben werden
 :::
 
-```{=yaml}
+```{.markdown}
 ::: {.column-margin}
 Mit {.column-margin} können *Mark**Down***-Texte in die rechte Spalte geschrieben werden
 :::
@@ -324,7 +399,9 @@ Mit {.column-margin} können *Mark**Down***-Texte in die rechte Spalte geschrieb
 
 [Ein `span` mit der Klasse `aside`, dessen Inhalt am Rand platziert wird.]{.aside}
 
-`[Ein span mit der Klasse aside, dessen Inhalt am Rand platziert wird:]{.aside}`
+```{.markdown}
+[Ein span mit der Klasse aside, dessen Inhalt am Rand platziert wird:]{.aside}
+```
 
 ### Optionen von *page-layout: article*
 
@@ -333,7 +410,7 @@ Dieses Dokument hat die Einstellung `page-layout: article` ( in der `_layout.yml
 **Position und Breite des Inhaltsbereichs**
 
 ::: column-body-outset
-``` yaml
+```{.yaml}
 :::{.column-body-outset}
 
 :::
@@ -341,7 +418,7 @@ Dieses Dokument hat die Einstellung `page-layout: article` ( in der `_layout.yml
 :::
 
 ::: column-page
-``` yaml
+```{.yaml}
 :::{.column-page}
 
 :::
@@ -349,7 +426,7 @@ Dieses Dokument hat die Einstellung `page-layout: article` ( in der `_layout.yml
 :::
 
 ::: column-screen
-``` yaml
+```{.yaml}
 ::: {.column-screen}
 
 :::
@@ -357,7 +434,7 @@ Dieses Dokument hat die Einstellung `page-layout: article` ( in der `_layout.yml
 :::
 
 ::: column-screen-inset
-``` yaml
+```{.yaml}
 ::: {.column-screen-inset}
 
 :::
@@ -365,7 +442,7 @@ Dieses Dokument hat die Einstellung `page-layout: article` ( in der `_layout.yml
 :::
 
 ::: column-body-outset-right
-``` yaml
+```{.yaml}
 ::: {.column-body-outset-right}
 
 :::
@@ -373,7 +450,7 @@ Dieses Dokument hat die Einstellung `page-layout: article` ( in der `_layout.yml
 :::
 
 ::: column-page-inset-right
-``` yaml
+```{.yaml}
 ::: {.column-page-inset-right}
 
 :::
@@ -381,7 +458,7 @@ Dieses Dokument hat die Einstellung `page-layout: article` ( in der `_layout.yml
 :::
 
 ::: column-page-right
-``` yaml
+```{.yaml}
 ::: {.column-page-right}
 
 :::
@@ -389,7 +466,7 @@ Dieses Dokument hat die Einstellung `page-layout: article` ( in der `_layout.yml
 :::
 
 ::: column-screen-inset-right
-``` yaml
+```{.yaml}
 ::: {.column-screen-inset-right}
 
 :::
@@ -397,7 +474,7 @@ Dieses Dokument hat die Einstellung `page-layout: article` ( in der `_layout.yml
 :::
 
 ::: column-screen-right
-``` yaml
+```{.yaml}
 ::: {.column-screen-right}
 
 :::
@@ -405,7 +482,7 @@ Dieses Dokument hat die Einstellung `page-layout: article` ( in der `_layout.yml
 :::
 
 ::: column-body-outset-left
-``` yaml
+```{.yaml}
 ::: {.column-body-outset-left}
 
 :::
@@ -413,7 +490,7 @@ Dieses Dokument hat die Einstellung `page-layout: article` ( in der `_layout.yml
 :::
 
 ::: column-page-inset-left
-``` yaml
+```{.yaml}
 ::: {.column-page-inset-left}
 
 :::
@@ -421,7 +498,7 @@ Dieses Dokument hat die Einstellung `page-layout: article` ( in der `_layout.yml
 :::
 
 ::: column-page-left
-``` yaml
+```{.yaml}
 ::: {.column-page-left}
 
 :::
@@ -429,7 +506,7 @@ Dieses Dokument hat die Einstellung `page-layout: article` ( in der `_layout.yml
 :::
 
 ::: column-screen-inset-left
-``` yaml
+```{.yaml}
 ::: {.column-screen-inset-left}
 
 :::
@@ -437,7 +514,7 @@ Dieses Dokument hat die Einstellung `page-layout: article` ( in der `_layout.yml
 :::
 
 ::: column-screen-left
-``` yaml
+```{.yaml}
 ::: {.column-screen-left}
 
 :::

@@ -127,14 +127,15 @@ defaults:
       callout-border-width: 2px
       callout-border-radius: 4px
       callout-border-scale: 0%
-      callout-icon-scale: 10%
+      callout-icon-scale: 100%
       callout-margin-top: 1.25rem
       callout-margin-bottom: 1.25rem
-      callout-color-note: $brand-akzent
-      callout-color-tip: $brand-akzent
-      callout-color-caution: $brand-akzent
-      callout-color-warning: $brand-akzent
+      callout-color-note: $brand-cd-farbe-abstufung3
+      callout-color-tip: $brand-cd-farbe-abstufung3
+      callout-color-caution: $brand-cd-farbe-abstufung2
+      callout-color-warning: $brand-cd-farbe-abstufung1
       callout-color-important: $brand-akzent
+      
   # Tabset
       nav-link-padding-y: .5rem
       nav-link-padding-x: 1rem

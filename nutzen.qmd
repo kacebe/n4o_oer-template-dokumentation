@@ -217,13 +217,13 @@ Die Projektstruktur des Templates ist daher bewusst klar und übersichtlich geha
 └── template.qmd
 ```
 
-Mehrere Dateien im Projektverzeichnis beginnen mit einem Unterstrich. Diese Benennung folgt einer Konvention in Quarto-Projekten. Dateien mit einem führenden Unterstrich werden nicht als eigenständige Inhalte gerendert, sondern dienen der Konfiguration, der strukturierten Beschreibung oder der Einbindung in andere Dateien. Sie bilden den technischen Rahmen des Projekts.
+Mehrere Dateien im Projektverzeichnis beginnen mit einem Unterstrich `_`. Diese Benennung folgt einer Konvention in Quarto-Projekten. Dateien mit einem führenden Unterstrich werden nicht als eigenständige Inhalte gerendert, sondern dienen der Konfiguration, der strukturierten Beschreibung oder der Einbindung in andere Dateien. Sie bilden den technischen Rahmen des Projekts.
 
 Das Verzeichnis `assets` enthält unterstützende Ressourcen, die für Gestaltung und Ausgabe benötigt werden. Dazu gehören unter anderem Zitationsstile, Schriftarten und weitere gestalterische Dateien. Innerhalb dieses Verzeichnisses ist die Datei `n4o_oer_html.scss` von besonderer Bedeutung. Sie definiert projektspezifische Stilregeln für die HTML-Ausgabe und ergänzt die in `_brand.yml` festgelegten Gestaltungsvorgaben.
 
 Weitere Verzeichnisse wie `img` oder `data` dienen der Ablage von Abbildungen und Datensätzen, die in der Übung verwendet werden können.
 
-Die Datei `_quarto.yml` ist die zentrale Projektkonfiguration. Sie definiert grundlegende Eigenschaften des Projekts, unter anderem den Dokumenttyp, globale Optionen sowie die Einbindung weiterer Konfigurations- und Metadatendateien. Änderungen an dieser Datei wirken sich immer auf das gesamte Projekt aus. Da die Templates jeweils nur eine HTML-Datei erzeugen und die dafür notwendigen Angaben alle in den anderen Dateien vorhanden sind, ist die `_quarto.yml` der Templates quasi leer. De facto braucht es aber einer `_quarto.yml`-Datei, um das Repository als Template anbieten zu können.
+Die Datei `_quarto.yml` ist die zentrale Projektkonfiguration. Sie definiert grundlegende Eigenschaften des Projekts, unter anderem den Dokumenttyp, globale Optionen sowie die Einbindung weiterer Konfigurations- und Metadatendateien. Änderungen an dieser Datei wirken sich immer auf das gesamte Projekt aus. Da einige Templates wie *Übung* oder *Skript* jeweils nur eine HTML-Datei erzeugen und die dafür notwendigen Angaben alle in den anderen Dateien vorhanden sind, ist die `_quarto.yml` der Templates quasi leer. De facto braucht es aber eine `_quarto.yml`-Datei, um das Repository als Template über GitHub anbieten zu können.
 
 Die `.qmd`-Datei ist die zentrale Inhaltsdatei des Templates. Sie enthält die Struktur und den Text der Übung oder des Skripts und ist der primäre Arbeitsort für inhaltliche Anpassungen. In dieser Datei werden Inhalte ergänzt, verändert oder entfernt. Projektweite Einstellungen oder strukturierte Metadaten werden hier bewusst nicht gepflegt.
 
@@ -266,9 +266,13 @@ Quarto kann Projekte in viele weitere Ausgabeformate rendern. Diese Formate erfo
 
 ## Design und Layout anpassen {#Design}
 
+Für das Testen der Auswirkungen von Änderungen der `_quarto.yml` und der `n4o_oer_html.scss` steht in diesem Repository die Seite [Designtest - Änderungen im Branding überprüfen](./data/quarto-designtest.qmd) bereit.
+
 ## Metadaten erfassen und pflegen {#Metadaten}
 
 ## Inhalte erstellen {#Inhalte}
+
+Einige nützliche Quarto-Komponenten für die Erstellung von OER haben wir auf der Seite [OER-Snippets - Cheatsheet für Quarto-Markdown](./data/quarto-oer-snippets.qmd) zusammengestellt.
 
 ## Bereitstellung {#Bereitstellung}
 

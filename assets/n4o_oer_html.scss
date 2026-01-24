@@ -146,3 +146,72 @@ figure figcaption,
   font-size: 0.75rem;
 }
 
+// Callouts
+
+// Notes
+.callout.callout-note > .callout-header,
+.callout.callout-note.callout-style-default > .callout-header,
+.callout.callout-note.callout-style-simple  > .callout-header {
+  background-color: rgba($brand-cd-farbe-abstufung3, 0.35) !important; /* Fallback */
+  background-color: color-mix(in srgb, $brand-cd-farbe-abstufung3 55%, $brand-hintergrund) !important;
+}
+
+// Tipps
+.callout.callout-tip > .callout-header,
+.callout.callout-tip.callout-style-default > .callout-header,
+.callout.callout-tip.callout-style-simple  > .callout-header {
+  background-color: rgba($brand-cd-farbe-abstufung3, 0.45) !important;
+  background-color: color-mix(in srgb, $brand-cd-farbe-abstufung3 70%, $brand-hintergrund) !important;
+}
+
+// Important
+.callout.callout-important > .callout-header,
+.callout.callout-important.callout-style-default > .callout-header,
+.callout.callout-important.callout-style-simple  > .callout-header {
+  background-color: rgba($brand-cd-farbe-abstufung2, 0.45) !important;
+  background-color: color-mix(in srgb, $brand-cd-farbe-abstufung2 70%, $brand-hintergrund) !important;
+}
+
+// Caution
+.callout.callout-caution > .callout-header,
+.callout.callout-caution.callout-style-default > .callout-header,
+.callout.callout-caution.callout-style-simple  > .callout-header {
+  background-color: rgba($brand-cd-farbe-abstufung1, 0.60) !important;
+  background-color: color-mix(in srgb, $brand-cd-farbe-abstufung1 85%, $brand-hintergrund) !important;
+}
+
+// Warning
+.callout.callout-warning > .callout-header,
+.callout.callout-warning.callout-style-default > .callout-header,
+.callout.callout-warning.callout-style-simple  > .callout-header {
+  background-color: rgba($brand-akzent, 0.60) !important;
+  background-color: color-mix(in srgb, $brand-akzent 85%, $brand-hintergrund) !important;
+}
+
+.callout > .callout-header {
+  color: $brand-text !important;
+  font-weight: 700;
+}
+
+// Linker Rand der Callouts einheitlich
+
+.callout {
+  border-left-color: $brand-akzent !important;
+}
+
+.callout::before {
+  background-color: $brand-akzent !important;
+}
+
+// Zitate
+
+blockquote {
+  color: $brand-text !important;
+  font-style: italic;
+  border-left: 0.25rem solid $brand-akzent;
+  padding: 0.25rem 1rem;
+}
+
+blockquote p:last-child {
+  margin-bottom: 0;
+}
