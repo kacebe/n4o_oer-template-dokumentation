@@ -1,4 +1,4 @@
-name: Quarto-Projekt auf GitHub Pages publizieren
+name: Quarto-Projekt mit Python-Umgebung auf GitHub Pages publizieren
 
 on:
   push:
@@ -21,6 +21,17 @@ jobs:
     steps:
       - name: Repository auschecken
         uses: actions/checkout@v4
+
+      - name: Python einrichten
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: "pip"
+
+      - name: Python-Abhaengigkeiten installieren
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
 
       - name: Quarto einrichten
         uses: quarto-dev/quarto-actions/setup@v2
