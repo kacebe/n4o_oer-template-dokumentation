@@ -1,0 +1,4 @@
+-r requirements.txt
+jupyterlab>=4,<5
+ipywidgets>=8,<9
+jupyter>=1,<2
