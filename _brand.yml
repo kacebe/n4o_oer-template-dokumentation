@@ -1,3 +1,9 @@
+# _brand.yml
+# Zentrale Branding- und Theme-Konfiguration für FAIRedelte OER mit Quarto von NFDI4Objects
+# Lizenz: MIT
+# Farbsemantik: color:
+# Typografie: typography:
+# Komponentenmechanik: defaults.bootstrap.defaults
 logo:
   images:
     icon-logo:
@@ -31,7 +37,7 @@ color:
   background: hintergrund
   foreground: text
   primary: akzent
-  secondary: cd-farbe-abstufung1
+  secondary: cd-farbe-abstufung1 # Secondary ist eine UI-Farbe. Sie sollte nicht für Text verwendet werden bzw. im scss für Textelemente (insb. citation) überschrieben werden, wenn die Farbe nicht kontrastreich genug ist.
   tertiary: flaeche
   success: erfolg
   info: hinweis
@@ -67,7 +73,7 @@ typography:
     line-height: 1.4
   headings:
     family: PT Sans
-    weight: 400
+    weight: 500
     style: normal
     line-height: 1.5
     color: text
@@ -109,14 +115,11 @@ defaults:
       code-block-border-width: 2px
       code-block-border-color: $brand-akzent
       code-block-border-radius: 4px
-      code-block-font-size: 0.85rem
-      code-inline-font-size: 0.85rem
       btn-code-copy-color: $brand-akzent
       btn-code-copy-color-active: $brand-akzent
   # Inline-Code
       code-bg: $brand-flaeche
       code-color: $brand-text
-      code-font-size: 0.85rem
   # Table of Contents
       toc-font-size: 0.9rem
       toc-color: $brand-text
@@ -130,16 +133,16 @@ defaults:
       callout-icon-scale: 100%
       callout-margin-top: 1.25rem
       callout-margin-bottom: 1.25rem
-      callout-color-note: $brand-cd-farbe-abstufung3
-      callout-color-tip: $brand-cd-farbe-abstufung3
-      callout-color-caution: $brand-cd-farbe-abstufung2
-      callout-color-warning: $brand-cd-farbe-abstufung1
-      callout-color-important: $brand-akzent
+      callout-color-note: $brand-cd-farbe
+      callout-color-tip: $brand-hinweis
+      callout-color-caution: $brand-warnung
+      callout-color-warning: $brand-warnung
+      callout-color-important: $brand-fehler
       
   # Tabset
       nav-link-padding-y: .5rem
       nav-link-padding-x: 1rem
-      nav-link-font-size: 1.2rem
+      nav-link-font-size: 1.1rem
       nav-link-font-weight: 400
       nav-link-color: $brand-text
       nav-tabs-border-color: $brand-akzent

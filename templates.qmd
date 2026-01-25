@@ -19,8 +19,24 @@ number-sections: false
 Diese Seite ist noch im Aufbau.
 Inhalte und Struktur werden derzeit erarbeitet und werden sich ändern.
 
-**Den Link bitte noch nicht weitergeben. Die URL wird nach der Publikation eine andere sein**
+**Den Link bitte noch nicht weitergeben. Die URL wird nach der Publikation eine andere sein.**
 :::
+
+In den [OER-Templates für Übungen und Skripte](../index.qmd) sind Metadaten nach unterschiedlichen Funktionen in drei Dateien ausgelagert. Damit wird der Meta-Header der `qmd`-Datei stark ausgedünnt und die Arbeit an den Inhalten nicht gestört.
+
+Für Anpassungen an Metadaten sind Änderungen in folgenden Dateien vorzunehmen:
+
+- `_autor_innen.yml`
+- `_oer_metadata.yml`
+
+Änderungen an Design und Layout des Templates können über die 
+
+- `_layout.yml`
+- `_brand.yml`
+
+vorgenommen werden.
+
+-----
 
 ## Übungs-Template
 

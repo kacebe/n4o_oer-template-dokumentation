@@ -4,6 +4,7 @@ website:
     location: navbar
     type: overlay
   reader-mode: true
+  bread-crumbs: true
   navbar:
     title: "FAIR-OER Templates"
     pinned: true

@@ -28,6 +28,13 @@ execute:
   freeze: false
 ---
 
+::: {.callout-note title="Download als .qmd-Datei"}
+
+Diese Datei können Sie auch [direkt aus dem Repository in .qmd]({{< meta data-url >}}quarto-oer-snippets.qmd) herunterladen und in anderen Projekten nutzen oder über den <kbd>&lt;/&gt; qmd</kbd>-Button oben rechts auf dieser Seite einzelne Abschnitte des Markwdowns dieser Seite aufrufen.
+
+:::
+
+
 ## Vorbemerkungen
 
 Hier sind einige in der Dokumentation von Quarto versteckte Möglichkeiten zusammengestellt, Lehr- und Lernmaterialien abwechslungsreich zu gestalten.
@@ -78,7 +85,7 @@ Callout-Notiz
 
 :::
 
-``` markdown
+```{.markdown)
 ::: {.callout-note title="Titel"}
 
 Callout-Notiz
@@ -100,7 +107,7 @@ Zweite Spalte
 
 ------
 
-``` markdown
+```{.markdown)
 ::: {layout-ncol=2}
 
 Erste Spalte
@@ -126,7 +133,7 @@ Rechte Spalte (80%)
 
 ------
 
-``` markdown
+```{.markdown)
 ::::: {.columns}
 
 ::: {.column width="20%"}
@@ -202,7 +209,7 @@ und erzeugt diese HTML-Ausgabe:
   <dd>Definition</dd>
 </dl>
 
-``` 
+```
 
 -----
 
@@ -386,6 +393,10 @@ Ihr Absatztext
 ```
 
 ### Anmerkungen in der rechten Spalte
+
+::: callout-warning {title="Anmerkungen und mobile Geräte"}
+Auf mobilen Geräten werden die Anmerkungen aus `column-margin` oder aus Spans mit der Klasse `aside` häufig nicht dargestellt
+:::
 
 ::: column-margin
 Mit {.column-margin} können *Mark**Down***-Texte in die rechte Spalte geschrieben werden

@@ -2,7 +2,7 @@
 title: Designtest
 subtitle: Änderungen im Branding überprüfen
 description: |
-  Diese Seite stellt die wesentlichen Elemente Design-Element von Quarto-Dokumenten zusammen, um die 
+  Diese Seite stellt die wesentlichen Design-Element von Quarto-Dokumenten zusammen, um die 
   Auswirkungen von Änderungen in der _brand.yml und der .scss-Datei zu prüfen.
 abstract: ""
 abstract-title: ""
@@ -25,23 +25,17 @@ toc-location: left
 number-sections: true
 ---
 
-In den [OER-Templates für Übungen und Skripte](../index.qmd) sind Metadaten nach unterschiedlichen Funktionen in drei Dateien ausgelagert. Damit wird der Meta-Header der `qmd`-Datei stark ausgedünnt und die Arbeit an den Inhalten nicht gestört.
+::: {.callout-note title="Download als .qmd-Datei"}
 
-Für Anpassungen an Metadaten sind Änderungen in folgenden Dateien vorzunehmen:
+Diese Datei können Sie auch [direkt aus dem Repository in .qmd]({{< meta data-url >}}quarto-designtest.qmd) herunterladen und in anderen Projekten nutzen oder über den <kbd>&lt;/&gt; qmd</kbd>-Button oben rechts auf dieser Seite einzelne Abschnitte des Markwdowns dieser Seite aufrufen.
 
-- `_autor_innen.yml`
-- `_oer_metadata.yml`
+:::
 
-Änderungen an Design und Layout des Templates können über die 
 
-- `_layout.yml`
-- `_brand.yml`
-
-vorgenommen werden.
-
------
 
 ## Aktuelle Farbbelegung in *\_brand.yml*
+
+In dieser Tabelle wird die aktuelle Belegung der Farbpalette in der _brand.yml angezeigt. Sie wird nach jedem Rendern dieser Seite automatisch neu über ausführbaren Code in Quarto erzeugt. Auswirkungen auf die farbliche Gestaltung der Website wird für wesentliche Elemente weiter unten auf der Seite sichtbar.
 
 ::: {.smaller}
 
@@ -107,6 +101,8 @@ Eine Codebox:
 
 Das ist `inline-code`.
 
+
+
 ### Callouts
 
 note, tip, warning, caution, and important.
@@ -141,8 +137,8 @@ Callout Warning
 
 :::
 
-::: {.callout-note title="Inline Code macht gerne Ärger"}
-Einige Buchstaben, noch mehr Buchstaben, noch mehr Buchstaben, noch mehr Buchstaben, noch mehr Buchstaben, noch mehr Buchstaben, **Callout-Notiz mit** `inline code` und einem [Link](#). noch mehr Buchstaben, noch mehr Buchstaben, noch mehr Buchstaben, noch mehr Buchstaben, noch mehr Buchstaben, noch mehr Buchstaben, noch mehr Buchstaben, noch mehr Buchstaben, noch mehr Buchstaben...
+::: {.callout-note title="Inline-Elemente in Callouts machen gerne Ärger"}
+Einige Buchstaben, noch mehr Buchstaben, noch mehr Buchstaben, noch mehr Buchstaben, noch mehr Buchstaben, noch mehr Buchstaben, **Callout-Notiz mit** `inline code`, einem {{< kbd kdb-Button >}} und einem [Link](#). noch mehr Buchstaben, noch mehr Buchstaben, noch mehr Buchstaben, noch mehr Buchstaben, noch mehr Buchstaben, noch mehr Buchstaben, noch mehr Buchstaben, noch mehr Buchstaben, noch mehr Buchstaben...
 :::
 
 **Codebox in Callout:**
@@ -241,9 +237,39 @@ Zweite Spalte
 
 :::
 
+### Brand-Logos
+
+::::: {.columns}
+
+::: {.column width="10%"}
+
+*Small:* `{{< brand logo small >}}`
+
+{{< brand logo small >}}
+
+:::
+
+::: {.column width="40%"}
+
+*Medium:* `{{< brand logo medium >}}`
+
+{{< brand logo medium >}}
+
+:::
+
+::: {.column width="40%"}
+
+*Large:* `{{< brand logo large >}}`
+
+{{< brand logo large >}}
+
+:::
+
+:::::
+
 ### Bild mit Bildunterschrift
 
-![Ein Bild mit einer Bildunterschrift](/img/placeholder.png "Ein Platzhalter"){fig-alt="Illustration eines Platzhalters." width="250"}
+![Ein Bild mit einer Bildunterschrift, [Link](*), `inline-code` und einer {{< kbd Taste >}}](/img/placeholder.png "Ein Platzhalter"){fig-alt="Illustration eines Platzhalters." width="250"}
 
 
 ### Fußnoten und Anmerkungen

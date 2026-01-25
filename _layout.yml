@@ -11,7 +11,7 @@ format:
     code-tools: # Symbol mit Beschriftung .qmd in der Kopfzeile zum Anzeigen des Markdown-Quellcodes der Seite
       source: true
       toggle: false
-      caption: "qmd"
+      caption: ".qmd"
     back-to-top-navigation: true # Am Ende der Seite wird angeboten, an den Anfang zu springen
     anchor-sections: true # Beim Hovern über die 'headings' wird ein Ankersymbol angezeigt, das mit der http-Adresse der Überschrift verlinkt ist.
     code-copy: true # Kopierbutton mit ARIA-Label

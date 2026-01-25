@@ -27,6 +27,7 @@ keywords:
 # Technische Metadaten
 site-url: "https://kacebe.github.io/n4o_oer-template-dokumentation/"
 repo-url: "https://github.com/kacebe/n4o_oer-template-dokumentation/"
+data-url: "https://raw.githubusercontent.com/kacebe/n4o_oer-template-dokumentation/main/data/"
 
 # Rechtliche Metadaten
 copyright: "Kai-Christian Bruhn"

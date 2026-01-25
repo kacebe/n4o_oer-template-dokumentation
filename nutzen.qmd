@@ -27,12 +27,14 @@ number-sections: false
 
 Diese Seite ist noch im Aufbau. Inhalte und Struktur werden derzeit erarbeitet und werden sich ändern.
 
-**Den Link bitte noch nicht weitergeben. Die URL wird nach der Publikation eine andere sein**
+**Den Link bitte noch nicht weitergeben. Die URL wird nach der Publikation eine andere sein.**
 :::
 
 ## Schnelleinstieg
 
-In diesem Schnellstart erstellen Sie aus einem Template ein lokales Quarto-Projekt, rendern es einmal und nehmen anschließend eine erste kleine Änderung vor. Sie brauchen dafür keine Veröffentlichung im Internet und keine Verbindung zu einem eigenen Git-Repository.
+In diesem Schnellstart lernen Sie Schritt für Schritt, wie Sie aus einem Template ein lokales Quarto-Projekt erstellen und einmal rendern. Anschließend nehmen Sie eine kleine Änderung vor, um den grundlegenden Arbeitsablauf kennenzulernen.
+
+Eine Veröffentlichung im Internet oder Vorkenntnisse zu Git und Git-Repositories sind dafür nicht erforderlich.
 
 Am Ende haben Sie ein funktionierendes Projektverzeichnis und die HTML-Seiten auf Ihrem Rechner, die Sie anschließend direkt nutzen und gezielt anpassen können.
 
@@ -60,15 +62,19 @@ Legen Sie zuerst ein neues, leeres Verzeichnis auf Ihrem Rechner für Ihr Projek
 
 Beispiele für geeignete Verzeichnisnamen:
 
--   oer-templates-test
--   skript-template-demo
--   modul03_datenbanken
+-   `/oer-templates-test/`
+-   `/skript-template-demo/`
+-   `/modul03_datenbanken/`
 
 Wenn Sie das Verzeichnis im Dateimanager anlegen, öffnen Sie anschließend ein Terminal in genau diesem Verzeichnis oder wechseln Sie im Terminal dorthin (das Vorgehen ist abhängig vom genutzten Betriebssystem. Nutzen Sie die Suchmaschine Ihres Vertrauens mit *\<Betriebssystem\> Terminal in Ordner öffnen*).
 
 **Schritt 2: Template in das Projektverzeichnis übernehmen**
 
-Sie können ein Template auf zwei gleichwertige Arten in ein lokales Projekt überführen. Wählen Sie die Variante, die für Sie am einfachsten ist:
+Sie können ein Template auf zwei Arten in ein lokales Projekt überführen. Wählen Sie die Variante, die für Sie am einfachsten ist:
+
+1. Mit `quarto use template` das Template direkt in das Projekt-Verzeichnis laden und loslegen.
+
+2. Ein Zip-Datei herunterladen, lokal im Projekt-Verzeichnis entpacken, aufräumen und loslegen.
 
 ::: panel-tabset
 ### Template mit `quarto use template` laden
@@ -117,11 +123,11 @@ Die Ergebnisse unterscheiden sich in zwei Aspekten:
 
 1.  Im Verzeichnis aus dem zip-Archiv liegen alle Daten aus dem github-Repository des Templates. Den Ordner `.github` und die Datei `.gitignore` sollten Sie löschen. Stellen Sie dafür sicher, das "versteckte" Dateien im Dateimanager sichtbar sind.
 
-2.  Beide Verzeichnisse enthalten **eine .qmd-Datei**. Die Dateinamen weichen voneinander ab: Die Datei aus dem ZIP-Archiv heißt `template.qmd` und die mit `quarto use template` erzeugte übernimmt den Namen des Projektverzeichnisses. **Auch deshalb ist es sinnvoll, einen aussagekräftigen Namen für das Projektverzeichnis zu wählen**. Sie können die .qmd-Dateien aber auch beliebig umbenennen.
+2.  Beide Verzeichnisse enthalten **eine `.qmd`-Datei**. Die Dateinamen weichen voneinander ab: Die Datei aus dem ZIP-Archiv heißt `template.qmd` und die mit `quarto use template` erzeugte übernimmt den Namen des Projektverzeichnisses. **Auch deshalb ist es sinnvoll, einen aussagekräftigen Namen für das Projektverzeichnis zu wählen**. Sie können die `.qmd`-Dateien aber später jederzeit auch beliebig umbenennen.
 
 **Schritt 3: Projekt lokal rendern**
 
-Rendern bedeutet: Quarto erzeugt aus der .qmd-Datei eine HTML-Ausgabe. Führen Sie im Terminal des Projektverzeichnis' folgenden Befehl aus: `quarto render`
+Rendern bedeutet: Quarto erzeugt aus der `.qmd`-Datei eine HTML-Ausgabe. Führen Sie im Terminal des Projektverzeichnis' folgenden Befehl aus: `quarto render`
 
 Quarto verarbeitet nun die Dateien und erzeugt ein HTML-Dokument.
 
@@ -137,9 +143,9 @@ Nach dem Rendern finden Sie das Ergebnis im Ordner `_site`.
 
 **Schritt 5: Erste sichtbare Änderung vornehmen**
 
-Nehmen Sie eine kleine, gut sichtbare Änderung vor, um zu verstehen, wie Quarto funktioniert. Geeignet ist zum Beispiel der Titel der Website.
+Nehmen Sie kleine, gut sichtbare Änderungen vor, um zu verstehen, wie Quarto funktioniert. Geeignet sind zum Beispiel der Titel und der Untertitel der Website.
 
-Öffnen Sie dazu die .qmd-Datei in Ihrem Editor. Am Anfang der .qmd-Datei stehen zwei Schlüssel: `title` und `subtitle`. Hier das Beispiel aus dem Übungs-Template:
+Öffnen Sie dazu die `.qmd`-Datei in Ihrem Editor. Am Anfang der `.qmd`-Datei stehen zwei Schlüssel: `title` und `subtitle`. Hier das Beispiel aus dem Übungs-Template:
 
 ``` yaml
 ---
@@ -153,23 +159,32 @@ Rendern Sie das Projekt erneut: `quarto render`
 
 Öffnen Sie die Seite im Browser noch einmal oder laden Sie sie neu. Der geänderte Titel und Untertitel sollten nun angezeigt werden. Damit ist bestätigt, dass Ihr lokaler Workflow funktioniert und Änderungen zuverlässig in der Ausgabe ankommen.
 
-::: callout-note
-**Cache des Browsers**
+::: {.callout-note title="Hinweis: `quarto render` und `quarto preview`"}
 
-Zuweilen behält der Browser die Daten im Cache und die Änderungen nach `quarto render` werden angezeigt. Häufig hilft die Tastenkombination {{< kbd Strg >}} + {{< kbd F5 >}} im Browser
+Mit `quarto render` lassen Sie Quarto die Ausgabedateien vollständig neu erzeugen. Das entspricht einem „finalen Durchlauf“ des Projekts auf Ihrem Rechner. Dabei werden alle Dateien und Einstellungen ausgewertet, auch Änderungen an Konfigurationsdateien wie der `_quarto.yml`.
+
+`quarto preview` zeigt Ihr Dokument hingegen in einer laufenden Vorschau im Browser an. Sobald Sie eine `.qmd`-Datei speichern, wird die Anzeige automatisch aktualisiert. Diese Vorschau eignet sich besonders gut, wenn Sie am Text oder an anderen Inhalten arbeiten.
+
+Für Änderungen an der Projektstruktur oder an Konfigurationsdateien sollten Sie jedoch immer `quarto render` verwenden.
+
+Zuweilen behält der Browser die Daten im Cache und die Änderungen nach `quarto render` werden angezeigt. Häufig hilft die Tastenkombination {{< kbd Strg >}} + {{< kbd F5 >}} im Browser und die Seite wird vollständig aktualisiert angezeigt.
 :::
+
+
 
 **Nächste Schritte**
 
 Nach dem Schnellstart können Sie das Template auf drei Ebenen weiter bearbeiten. Für jede Ebene gibt es eigene Unterabschnitte.
 
-[Design und Layout anpassen](): Sie passen die Gestaltung der HTML-Seiten einer Corporate Identity an.
+1. [Design und Layout anpassen](###): Sie passen die Gestaltung der HTML-Seiten einer Corporate Identity an.
 
-[Metadaten erfassen und pflegen](): Sie befüllen die Metadatenfelder mit Ihren Angaben, um wirklichh FAIRedelte OER zu erstellen.
+2. [Metadaten erfassen und pflegen](####): Sie befüllen die Metadatenfelder mit Ihren Angaben, um wirklichh FAIRedelte OER zu erstellen.
 
-[Inhalte erstellen](): Sie ergänzen oder ändern Inhalte in der vorgesehenen .qmd-Datei.
+3. [Inhalte erstellen](####): Sie ergänzen oder ändern Inhalte in der vorgesehenen `.qmd`-Datei.
 
 Wenn Sie anschließend eine Veröffentlichung planen, ist der Abschnitt [Bereitstellung](#bereitstellung) relevant. Dort wird beschrieben, wie HTML-Ausgaben je nach Szenario bereitgestellt werden können, ohne dass eine öffentliche Online-Publikation zwingend erforderlich ist.
+
+
 
 ## Projektstruktur
 
@@ -217,32 +232,50 @@ Die Projektstruktur des Templates ist daher bewusst klar und übersichtlich geha
 └── template.qmd
 ```
 
-Mehrere Dateien im Projektverzeichnis beginnen mit einem Unterstrich `_`. Diese Benennung folgt einer Konvention in Quarto-Projekten. Dateien mit einem führenden Unterstrich werden nicht als eigenständige Inhalte gerendert, sondern dienen der Konfiguration, der strukturierten Beschreibung oder der Einbindung in andere Dateien. Sie bilden den technischen Rahmen des Projekts.
+Mehrere Dateien im Projektverzeichnis beginnen mit einem Unterstrich `_`. Diese Benennung folgt einer Konvention in Quarto-Projekten. Dateien mit einem führenden Unterstrich werden nicht als eigenständige Inhalte gerendert, sondern dienen der Konfiguration, Beschreibung und Strukturierung. Sie bilden den technischen Rahmen des Projekts.
 
-Das Verzeichnis `assets` enthält unterstützende Ressourcen, die für Gestaltung und Ausgabe benötigt werden. Dazu gehören unter anderem Zitationsstile, Schriftarten und weitere gestalterische Dateien. Innerhalb dieses Verzeichnisses ist die Datei `n4o_oer_html.scss` von besonderer Bedeutung. Sie definiert projektspezifische Stilregeln für die HTML-Ausgabe und ergänzt die in `_brand.yml` festgelegten Gestaltungsvorgaben.
+Das Verzeichnis **`assets`** enthält unterstützende Ressourcen, die für Gestaltung und Ausgabe benötigt werden. Dazu gehören unter anderem Zitationsstile, Schriftarten und weitere gestalterische Dateien. 
 
-Weitere Verzeichnisse wie `img` oder `data` dienen der Ablage von Abbildungen und Datensätzen, die in der Übung verwendet werden können.
+Innerhalb dieses Verzeichnisses ist die Datei **`n4o_oer_html.scss`** von besonderer Bedeutung. Sie definiert projektspezifische Stilregeln für die HTML-Ausgabe und ergänzt die in **`_brand.yml`** festgelegten Gestaltungsvorgaben.
 
-Die Datei `_quarto.yml` ist die zentrale Projektkonfiguration. Sie definiert grundlegende Eigenschaften des Projekts, unter anderem den Dokumenttyp, globale Optionen sowie die Einbindung weiterer Konfigurations- und Metadatendateien. Änderungen an dieser Datei wirken sich immer auf das gesamte Projekt aus. Da einige Templates wie *Übung* oder *Skript* jeweils nur eine HTML-Datei erzeugen und die dafür notwendigen Angaben alle in den anderen Dateien vorhanden sind, ist die `_quarto.yml` der Templates quasi leer. De facto braucht es aber eine `_quarto.yml`-Datei, um das Repository als Template über GitHub anbieten zu können.
+Weitere Verzeichnisse wie `img` oder `data` dienen der Ablage von Abbildungen und Datensätzen, die in den Materialien verwendet werden können.
 
-Die `.qmd`-Datei ist die zentrale Inhaltsdatei des Templates. Sie enthält die Struktur und den Text der Übung oder des Skripts und ist der primäre Arbeitsort für inhaltliche Anpassungen. In dieser Datei werden Inhalte ergänzt, verändert oder entfernt. Projektweite Einstellungen oder strukturierte Metadaten werden hier bewusst nicht gepflegt.
+**`_quarto.yml`** ist die zentrale Projektkonfiguration:
+    Sie definiert grundlegende Eigenschaften des Projekts, unter anderem den Dokumenttyp, globale Optionen sowie die Einbindung weiterer Konfigurations- und Metadatendateien.
+    Änderungen an dieser Datei wirken sich immer auf das gesamte Projekt aus. Da einige Templates wie *Übung* oder *Skript* jeweils nur eine HTML-Datei erzeugen und die dafür notwendigen Angaben alle in den anderen Dateien vorhanden sind, ist die `_quarto.yml` der Templates quasi leer. De facto braucht es aber eine `_quarto.yml`-Datei, um das Repository als Template über GitHub anbieten zu können.
 
-Die Datei `_oer_metadata.yml` enthält strukturierte Metadaten zur Beschreibung der Übung als Open Educational Resource. Hier werden Angaben erfasst, die für Auffindbarkeit, Nachnutzbarkeit und maschinelle Verarbeitung relevant sind. In ihr können können zusätzlich sogenannte [Quarto-Shortcodes](https://quarto.org/docs/extensions/shortcodes.html) definiert werden, also benannte Platzhalter, die an zentraler Stelle einmal festgelegt und anschließend im gesamten Projekt wiederverwendet werden. Diese Shortcuts können in `.qmd`-Dateien wie normale Variablen referenziert werden und erleichtern es, wiederkehrende Angaben konsistent zu verwenden und bei Änderungen nur an einer Stelle anzupassen.
+**`.qmd`**-Dateien sind die Inhaltsdateien des Templates:
+    Sie enthalten den Text der Übung oder des Skripts und sind der primäre Arbeitsort für inhaltliche Anpassungen. In dieser Datei werden Inhalte ergänzt, verändert oder entfernt.
+    Projektweite Einstellungen oder strukturierte Metadaten werden hier bewusst nicht gepflegt.
 
-Die Datei `_autor_innen.yml` dient der Erfassung von detaillierten Angaben zu Autor:innen. Sie ermöglicht eine konsistente Pflege von Namen, Rollen und weiteren beschreibenden Informationen und kann an mehreren Stellen im Projekt referenziert werden. Auch diese Datei wird nicht direkt gerendert, sondern in andere Projektbestandteile eingebunden.
+**`_oer_metadata.yml`** enthält strukturierte Metadaten zur Beschreibung der Übung als Open Educational Resource:
+    Hier werden Angaben erfasst, die für Auffindbarkeit, Nachnutzbarkeit und maschinelle Verarbeitung relevant sind.
+    In ihr können können zusätzlich sogenannte [Quarto-Shortcodes](https://quarto.org/docs/extensions/shortcodes.html) definiert werden, also benannte Platzhalter, die an zentraler Stelle einmal festgelegt und anschließend im gesamten Projekt wiederverwendet werden.
+    Diese Shortcuts können in `.qmd`-Dateien wie normale Variablen referenziert werden und erleichtern es, wiederkehrende Angaben konsistent zu verwenden und bei Änderungen nur an einer Stelle anzupassen.
 
-Die Datei `_brand.yml` steuert Aspekte der visuellen Gestaltung und der Corporate Identity. Hier werden unter anderem Logos, Farben, Schriften und weitere gestalterische Parameter definiert. Die Datei bildet die Grundlage für eine institutionelle Anpassung des Erscheinungsbildes, ohne Inhalte verändern zu müssen.
+**`_autor_innen.yml`** dient der Erfassung von detaillierten Angaben zu Autor:innen:
+    Sie ermöglicht eine konsistente Pflege von Namen, Rollen und weiteren beschreibenden Informationen und kann an mehreren Stellen im Projekt referenziert werden.
+    Auch diese Datei wird nicht direkt gerendert, sondern in andere Projektbestandteile eingebunden.
 
-Die Datei `_layout.yml` definiert strukturelle Aspekte der Ausgabe. Sie steuert, wie Inhalte angeordnet werden und welche Layoutelemente verwendet werden. Die Trennung von Layout und Inhalt ermöglicht es, die Darstellung zu verändern, ohne die inhaltlichen Dateien anzupassen.
+**`_brand.yml`** steuert Aspekte der visuellen Gestaltung und der Corporate Identity:
+    Hier werden unter anderem Logos, Farben, Schriften und weitere gestalterische Parameter definiert.
+    Die Datei bildet die Grundlage für eine institutionelle Anpassung des Erscheinungsbildes, ohne Inhalte verändern zu müssen.
 
-Die Datei `bibliographie.bib` enthält die bibliographischen Referenzen im BibTeX-Format. Sie wird für Zitate und Literaturverweise genutzt und ist unabhängig von den eigentlichen Inhalten organisiert. Auf diese Weise können Literaturangaben gepflegt und in unterschiedlichen Kontexten wiederverwendet werden.
+**`_layout.yml`** definiert strukturelle Aspekte der Ausgabe:
+    Sie steuert, wie Inhalte angeordnet werden und welche Layoutelemente verwendet werden. Die Trennung von Layout und Inhalt ermöglicht es, die Darstellung zu verändern, ohne die inhaltlichen Dateien anzupassen.
+
+**`bibliographie.bib`** enthält die bibliographischen Referenzen im BibTeX-Format:
+   Sie wird für Zitate und Literaturverweise genutzt und ist unabhängig von den eigentlichen Inhalten organisiert.
+   Auf diese Weise können Literaturangaben gepflegt und in unterschiedlichen Kontexten wiederverwendet werden. Für die Zitierweise stehen in `/assets/csl/` einige relevante Stile bereit, die in der Datei `oer_metadata.yml` mit dem key `csl:` festgelegt werden können.
 
 Beim Rendern des Projekts erzeugt Quarto eine HTML-Ausgabe in einem separaten Output-Verzeichnis - wenn nicht anders angegeben im Verzeichnis `_site`. Dieses Verzeichnis enthält ausschließlich automatisch erzeugte Dateien und ist nicht Teil der Bearbeitung. Es wird bei jedem erneuten Rendern überschrieben.
 
 Die klare Benennung und Trennung der Dateien im Template ermöglicht es, Anpassungen gezielt vorzunehmen. Inhalte, Metadaten, Gestaltung und Konfiguration sind voneinander getrennt und können unabhängig weiterentwickelt werden.
 
+**Kurzübersicht mit wesentlichen Funktionen:**
+
 | Datei | Funktion |
-|:------|:---------|
+|:---|:---|
 | `n4o_oer_html.scss` | Enthält projektspezifische Stilregeln für die HTML-Ausgabe und ergänzt die Branding-Einstellungen |
 | `_autor_innen.yml` | Erfasst Autor:innenangaben und Rollen in strukturierter Form |
 | `bibliographie.bib` | Verwaltet bibliographische Referenzen für Zitate und Literaturverweise |
@@ -264,15 +297,25 @@ Die hier beschriebene Projektstruktur bezieht sich auf die aktuell verfügbaren 
 Quarto kann Projekte in viele weitere Ausgabeformate rendern. Diese Formate erfordern jedoch zusätzliche Abhängigkeiten und eine erweiterte Konfiguration. Aus allgemeinen Erwägungen und im Sinne einer FAIRen Bereitstellung konzentrieren sich die Templates daher auf die Ausgabe von HTML.
 :::
 
+
+
 ## Design und Layout anpassen {#Design}
 
 Für das Testen der Auswirkungen von Änderungen der `_quarto.yml` und der `n4o_oer_html.scss` steht in diesem Repository die Seite [Designtest - Änderungen im Branding überprüfen](./data/quarto-designtest.qmd) bereit.
 
+
+
 ## Metadaten erfassen und pflegen {#Metadaten}
+
+
+
 
 ## Inhalte erstellen {#Inhalte}
 
 Einige nützliche Quarto-Komponenten für die Erstellung von OER haben wir auf der Seite [OER-Snippets - Cheatsheet für Quarto-Markdown](./data/quarto-oer-snippets.qmd) zusammengestellt.
+
+
+
 
 ## Bereitstellung {#Bereitstellung}
 
@@ -284,6 +327,8 @@ In diesem Abschnitt wird zwischen zwei Ebenen der Bereitstellung unterschieden:
 Nicht jedes Quarto-Projekt, das über ein Git-Repository verwaltet wird, muss auch über die jeweilige Plattform als Website veröffentlicht werden. In vielen Szenarien werden die gerenderten HTML-Seiten über andere Infrastrukturen bereitgestellt, z. B. über eine institutionelle Website, ein Lernmanagementsystem oder eine projektinterne Publikationsplattform.
 
 Die folgenden Abschnitte beschreiben daher sowohl die Bereitstellung des Quarto-Projekts über GitHub als auch optionale Wege zur Veröffentlichung der erzeugten Seiten.
+
+
 
 ### GitHub {#Bereitstellung-GitHub}
 
@@ -321,7 +366,7 @@ Der Ausgangspunkt ist ein **lokales Verzeichnis**, das bisher **nicht** mit eine
 
 #### Verzeichnis mit GitHub-Repository verbinden
 
-------------------------------------------------------------------------
+
 
 **Schritt 1: Lokales Verzeichnis initialisieren**
 
@@ -335,7 +380,7 @@ git init
 
 Das Verzeichnis ist nun ein lokales Git-Repository, aber noch nicht mit GitHub verbunden.
 
-------------------------------------------------------------------------
+
 
 **Schritt 2: GitHub-Repository anlegen**
 
@@ -373,7 +418,7 @@ Sie können auch den
 
 ![Repository-URL kopieren](img/screen_github_repo_neu3.png)
 
-------------------------------------------------------------------------
+
 
 **Schritt 3: Lokales Repository mit GitHub verknüpfen**
 
@@ -387,7 +432,7 @@ verknüpft das lokale Repository mit dem GitHub-Repository:
 
 Der Link am Ende des Befehls entspricht der Reposiotory-URL aus Schritt 2.
 
-------------------------------------------------------------------------
+
 
 **Schritt 4: Initialer Commit und Push**
 
@@ -397,7 +442,7 @@ Setzen Sie anschließend den Standard-Branch (empfohlen: main):
 git branch -M main
 ```
 
-------------------------------------------------------------------------
+
 
 **Schritt 5: Initialer Commit und Push**
 
@@ -437,6 +482,8 @@ Für verbindliche Anleitungen, aktuelle Änderungen und Problemlösungen nutzen 
 
 -   [Mickaël Canouil: *Quarto – Publishing to GitHub Pages*](https://mickael.canouil.fr/posts/2024-12-30-quarto-github-pages/)
 :::
+
+
 
 **Die Schritte aus dem vorhergehenden Abschnitt werden vorausgesetzt.**
 
@@ -581,6 +628,9 @@ jobs:
 Nach erfolgreichem Abschluss ist die Website unter der von GitHub angezeigten Pages-URL erreichbar. Es empfiehlt sich, die Pages-URL in die Beschreibung des Repositories zu übernehmen. Dann ist sie schnell erreichbar.
 
 ### Alternative git-Repositories {#Bereitstellung-Alternativen}
+
+
+
 
 ## Disclaimer: Einsatz von LLM {.appendix}
 
