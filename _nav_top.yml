@@ -17,37 +17,34 @@ website:
             href: kontext.qmd#fdm-oer-in-der-nfdi
           - text: "Verwandte Projekte"
             href: kontext.qmd#verwandte-projekte
-          - text: "Bereitstellungsszenarien"
-            href: kontext.qmd#bereitstellung
-
-      - text: "Nutzen"
+      - text: "Schnelleinstieg"
         menu:
-          - text: "Schnelleinstieg"
-            href: nutzen.qmd
-          - text: "Projektstruktur"
-            href: nutzen.qmd#projektstruktur
+          - text: "Template nutzen"
+            href: schnelleinstieg.qmd
+          - text: "Templates im Detail"
+            href: schnelleinstieg.qmd
+      - text: "Anpassen"
+        menu:
           - text: "Design und Layout anpassen"
-            href: nutzen.qmd#Design
+            href: anpassen.qmd#sec-design
           - text: "Metadaten erfassen und pflegen"
-            href: nutzen.qmd#Metadaten
+            href: anpassen.qmd#sec-metadaten
           - text: "Inhalte erstellen"
-            href: nutzen.qmd#Inhalte
-          - text: "Bereitstellung"
-            href: nutzen.qmd#Bereitstellung
-      - text: "Templates"
+            href: anpassen.qmd#sec-inhalte
+      - text: "Bereitstellen"
         menu:
-          - text: "Übungs-Template"
-            href: templates.qmd
-          - text: "Skript-Template"
-            href: templates.qmd#skript-template
-          - text: "Praesentations-Templates"
-            href: templates.qmd#praesentations-templates
-          - text: "Kurs-Templates"
-            href: templates.qmd#kurs-templates
+          - text: "Lokale Nutzung ohne Veröffentlichung"
+            href: bereitstellen.qmd#sec-lokal-nutzen
+          - text: "Nutzung in Lernmanagementsystemen"
+            href: bereitstellen.qmd#sec-lms
+          - text: "Veröffentlichung über GitHub Pages"
+            href: bereitstellen.qmd#sec-github-pages
+          - text: "Weitere Git-basierte Plattformen"
+            href: bereitstellen.qmd#sec-weitere-git-plattformen
 
       - text: "Referenz"
         menu:
-          - text: "Dateien"
+          - text: "Projektstruktur"
             href: referenz.qmd
           - text: "Konfiguration"
             href: referenz.qmd#konfiguration

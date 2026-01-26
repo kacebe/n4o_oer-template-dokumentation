@@ -18,6 +18,9 @@ format:
       - default
       - assets/n4o_oer_html.scss
     brand: _brand.yml
+    link-external-icon: true
+    link-external-newwindow: false
+    anchor-sections: true
 metadata-files:
   - _layout.yml
   - _autor_innen.yml
