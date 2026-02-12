@@ -27,7 +27,7 @@ Diese Seite ist noch im Aufbau. Inhalte und Struktur werden derzeit erarbeitet u
 
 ## Schnelleinstieg
 
-In diesem Schnellstart lernen Sie Schritt für Schritt, wie Sie aus einem Template ein lokales Quarto-Projekt erstellen und rendern. Anschließend nehmen Sie eine kleine Änderung vor, um den grundlegenden Arbeitsablauf kennenzulernen.
+In diesem Schnelleinstieg lernen Sie Schritt für Schritt, wie Sie aus einem Template ein lokales Quarto-Projekt erstellen und rendern. Anschließend nehmen Sie eine kleine Änderung vor, um den grundlegenden Arbeitsablauf kennenzulernen.
 
 Eine Veröffentlichung im Internet oder Vorkenntnisse zu Git und Git-Repositories sind dafür nicht erforderlich.
 
