@@ -37,7 +37,7 @@ Am Ende haben Sie ein funktionierendes Projektverzeichnis und die HTML-Seiten au
 
 :white_check_mark: Quarto: Für die Nutzung der Templates muss Quarto auf dem Rechner installiert sein (Version \>=1.8.0). Einen guten Einstieg bietet das [*Get Started*-Tutorial](https://quarto.org/docs/get-started/) auf der Website des Projekts.
 
-:white_check_mark: Entwicklungsumgebung: Die NFDI4Objects OER-Templates wurden mit [VSCodium](https://vscodium.com/) als Entwicklungsumgebung und der [Extension for the Quarto scientific and technical publishing system.](https://open-vsx.org/extension/quarto/quarto) entwickelt. Weitere Entwicklunsumgebungen sind der [Quarto-Dokumentation](https://quarto.org/docs/faq/#what-editing-tools-can-i-use-with-quarto) zu entnehmen.
+:white_check_mark: Entwicklungsumgebung: Die NFDI4Objects OER-Templates wurden mit [VSCodium](https://vscodium.com/) als Entwicklungsumgebung und der [Quarto-Erweiterung](https://open-vsx.org/extension/quarto/quarto) entwickelt. Weitere Entwicklunsumgebungen sind der [Quarto-Dokumentation](https://quarto.org/docs/faq/#what-editing-tools-can-i-use-with-quarto) zu entnehmen.
 
 ::: {.callout-note title="Hinweis"}
 
@@ -45,7 +45,7 @@ Screenshots und Anleitung beziehen sich im folgenden auf VSCodium mit Quarto-Erw
 
 :::
 
-Prüfen Sie die Version und die Installation von Quarto, indem Sie in einem Terminal (*Menü - Terminal - Neues Terminal*) auf der Konsole unten im Programmfenster: `quarto --version` eintippen und mit {{< kbd Enter >}} bestätigen.
+Prüfen Sie die Version und die Installation von Quarto, indem Sie in VSCodium ein Terminalfenster öffnen (*Menü - Terminal - Neues Terminal*), auf der Konsole unten im Programmfenster: `quarto --version` eintippen und mit {{< kbd Enter >}} bestätigen.
 
 ![Screenshot der Menüzeile ](img/vscodium_terminal_01.png)
 
@@ -63,7 +63,7 @@ Beispiele für geeignete Verzeichnisnamen:
 -   `/skript-template-demo/`
 -   `/modul03_datenbanken/`
 
-Wenn Sie das Verzeichnis im Dateimanager anlegen, öffnen Sie anschließend ein Terminal in genau diesem Verzeichnis oder wechseln Sie im Terminal dorthin (das Vorgehen ist abhängig vom genutzten Betriebssystem. Nutzen Sie die Suchmaschine Ihres Vertrauens mit *\<Betriebssystem\> Terminal in Ordner öffnen*).
+Wenn Sie das Verzeichnis im Dateimanager angelegt haben, öffnen Sie das Verzeichnis innerhalb von VSCodium (*Menü - File - Open Folder*). Anschließend öffnen sie dort ein Terminalfenster.
 
 **Schritt 2: Template in das Projektverzeichnis übernehmen**
 
@@ -87,7 +87,17 @@ Für die OER-Templates von NFDI4Objects ergibt sich mit der Syntax:
 
 -   Skript-Template: `quarto use template nfdi4objects/oer-template-skript`
 
-Beantworten Sie die Fragen im Terminal. Schließlich wird das Template in dem Ordner installiert.
+Beantworten Sie nun die Fragen im Terminal:
+
+- `Do you trust the authors of this template?` yes 
+- `Create a subdirectory for template?` no 
+
+
+**Ergebnis**
+
+Schließlich werden die Dateien des Templates im Ordner installiert. Die `.qmd`-Datei übernimmt im Dateinamen automatisch den Namen des Projektverzeichnisses. Sie können die `.qmd`-Datei aber später beliebig umbenennen.
+
+![Dateien und Verzeichnisse nach `quarto use template`](img/screen_ergebnis_use_template.png)
 
 ### ZIP-Archiv herunterladen
 
@@ -98,35 +108,19 @@ Beantworten Sie die Fragen im Terminal. Schließlich wird das Template in dem Or
 
 Laden Sie dort das Repository als ZIP-Datei herunter und entpacken Sie das Archiv.
 
-![](img/screen_github_zip-download.png)
+![Screenshot des Template-Repository in GitHub](img/screen_github_zip-download.png)
 
 Achten Sie darauf, dass die Dateien des Templates direkt in Ihrem Projektverzeichnis liegen. Häufig entsteht beim Entpacken ein zusätzlicher Ordner. In diesem Fall verschieben Sie die Inhalte aus diesem Ordner in Ihr Projektverzeichnis.
 
 Am Ende dieses Schritts sollte Ihr Projektverzeichnis mehrere Dateien und Unterverzeichnisse enthalten.
 
-:::
-
 **Ergebnis**
 
-Je nach der gewählten Variante haben Sie in ihrem Projektverzeichnis folgende Dateien:
-
-::: {layout-ncol="2"}
-![Dateien und Verzeichnisse nach `quarto use template`](img/screen_ergebnis_use_template.png)
+Im Verzeichnis aus dem ZIP-Archiv liegen alle Daten aus dem GitHub-Repository des Templates. Den Ordner `.github` sollten Sie löschen. Die `.qmd`-Datei heißt `template.qmd`. Sie können die `.qmd`-Dateien aber später beliebig umbenennen.
 
 ![Dateien und Verzeichnisse aus dem ZIP-Archiv](img/screen_ergebnis_github_zip.png)
+
 :::
-
-**Unterschiede**
-
-Die Ergebnisse unterscheiden sich in zwei Aspekten:
-
-1.  Im Verzeichnis aus dem zip-Archiv liegen alle Daten aus dem github-Repository des Templates. Den Ordner `.github` sollten Sie löschen. Stellen Sie dafür sicher, das "versteckte" Dateien im Dateimanager sichtbar sind.
-
-2.  Beide Verzeichnisse enthalten eine `.qmd`-Datei. Die Dateinamen weichen voneinander ab: 
-    - Die Datei aus dem ZIP-Archiv heißt `template.qmd` und 
-    - die mit `quarto use template` erzeugte übernimmt den Namen des Projektverzeichnisses.
-    
-**Auch deshalb ist es sinnvoll, einen aussagekräftigen Namen für das Projektverzeichnis zu wählen**. Sie können die `.qmd`-Dateien aber später jederzeit auch beliebig umbenennen.
 
 **Schritt 3: Projekt lokal rendern**
 
@@ -148,7 +142,7 @@ Nach dem Rendern finden Sie das Ergebnis im Ordner `_site`.
 
 Nehmen Sie kleine, gut sichtbare Änderungen vor, um zu verstehen, wie Quarto funktioniert. Geeignet sind zum Beispiel der Titel und der Untertitel der Website.
 
-Öffnen Sie dazu die `.qmd`-Datei in Ihrem Editor. Am Anfang der `.qmd`-Datei stehen zwei Schlüssel: `title` und `subtitle`. Hier das Beispiel aus dem Übungs-Template:
+Öffnen Sie dazu die `.qmd`-Datei in VSCodium. Am Anfang der `.qmd`-Datei stehen zwei Schlüssel: `title` und `subtitle`. Hier das Beispiel aus dem Übungs-Template:
 
 ``` yaml
 ---
@@ -170,7 +164,7 @@ Mit `quarto render` lassen Sie Quarto die Ausgabedateien vollständig neu erzeug
 
 Für Änderungen an der Projektstruktur oder an Konfigurationsdateien sollten Sie jedoch immer `quarto render` verwenden.
 
-Zuweilen behält der Browser die Daten im Cache und die Änderungen nach `quarto render` werden nicht angezeigt. Häufig hilft die Tastenkombination {{< kbd Strg >}} + {{< kbd F5 >}} im Browser und die Seite wird vollständig aktualisiert dargestellt.
+Zuweilen behält der Browser die Daten im Cache und die Änderungen nach `quarto render` werden nicht angezeigt. Häufig hilft die Tastenkombination {{< kbd Strg >}} + {{< kbd F5 >}} (Windows, Linux); {{< kbd cmd >}} + {{< kbd shift >}}{{< kbd R >}} (Mac) im Browser und die Seite wird vollständig aktualisiert dargestellt.
 
 :::
 
@@ -243,7 +237,7 @@ Weitere Verzeichnisse wie `img` oder `data` dienen der Ablage von Abbildungen un
 
 **`_quarto.yml`** ist die zentrale Projektkonfiguration:
     Sie definiert grundlegende Eigenschaften des Projekts, unter anderem den Dokumenttyp, globale Optionen sowie die Einbindung weiterer Konfigurations- und Metadatendateien.
-    Änderungen an dieser Datei wirken sich immer auf das gesamte Projekt aus. Da einige Templates wie *Übung* oder *Skript* jeweils nur eine HTML-Datei erzeugen und die dafür notwendigen Angaben alle in den anderen Dateien vorhanden sind, ist die `_quarto.yml` der Templates quasi leer. De facto braucht es aber eine `_quarto.yml`-Datei, um das Repository als Template über GitHub anbieten zu können.
+    Änderungen an dieser Datei wirken sich immer auf das gesamte Projekt aus. Da einige Templates wie *Übung* oder *Skript* jeweils nur eine HTML-Datei erzeugen und die dafür notwendigen Angaben alle in den anderen Dateien vorhanden sind, ist die `_quarto.yml` der Templates nahezu leer. De facto braucht es aber eine `_quarto.yml`-Datei, um das Repository als Template über GitHub anbieten zu können.
 
 **`.qmd`**-Dateien sind die Inhaltsdateien des Templates:
     Sie enthalten den Text der Übung oder des Skripts und sind der primäre Arbeitsort für inhaltliche Anpassungen. In dieser Datei werden Inhalte ergänzt, verändert oder entfernt.
@@ -251,7 +245,7 @@ Weitere Verzeichnisse wie `img` oder `data` dienen der Ablage von Abbildungen un
 
 **`_oer_metadata.yml`** enthält strukturierte Metadaten zur Beschreibung der Übung als Open Educational Resource:
     Hier werden Angaben erfasst, die für Auffindbarkeit, Nachnutzbarkeit und maschinelle Verarbeitung relevant sind.
-    In ihr können können zusätzlich sogenannte [Quarto-Shortcodes](https://quarto.org/docs/extensions/shortcodes.html) definiert werden, also benannte Platzhalter, die an zentraler Stelle einmal festgelegt und anschließend im gesamten Projekt wiederverwendet werden.
+    In ihr können zusätzlich sogenannte [Quarto-Shortcodes](https://quarto.org/docs/extensions/shortcodes.html) definiert werden, also benannte Platzhalter, die an zentraler Stelle einmal festgelegt und anschließend im gesamten Projekt wiederverwendet werden.
     Diese Shortcuts können in `.qmd`-Dateien wie normale Variablen referenziert werden und erleichtern es, wiederkehrende Angaben konsistent zu verwenden und bei Änderungen nur an einer Stelle anzupassen.
 
 **`_autor_innen.yml`** dient der Erfassung von detaillierten Angaben zu Autor:innen:
@@ -300,7 +294,7 @@ Quarto kann Projekte in viele weitere Ausgabeformate rendern. Diese Formate erfo
 
 ## Disclaimer: Einsatz von LLM {.appendix}
 
-Bei der Erarbeitung dieser Website wurde ChatGPT 5.2 zur Unterstützung eingesetzt. Die Nutzung umfasste die Strukturierung und Diskussion der Inhalte sowie `inline-code` grammatikalische und orthographische Korrekturen.
+Bei der Erarbeitung dieser Website wurde ChatGPT-5.2 zur Unterstützung eingesetzt. Die Nutzung umfasste die Strukturierung und Diskussion der Inhalte sowie `inline-code` grammatikalische und orthographische Korrekturen.
 `inline-code`
 Es wird ausdrücklich darauf hingewiesen, dass die endgültige Verantwortung für die inhaltliche Richtigkeit beim Autor liegt.
 
