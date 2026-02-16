@@ -25,7 +25,7 @@ Nicht alle Open Educational Resources müssen unmittelbar oder dauerhaft öffent
 
 Ein Quarto-Projekt liegt dabei als gewöhnlicher Ordner auf dem eigenen Rechner vor. Nach dem Rendern entstehen HTML-Dateien, die sich direkt im Browser öffnen lassen. Es ist keine Server-Infrastruktur erforderlich, und es entsteht keine Abhängigkeit von externen Plattformen oder Diensten.
 
-Diese Form der Nutzung eignet sich besonders, wenn Materialien zunächst intern erarbeitet, gemeinsam abgestimmt oder in Lehr- und Lernkontexten erprobt werden sollen. Auch für Arbeitsgruppen, die noch keine Entscheidung über eine spätere öffentliche Bereitstellung getroffen haben, bietet die lokale Nutzung einen niedrigen und kontrollierbaren Einstieg.
+Diese Form der Nutzung eignet sich besonders, wenn Materialien zunächst intern erarbeitet, gemeinsam abgestimmt oder in Lehr- und Lernkontexten erprobt werden sollen. Auch für Arbeitsgruppen, die noch keine Entscheidung über eine spätere öffentliche Bereitstellung getroffen haben, bietet die lokale Nutzung einen niedrigschwelligen und kontrollierbaren Einstieg.
 
 Ein zentraler Vorteil liegt in der klaren und nachvollziehbaren Ordnerstruktur der Projekte. Inhalte, Metadaten, Abbildungen und gestalterische Elemente sind eindeutig organisiert und bleiben dauerhaft zusammengeführt. Ein gerendertes Projekt kann als ZIP-Archiv weitergegeben werden, etwa per E-Mail oder über institutionelle Austauschplattformen. Die empfangenden Personen benötigen lediglich einen Webbrowser, um die Materialien zu öffnen und zu nutzen.
 
@@ -57,7 +57,7 @@ Dies hat vor allem technische Gründe:
 
 -   Der Befehl `quarto publish` ist explizit auf GitHub ausgerichtet und unterstützt GitHub Pages nativ.
 -   Für andere Git-basierte Plattformen (z. B. GitLab oder Codeberg) existieren bislang nur wenige etablierte Workflows, und diese werden in der Quarto-Community kaum systematisch unterstützt.
--   Der von Quarto vorgesehene Publish-Workflow stellt sicher, dass jede Änderung an den Daten oder Inhalten im Repository automatisch zu einer Aktualisierung der veröffentlichten Pages führt.
+-   Der von Quarto vorgesehene Publish-Workflow stellt sicher, dass jede Änderung an den Daten oder Inhalten im Repository automatisch zu einer Aktualisierung der veröffentlichten Website führt.
 
 Für eine reproduzierbare, wartungsarme Bereitstellung ist GitHub Pages daher derzeit die robusteste und am besten dokumentierte Option.
 :::
@@ -96,7 +96,7 @@ Das Verzeichnis ist nun ein lokales Git-Repository, aber noch nicht mit GitHub v
 
 **Schritt 2: `.gitignore` hinzufügen**
 
-Aus Gründen der Datensparsamkeit sollten Sie einige lokale Dateien von der Synchronisation mit GitHub ausschließen. Das erreichen Sie mit einer Datei `.gitignore` im lokalen Projektverzeichnis. Übernehmen Sie folgende Angaben in die Datei:
+Aus Gründen der Datensparsamkeit sollten Sie einige lokale Dateien von der Synchronisation mit GitHub ausschließen. Dies erreichen Sie, indem Sie im lokalen Projektverzeichnis eine neue Datei mit dem Namen `.gitignore`anlegen. Übernehmen Sie folgende Angaben in die Datei:
 
 ```{.text}
 _site/
@@ -143,27 +143,24 @@ Achten Sie bei den Einstellungen auf
 
 ![Für den hier beschriebenen Workflow empfohlene Einstellungen für ein neues Repository auf GitHub](img/screen_github_repo_neu2.png)
 
-Notieren Sie sich die Repository-URL im nächsten Dialog.
+Kopieren Sie die Repository-URL im nächsten Dialog.
 
 Syntax: `https://github.com/username/projektname.git`
 
-Sie können auch den 
 
 ![Repository-URL kopieren](img/screen_github_repo_neu3.png)
 
 **Schritt 4: Lokales Repository mit GitHub verknüpfen**
 
-Wechseln Sie zurück in die Entwicklungsumgebung.
+Wechseln Sie zurück in die Entwicklungsumgebung und fügen Sie statt `https://github.com/username/projektname.git` ihre Repository-URL in folgenden Befehl ein:
 
 ``` bash
 git remote add origin https://github.com/username/projektname.git
 ```
 
-verknüpft das lokale Repository mit dem GitHub-Repository:
+Dieser verknüpft das lokale Repository mit dem GitHub-Repository.
 
-Der Link am Ende des Befehls entspricht der Reposiotory-URL aus Schritt 2.
-
-**Schritt 5: Initialer Commit und Push**
+**Schritt 5: Branch festlegen**
 
 Setzen Sie anschließend den Standard-Branch (empfohlen: main):
 
@@ -181,23 +178,30 @@ git commit -m "Initial commit"
 git push -u origin main
 ```
 
+Falls eine Fehlermeldung mit dem Inhalt `RPC failed` auftritt ist das Repository zu groß. In diesem Fall müssen Sie zunächst den Git-Puffer durch den Befehl 
+
+``` bash
+git config http.postBuffer 524288000
+```
+erhöhen und den Projektstand erneut comitten und pushen.
+
 **Schritt 7: README**
 
 Eine **README-Datei** ist der zentrale Einstiegspunkt in Ihr Repository. Sie hilft Nutzenden, **Zweck, Inhalte und Rahmenbedingungen** Ihrer Materialien schnell zu verstehen.
 
-1. Legen Sie im lokalen Projektverzeichnis eine Datei `README` oder `README.md` an.
+1. Legen Sie im lokalen Projektverzeichnis eine Datei `README` an.
 2. Beschreiben Sie darin kurz:
    - was das Repository enthält,
    - wofür es genutzt werden kann,
    - unter welcher Lizenz die Inhalte stehen (s. folgender Schritt).
 
-**Schritt 8: Lizensierung**
+**Schritt 8: Lizenzierung**
 
-1. Legen Sie im lokalen Projektverzeichnis eine Datei `LICENSE` oder `LICENSE.md` an.
+1. Legen Sie im lokalen Projektverzeichnis eine Datei `LICENSE` an.
 2. Fügen Sie einen **vollständigen Lizenztext** ein
   - Den [Lizenztext der CC BY 4.0 können Sie hier direkt herunterladen](https://creativecommons.org/licenses/by/4.0/legalcode.txt)
   - Der [Creative Commons License Chooser](https://creativecommons.org/chooser/) unterstützt Sie bei der Wahl alternativer CC-Lizenzen.
-3. Nennen Sie die Lizenz zusätzlich gut sichtbar in der `README.md` (s. vorhergehender Schritt).
+3. Nennen Sie die Lizenz zusätzlich gut sichtbar in der `README` (s. vorhergehender Schritt).
 
 **Schritt 9: Finaler Commit**
 
@@ -287,7 +291,7 @@ Ein neues Fenster wird geöffnet, das drei Eingaben erwartet:
 <div class="columns">
 <div class="column" style="width:50%">
 
-1. In dem erscheinenden Dialog belassen Sie die *Commit Message* wie vorgegeben oder ändern sie etwa in `Add GitHub Actions workflow for Quarto Pages`. Damit wird dokumentiert, was die Änderung am Datenbestand umfasst.
+1. In dem erscheinenden Dialog belassen Sie die *Commit Message* wie vorgegeben oder ändern Sie etwa in `Add GitHub Actions workflow for Quarto Pages`. Damit wird dokumentiert, was die Änderung am Datenbestand umfasst.
 2. Beenden Sie den Vorgang mit *Commit changes*. 
 Nach dem Commit wird automatisch ein Workflow-Lauf gestartet.
 </div>
