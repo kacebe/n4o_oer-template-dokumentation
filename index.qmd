@@ -45,7 +45,7 @@ Die vorgestellten Templates bieten eine technische Grundlage, um:
 
 - FAIRe OER effizient zu erstellen,
 - Struktur und Metadaten zu vereinheitlichen,
-- Quarto als Publikationsumgebung kennen zu lernen,
+- Quarto als Publikationsumgebung kennenzulernen,
 - OER nachhaltig, maschinenlesbar und nachnutzbar bereitzustellen und mit anderen zu teilen.
 
 ## Worum es hier nicht geht
@@ -57,7 +57,7 @@ Diese Website:
 - gibt nur sehr eingeschränkt didaktische Empfehlungen,
 - stellt keine Kurs- oder Schulungsszenarien vor.
 
-Alle Inhalte beziehen sich ausschliesslich auf die Templates und ihre technische Nutzung.
+Alle Inhalte beziehen sich ausschließlich auf die Templates und ihre technische Nutzung.
 
 ## Wie diese Website aufgebaut ist
 
@@ -72,7 +72,7 @@ Er behandelt:
 
 - was unter FAIRen OER zu verstehen ist,
 - warum Quarto als technische Grundlage besonders geeignet ist,
-- welche Rolle OER zu Forschungsdatenmanagement  im Rahmen der <abbr title="Nationale Forschungsdateninfrastruktur">NFDI</abbr>, einer nationalen Forschungsdateninitiative in Deutschland, spielen,
+- welche Rolle OER zum Forschungsdatenmanagement im Rahmen der <abbr title="Nationale Forschungsdateninfrastruktur">NFDI</abbr>, einer nationalen Forschungsdateninitiative in Deutschland, spielen,
 - wie sich die Arbeiten in verwandte nationale und internationale Projekte einordnen,
 - welche grundsätzlichen Bereitstellungsszenarien für OER bestehen.
 
@@ -159,6 +159,6 @@ Alle Bereiche sind eigenständig nutzbar und können unabhängig voneinander gel
 
 ## Disclaimer: Einsatz von LLM {.appendix}
 
-Bei der Erarbeitung dieser Website wurde ChatGPT 5.2 zur Unterstützung eingesetzt. Die Nutzung umfasste die Strukturierung und Diskussion der Inhalte sowie grammatikalische und orthographische Korrekturen.
+Bei der Erarbeitung dieser Website wurde ChatGPT-5.2 zur Unterstützung eingesetzt. Die Nutzung umfasste die Strukturierung und Diskussion der Inhalte sowie grammatikalische und orthographische Korrekturen.
 
 Es wird ausdrücklich darauf hingewiesen, dass die endgültige Verantwortung für die inhaltliche Richtigkeit beim Autor liegt.
