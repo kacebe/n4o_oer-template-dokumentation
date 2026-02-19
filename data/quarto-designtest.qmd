@@ -137,8 +137,8 @@ Callout Warning
 
 :::
 
-::: {.callout-note title="Inline-Elemente in Callouts machen gerne Ärger"}
-Einige Buchstaben, noch mehr Buchstaben, noch mehr Buchstaben, noch mehr Buchstaben, noch mehr Buchstaben, noch mehr Buchstaben, **Callout-Notiz mit** `inline code`, einem {{< kbd kdb-Button >}} und einem [Link](#). noch mehr Buchstaben, noch mehr Buchstaben, noch mehr Buchstaben, noch mehr Buchstaben, noch mehr Buchstaben, noch mehr Buchstaben, noch mehr Buchstaben, noch mehr Buchstaben, noch mehr Buchstaben...
+::: {.callout-note title="Inline-Elemente im Callout"}
+ **Callout-Notiz mit** `inline code`, einem {{< kbd kdb-Button >}} und einem [Link](#). 
 :::
 
 **Codebox in Callout:**
@@ -202,7 +202,7 @@ Lösung mit Columns
 Linke Spalte (40%)
 :::
 
-::: {.column width="80%"}
+::: {.column width="60%"}
 Rechte Spalte (60%)
 :::
 :::::
@@ -211,6 +211,7 @@ Rechte Spalte (60%)
 
 ::: {layout-ncol="2"}
 Lösung mit `{layout-ncol="2"}`
+Erste Spalte
 
 Zweite Spalte
 :::
@@ -218,7 +219,7 @@ Zweite Spalte
 :::
 
 
-**Callout mit Codebox und Zitat**
+**Tabset mit Codebox und Zitat**
 
 ::: panel-tabset
 #### Codebox
