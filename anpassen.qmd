@@ -1,6 +1,6 @@
 ---
 title: "Anpassen"
-subtitle: "Untertitel"
+subtitle: "Branding, Metadaten und Design zentral in Quarto-Templates konfigurieren"
 lang: de
 date: 2026-01-19
 date-modified: last-modified
@@ -26,19 +26,19 @@ Diese Seite ist noch im Aufbau. Inhalte und Struktur werden derzeit erarbeitet u
 :::
 
 
-## Anpassen – zentrale Dateien statt verstreuter Einstellungen
+## Zentrale YAML-Dateien statt verstreuter Einstellungen
 
-Alle Anpassungen in den Templates werden über **wenige, klar abgegrenzte Dateien** gesteuert. Ziel ist es, die Header einzelner `.qmd`-Dateien schlank zu halten und wiederkehrende Angaben an einer zentralen Stelle zu pflegen.
+Alle Anpassungen in den Templates werden über **wenige, klar abgegrenzte Dateien** gesteuert. Ziel ist es, die Front Matter einzelner `.qmd`-Dateien schlank zu halten und wiederkehrende Angaben an einer zentralen Stelle zu pflegen.
 
 Layout, Autor:innenangaben, inhaltliche Metadaten und visuelle Grundeinstellungen werden nicht seitenweise konfiguriert, sondern in eigenen YAML-Dateien gebündelt. Änderungen wirken sich dadurch unmittelbar auf alle Seiten aus, die diese Dateien einbinden. Das erleichtert die Pflege, reduziert Redundanzen und sorgt für konsistente Ergebnisse.
 
-Die Einbindung erfolgt über den Schlüssel `metadata-files:` im Header der jeweiligen `.qmd`-Datei. Dort wird festgelegt, welche zentralen Metadatendateien für ein Dokument gelten. In der Regel müssen Sie diesen Mechanismus nicht anpassen, sondern lediglich die Inhalte der entsprechenden Dateien bearbeiten.
+Die Einbindung erfolgt über den Schlüssel `metadata-files:` im Front Matter der jeweiligen `.qmd`-Datei. Dort wird festgelegt, welche zentralen Metadatendateien für ein Dokument gelten. In der Regel müssen Sie diesen Mechanismus nicht anpassen, sondern lediglich die Inhalte der entsprechenden Metadatendateien bearbeiten.
 
 | Datei | Zweck | Was Sie dort anpassen |
 |-------|-------|-----------------------|
 | `_brand.yml` | Definiert das visuelle Erscheinungsbild | Farbpalette, Typographie, Logos und weitere gestalterische Grundeinstellungen. |
-| `_layout.yml` | Steuert Layout- und Darstellungsoptionen | Strukturvorgaben, UI-Elemente sowie deutsche Bezeichnungen für Quarto-Standardelemente unter `language` |
-| `_autor_innen.yml` | Erfasst Angaben zu Autor:innen und Beitragende | Personen, Rollen und institutionelle Angaben |
+| `_layout.yml` | Steuert Layout- und Darstellungsoptionen | Strukturvorgaben, UI-Elemente sowie deutsche Bezeichnungen für Quarto-Standardelemente unter dem Schlüssel `language` |
+| `_autor_innen.yml` | Erfasst Angaben zu Autor:innen und Beitragenden | Personen, Rollen und institutionelle Angaben |
 | `_oer_metadata.yml` | Erfasst inhaltliche, rechtliche und technische Metadaten | Angaben zur inhaltlichen Einordnung, Nutzung, Lizenzierung und Zitation |
 
 ## Design und Layout anpassen {#sec-design}
@@ -56,8 +56,8 @@ In den Templates werden Logos nicht direkt in einzelnen Seiten eingebunden, sond
 Für die Anpassung der Logos gehen Sie wie folgt vor:
 
 1. Legen Sie die Logo-Dateien im vorgesehenen Verzeichnis ab. In den Templates vorgesehen ist das Verzeichnis `/assets/logos/`.
-2. Als Dateiformat empfiehlt sich png. SVG-Dateien werden beim Branding nicht stabil unterstützt.
-3. Wählen Sie sprechende Dateinamen. Im Template heißen die Logo-Dateien `logo_klein.png`, `logo.png` und `logo_gross-png`. Wenn Sie die Dateinamen beibehalten und nur die Bilddateien austauschen, sind die folgenden Schritte überflüssig.
+2. Als Dateiformat empfiehlt sich PNG. SVG-Dateien werden beim Branding nicht stabil unterstützt.
+3. Wählen Sie sprechende Dateinamen. Im Template heißen die Logo-Dateien `logo_klein.png`, `logo.png` und `logo_gross.png`. Wenn Sie die Dateinamen beibehalten und nur die Bilddateien austauschen, sind die folgenden Schritte überflüssig.
 4. Öffnen Sie die Datei `_brand.yml` und suchen Sie folgenden Abschnitt:
 
 ```yaml
@@ -80,17 +80,17 @@ logo:
 
 Logos können in `_brand.yml` sowohl über lokale Dateipfade als auch über URLs eingebunden werden. Für eine stabile, datenschutzkonforme und offline nutzbare Veröffentlichung wird empfohlen, Logo-Dateien lokal im Projekt abzulegen und über relative Pfade zu referenzieren.
 
-Durch diese zentrale Einbindung wird das Logo automatisch an allen Stellen aktualisiert, an denen es im Template vorgesehen ist, etwa im Seitenkopf, im Footer oder in automatisch erzeugten Seitenelementen.
+Durch diese zentrale Einbindung wird das Logo automatisch an allen Stellen aktualisiert, an denen es im Template vorgesehen ist, etwa im Header, im Footer oder in automatisch erzeugten Seitenelementen.
 
-Darüber hinaus können in `_brand.yml` definierte Logos bei Bedarf auch gezielt im Inhalt referenziert werden. Quarto stellt dafür Shortcuts bereit, mit denen auf die in den Metadaten hinterlegten Ressourcen zugegriffen werden kann.
+Darüber hinaus können in `_brand.yml` definierte Logos bei Bedarf auch gezielt im Inhalt referenziert werden. Quarto stellt dafür Shortcodes bereit, mit denen auf die in den Metadaten hinterlegten Ressourcen zugegriffen werden kann.
 
 ```text
-![]({{< meta logo >}})
-![]({{< meta logo_klein >}})
-![]({{< meta logo_gross >}})
+![]({{< brand logo small >}})
+![]({{< brand logo medium >}})
+![]({{< brand logo large >}})
 ```
 
-lassen sie sich konsistent im Text verwenden, um die Logos einzubinden ohne Pfade mehrfach zu definieren.
+Sie lassen sich konsistent im Text verwenden, um die Logos einzubinden, ohne Pfade mehrfach zu definieren.
 
 ### Typographie anpassen
 
@@ -131,9 +131,9 @@ typography:
 
 5. Passen Sie dort die Angaben zu den Schriftarten entsprechend an und wenden Sie die Änderungen mit `quarto render` an.
 
-Weitere typographische Vorgaben können für vier Kategorien vorgenommen werden. In der `_brand.yml` der Templates sind alle Optionen enthalten, die das Schriftbild und die Proportionen steuern. Die Vorgaben zur Typographie hier in der Dokumenation sind dieselben, wie in den Templates:
+Weitere typographische Vorgaben können für vier Kategorien vorgenommen werden: `base` (Fließtext), `headings` (Überschriften), `monospace` (Quellcode) und `link` (Verlinkungen). In der `_brand.yml` der Templates sind alle Optionen enthalten, die das Schriftbild und die Proportionen steuern.
 
-```
+```yaml
 # Globale typographische Vorgaben
   base: 
     family: PT Sans
@@ -159,13 +159,13 @@ Weitere typographische Vorgaben können für vier Kategorien vorgenommen werden.
 
 ``` 
 
-Weitere Gestaltungsmöglichkeiten sind in der Überschreibung von Bootstrap-Defaults sowie in der Datei `/assets/_n4o_oer_html.scss` hinterlegt; Anpassungen in diesen Bereichen sollten ausschließlich von Personen mit entsprechender Expertise in Quarto, Bootstrap und CSS vorgenommen werden.
+Weitere Gestaltungsmöglichkeiten sind in der Überschreibung von Bootstrap-Defaults sowie in der Datei `/assets/n4o_oer_html.scss` hinterlegt; Anpassungen in diesen Bereichen sollten ausschließlich von Personen mit entsprechender Expertise in Quarto, Bootstrap und CSS vorgenommen werden.
 
 ### Farbpalette anpassen
 
 Farben sind ein weiteres zentrales Element des Brandings. Im Template wird die Farbpalette explizit in der Datei `_brand.yml` definiert und kann dort angepasst werden.
 
-Für die Anpassung der Farbpalette sollten Sie vorab die in Ihrer Institution verwendeten Farbwerte (mit sog. Hex-Codes) bereithalten.
+Für die Anpassung der Farbpalette sollten Sie vorab die in Ihrer Institution verwendeten Farbwerte (Hex-Codes) bereithalten.
 
 Gehen Sie dann wie folgt vor:
 
@@ -189,9 +189,10 @@ color:
     fehler: "#D32F2F"              # Fehler, kritische Hinweise
 ```
 
-3. Ersetzen Sie die bestehenden Farbwerte durch die Farbdefinitionen Ihrer Institution. Das betrifft insbesondere hintergrund, text, akzent und die cd-farbwerte. Zur Orientierung: Diese Farbpalette liegt dieser Dokumentation zu Grunde.
+3. Ersetzen Sie die bestehenden Farbwerte durch die Farbwerte Ihrer Institution. Dies betrifft insbesondere die Schlüssel `hintergrund`, `text`, `akzent` und die CD-Farbwerte.
 4. Speichern Sie die Datei und prüfen Sie das Ergebnis in der Vorschau mit `quarto render`.
 
+<!-- Im folgenden Abschnitt wird für Lesende nicht klar was passiert und wozu es gut ist. Entweder streichen oder genauer beschreiben was gemacht wird. Eventuell so: Die Bezeichnungen der Schlüssel der Farbwerte wurden in den Templates verändert. Daher folgt unterhalb der Farbpalette eine Übergabe der neuen Schlüsselbezeichnungen an die standardisierten Schlüsselbezeichnungen von Quarto. Diese Zeilen sollten auf keinen Fall überschrieben werden. -->
 Die Anpassung der Farbpalette verändert automatisch die Darstellung von Überschriften, Hervorhebungen und weiteren gestalterischen Elementen, die im Template darauf verweisen. Das wird in der Übergabe der Farben auf Vorgabewerte erreicht:
 
 ```yaml
@@ -206,11 +207,17 @@ Die Anpassung der Farbpalette verändert automatisch die Darstellung von Übersc
   danger: fehler
 ```
 
-Die Schlüsselfeld-Bezeichnungen dürfen nicht geändert werden. Nur die Zuweisung der Farbbezeichnung.
+Die Schlüssel-Wert-Bezeichnungen dürfen nicht geändert werden. Nur die Zuweisung der Farbbezeichnung darf geändert werden.
 
+::: {.callout-note title="Hinweis"}
+
+Zur Orientierung: Die Vorgaben zu Typographie und Farbpalette in den Templates entsprechen den Vorgaben in den oben aufgeführten Codebeispielen und dem visuellen Erscheinungsbild der Dokumentation.
+
+:::
 ### Designänderungen sicher überprüfen
 
 Um die Auswirkungen von Änderungen an der Datei `_quarto.yml` sowie an der Datei `n4o_oer_html.scss` gezielt zu überprüfen, steht in diesem Repository eine eigene Testseite zur Verfügung. Die Seite [Designtest – Änderungen im Branding überprüfen](./data/quarto-designtest.qmd) bündelt typische Seitenelemente und Gestaltungskomponenten und eignet sich damit besonders, um Anpassungen am Branding schnell sichtbar zu machen. Sie können dort nachvollziehen, wie sich Änderungen an Layout, Typographie oder Farbdefinitionen auf die Darstellung auswirken, ohne mehrere Inhalte durchsuchen oder anpassen zu müssen. Dazu kopieren Sie die Datei `quarto-designtest.qmd` in Ihr lokales Projekt mit angepasstem Branding und führen `quarto render quarto-designtest.qmd` aus.
+<!-- Achtung: Die Calloutboxen in den Designtests übernehmen nicht die oben angegebenen Farben. -->
 
 -----
 
@@ -218,8 +225,8 @@ Um die Auswirkungen von Änderungen an der Datei `_quarto.yml` sowie an der Date
 
 Für Anpassungen an Metadaten sind Änderungen in folgenden Dateien vorzunehmen:
 
-  `_autor_innen.yml`
-  `_oer_metadata.yml`
+ - `_autor_innen.yml`
+ - `_oer_metadata.yml`
 
 ### Metadaten zu Autor:innen
 
@@ -228,9 +235,35 @@ Grundlegend ist die [Dokumentation zu Autor:innen im Front Matter](https://quart
 
 Für die Beschreibung von Rollen einzelner Beitragender wird zusätzlich auf die [in Quarto unterstützten Contributor-Rollen](https://quarto.org/docs/journals/authors.html#roles) Bezug genommen.
 
+<!-- Hinweis: Die Ausgabe der Rollen findet sich im gerenderten Übungs-Template leider nicht wieder. Beispiel: Jane Doe role: "writing – original draft" -->
+
 **Attribute in `_autor_innen.yml`**
 
-![](img/screen_autor_innen.png)
+```yaml
+author:
+  - name:
+      given: Jane
+      family: Doe
+    orcid: 0000-0000-0000-0000
+    email: jane@doe.com
+    affiliation: 
+      - name: Janes Institution
+        city: Janes City
+        url: https://jane.doe.com
+    attributes:
+      corresponding: true
+    role: "writing – original draft"
+  - name:
+      given: John
+      family: Doe
+    orcid: 0000-0000-0000-0000
+    email: john@doe.com
+    affiliation: 
+      - name: Johns Institution
+        city: Johns City
+        url: https://john.doe.com
+    role: "writing – review & editing"
+```
 
 Pflichtfelder sind in der folgenden Tabelle mit \* im Feldnamen gekennzeichnet.
 
@@ -268,10 +301,10 @@ Darüber hinaus bietet die `_oer_metadata.yml` die Möglichkeit, in Arbeit befin
 |-----|--------------|-----------------|
 | `abstract` | Zusammenfassende Inhaltsangabe. Sie hilft Nutzenden bei der schnellen Einordnung, z. B. in Übersichten und Suchtreffern. | Ja |
 | `abstract-title` | Überschrift für den Abstract, z. B. „Zusammenfassung“. | Ja |
-| `description` | Kurzbeschreibung der Inhalte. Sie eignet sich als Teasertext | Ja |
+| `description` | Kurzbeschreibung der Inhalte. Sie eignet sich als Teasertext. | Ja |
 | `funding` | Optionale Angaben zur Förderung oder zum Projektkontext. | Nein |
-| `website.open-graph.locale` | Sprach- und Regionsangabe für Open-Graph-Metadaten. | Nur im HTML-Header |
-| `website.open-graph.type` | Inhaltstyp für Open-Graph-Metadaten, z. B. `article`. | Nur im HTML-Header |
+| `website.open-graph.locale` | Sprach- und Regionsangabe für Open-Graph-Metadaten. | Nur im HTML-Head |
+| `website.open-graph.type` | Inhaltstyp für Open-Graph-Metadaten, z. B. `article`. | Nur im HTML-Head |
 | `categories` | Oberbegriffe zur Einordnung der OER-Kategorie | Ja |
 | `keywords` | Schlagworte zur inhaltlichen Erschließung | Ja |
 | `site-url` | Öffentliche URL der veröffentlichten Version. Sie dient als stabile Referenz im Web. | Ja |
@@ -289,4 +322,4 @@ Darüber hinaus bietet die `_oer_metadata.yml` die Möglichkeit, in Arbeit befin
 
 ## Inhalte erstellen {#sec-inhalte}
 
-Einige nützliche Quarto-Komponenten für die Erstellung von OER haben wir auf der Seite [OER-Snippets - Cheatsheet für Quarto-Markdown](./data/quarto-oer-snippets.qmd) zusammengestellt.
+Einige nützliche Quarto-Komponenten für die Erstellung von OER sind auf der Seite [OER-Snippets - Cheatsheet für Quarto-Markdown](./data/quarto-oer-snippets.qmd) zusammengestellt.
