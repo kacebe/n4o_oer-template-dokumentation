@@ -175,6 +175,8 @@ Gehen Sie dann wie folgt vor:
 ```yaml
 color:
   palette:
+  # Farbpalette
+    # Schlüssel: Farbwert
     hintergrund: "#FFFFFF"         # Seitenhintergrund
     text: "#13294B"                # Standard-Textfarbe
     akzent: "#0084FF"              # Hauptakzent (Links, Fokus, Buttons)
@@ -192,10 +194,11 @@ color:
 3. Ersetzen Sie die bestehenden Farbwerte durch die Farbwerte Ihrer Institution. Dies betrifft insbesondere die Schlüssel `hintergrund`, `text`, `akzent` und die CD-Farbwerte.
 4. Speichern Sie die Datei und prüfen Sie das Ergebnis in der Vorschau mit `quarto render`.
 
-<!-- Im folgenden Abschnitt wird für Lesende nicht klar was passiert und wozu es gut ist. Entweder streichen oder genauer beschreiben was gemacht wird. Eventuell so: Die Bezeichnungen der Schlüssel der Farbwerte wurden in den Templates verändert. Daher folgt unterhalb der Farbpalette eine Übergabe der neuen Schlüsselbezeichnungen an die standardisierten Schlüsselbezeichnungen von Quarto. Diese Zeilen sollten auf keinen Fall überschrieben werden. -->
-Die Anpassung der Farbpalette verändert automatisch die Darstellung von Überschriften, Hervorhebungen und weiteren gestalterischen Elementen, die im Template darauf verweisen. Das wird in der Übergabe der Farben auf Vorgabewerte erreicht:
+
+Die Anpassung der Farbpalette verändert nicht nur einzelne dekorative Elemente, sondern wirkt sich auf das gesamte Designsystem des HTML-Outputs aus. Das liegt daran, dass die in der Palette definierten Farben im nächsten Schritt auf die in Quarto und Bootstrap verwendeten Standard-Farbzuweisungen abgebildet werden. Diese Farbzuweisungen steuern viele weitere UI-Komponenten automatisch, ohne dass Sie dafür einzelne CSS-Regeln anpassen müssen.
 
 ```yaml
+  # Standard-Farbzuweisungen: Schlüssel der Farbpalette (Farbvariablen)
   background: hintergrund
   foreground: text
   primary: akzent
@@ -207,7 +210,15 @@ Die Anpassung der Farbpalette verändert automatisch die Darstellung von Übersc
   danger: fehler
 ```
 
-Die Schlüssel-Wert-Bezeichnungen dürfen nicht geändert werden. Nur die Zuweisung der Farbbezeichnung darf geändert werden.
+Konkret bedeutet das: Wenn Sie zum Beispiel 'background' auf 'hintergrund' und 'foreground' auf 'text' setzen, werden daraus die Grundfarben für Seitenhintergrund und Standardtext. Wenn Sie 'primary' auf 'akzent' setzen, verwenden viele Elemente diese Farbe automatisch, etwa Links, Buttons, Hervorhebungen, aktive Navigationselemente, Fokusrahmen (z. B. bei Tastaturnavigation) und teilweise auch Callouts. Die Farbvariablen 'success', 'info', 'warning' und 'danger' werden von Quarto für semantische Komponenten genutzt, zum Beispiel für Callouts, Hinweise oder Statusdarstellungen.
+
+Zusätzlich beeinflusst diese Zuordnung auch weniger sichtbare Aspekte des Designs. Dazu gehören Kontrastverhältnisse, die Lesbarkeit von Text auf farbigen Flächen, Hover- und Fokuszustände sowie die Standardfarben einzelner Bootstrap-Komponenten. Deshalb ist die Wahl der Farben nicht nur eine Frage der Ästhetik, sondern auch der Barrierearmut.
+
+Insbesondere 'secondary' ist in Bootstrap eine UI-Farbe und wird in manchen Kontexten für Flächen, Akzente oder sekundäre Elemente genutzt. Wenn 'secondary' in Ihrer Palette nicht kontrastreich genug ist, kann das dazu führen, dass Text oder UI-Zustände schlecht lesbar werden. In solchen Fällen sollten betroffene Textelemente gezielt im SCSS überschrieben werden.
+
+
+**Wichtig**: Die Schlüssel ('background', 'primary', 'success' usw.) sind Teil des Quarto-/Bootstrap-Systems und dürfen nicht verändert werden. Nur die zugewiesenen Farbvariablen (z. B. 'hintergrund', 'akzent', 'erfolg') sollten durch die Farbwerte in der Farbpalette an das Corporate Design Ihrer Institution angepasst werden.
+
 
 ::: {.callout-note title="Hinweis"}
 
@@ -217,7 +228,6 @@ Zur Orientierung: Die Vorgaben zu Typographie und Farbpalette in den Templates e
 ### Designänderungen sicher überprüfen
 
 Um die Auswirkungen von Änderungen an der Datei `_quarto.yml` sowie an der Datei `n4o_oer_html.scss` gezielt zu überprüfen, steht in diesem Repository eine eigene Testseite zur Verfügung. Die Seite [Designtest – Änderungen im Branding überprüfen](./data/quarto-designtest.qmd) bündelt typische Seitenelemente und Gestaltungskomponenten und eignet sich damit besonders, um Anpassungen am Branding schnell sichtbar zu machen. Sie können dort nachvollziehen, wie sich Änderungen an Layout, Typographie oder Farbdefinitionen auf die Darstellung auswirken, ohne mehrere Inhalte durchsuchen oder anpassen zu müssen. Dazu kopieren Sie die Datei `quarto-designtest.qmd` in Ihr lokales Projekt mit angepasstem Branding und führen `quarto render quarto-designtest.qmd` aus.
-<!-- Achtung: Die Calloutboxen in den Designtests übernehmen nicht die oben angegebenen Farben. -->
 
 -----
 
@@ -235,7 +245,6 @@ Grundlegend ist die [Dokumentation zu Autor:innen im Front Matter](https://quart
 
 Für die Beschreibung von Rollen einzelner Beitragender wird zusätzlich auf die [in Quarto unterstützten Contributor-Rollen](https://quarto.org/docs/journals/authors.html#roles) Bezug genommen.
 
-<!-- Hinweis: Die Ausgabe der Rollen findet sich im gerenderten Übungs-Template leider nicht wieder. Beispiel: Jane Doe role: "writing – original draft" -->
 
 **Attribute in `_autor_innen.yml`**
 
