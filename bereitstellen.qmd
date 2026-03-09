@@ -57,7 +57,7 @@ Dies hat vor allem technische Gründe:
 
 -   Der Befehl `quarto publish` ist explizit auf GitHub ausgerichtet und unterstützt GitHub Pages nativ.
 -   Für andere Git-basierte Plattformen (z. B. GitLab oder Codeberg) existieren bislang nur wenige etablierte Workflows, und diese werden in der Quarto-Community kaum systematisch unterstützt.
--   Der von Quarto vorgesehene Publish-Workflow stellt sicher, dass jede Änderung an den Daten oder Inhalten im Repository automatisch zu einer Aktualisierung der veröffentlichten Website führt.
+-   Der von Quarto vorgesehene Publish-Workflow stellt sicher, dass jede Änderung an den Daten oder Inhalten im Repository automatisch zu einer Aktualisierung der veröffentlichten Webpage führt.
 
 Für eine reproduzierbare, wartungsarme Bereitstellung ist GitHub Pages daher derzeit die robusteste und am besten dokumentierte Option.
 :::
