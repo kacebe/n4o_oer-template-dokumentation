@@ -16,3 +16,13 @@ author:
     attributes:
       corresponding: true
     role: "writing – original draft"
+  - name:
+      given: Julia
+      family: Tolksdorf
+    orcid: 0000-0002-0495-5897
+    email: julia.tolksdorf@hs-mainz.de
+    affiliation: 
+      - name: Hochschule Mainz
+        city: Mainz
+        url: https://hs-mainz.de
+    role: "writing – review & editing"

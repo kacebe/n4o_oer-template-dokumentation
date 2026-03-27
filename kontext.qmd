@@ -1,6 +1,6 @@
 ---
 title: "Kontext"
-subtitle: "Untertitel"
+subtitle: "Quarto als Publikations-Umgebung für die Bereitstellung FAIRedelter Open Educational Ressources"
 lang: de
 date: 2026-01-19
 date-modified: last-modified

@@ -6,10 +6,14 @@ date: 2026-01-19
 date-modified: last-modified
 date-format: "DD.MM.YYYY"
 abstract: |
- Diese Website dokumentiert und erläutert Quarto-Templates zur Erstellung FAIRer Open Educational Resources.
- Im Fokus stehen Struktur, Nutzung, Anpassung und Weiterentwicklung der Templates als technische Produktionsinfrastruktur.
+  Diese Website dokumentiert und erläutert Quarto-Templates zur Erstellung **FAIRer Open Educational Resources** (FAIRedelte OER).
+  Im Fokus stehen Struktur, Nutzung, Anpassung und Weiterentwicklung der Templates als technische Infrastruktur.
 
- Sie richtet sich an Lehrende genauso wie an Praktiker:innen sowie an interessierte Entwickler:innen. Die Templates entstehen im Kontext der Nationalenforschungsdateninfrastruktur (NFDI) und werden von der Task Area 6 von [NFDI4Objects](https://nfdi4objects.net) bereit gestellt und gepflegt. Die Templates sind aber auch für viele andere Lehr- und Lernszenarien geeignet.
+  Sie richtet sich an Lehrende genauso wie an Praktiker:innen und interessierte Entwickler:innen. Ziel ist es, die Erstellung FAIRedelter OER auf technischer Ebene zu vereinfachen.
+
+  Die Website stellt **keine Lehr- und Lernmaterialien** bereit und auch **keine didaktischen Konzepte** oder fachlichen Inhalte.
+
+  Die Templates entstehen im Kontext der Nationalenforschungsdateninfrastruktur (NFDI) und werden von der Task Area 6 von [NFDI4Objects](https://nfdi4objects.net) bereit gestellt und gepflegt. Die Templates sind aber auch für viele andere Lehr- und Lernszenarien geeignet.
 keywords: OER, FAIR, Templates, Quarto, NFDI
 toc: true
 toc-location: left
@@ -26,18 +30,18 @@ Inhalte und Struktur werden derzeit erarbeitet und werden sich ändern.
 **Den Link bitte noch nicht weitergeben. Die URL wird nach der Publikation eine andere sein.**
 :::
 
-Diese Website dokumentiert und erläutert Quarto-Templates zur Erstellung <abbr title="Findable, Accessible, Interoperable, Reusable">FAIR</abbr>er Open Educational Resources (<abbr title="Open Educational Resources">OER</abbr>).
+## Einstieg
 
-Im Mittelpunkt stehen die Templates selbst:
+Je nach Interesse können Sie auf dieser Website:
 
-- ihr Aufbau,
-- die Möglichkeiten ihrer Nutzung,
-- ihre Anpassung an eigene Designvorgaben,
-- ihre Bereitstellung und kooperative Weiterentwicklung.
+- mit dem [Kontext](kontext.qmd) beginnen, um den Rahmen zu verstehen,
+- direkt den [Schnelleinstieg](schnelleinstieg.qmd) nutzen, um die Templates praktisch zu verwenden,
+- unter [Anpassen](anpassen.qmd) gezielt Änderungen vornehmen,
+- sich über [Bereitstellen](bereitstellen.qmd) mit Nutzungsszenarien vertraut machen,
+- in der [Referenz](referenz.qmd) gezielt Informationen nachschlagen,
+- oder sich unter [Mitgestalten](mitgestalten.qmd) an der Weiterentwicklung beteiligen.
 
-Die Website stellt **keine Lehr- und Lernmaterialien** bereit und diskutiert **keine didaktischen Konzepte** oder fachlichen Inhalte.
-
-Ziel ist es, die Erstellung FAIRer OER auf technischer Ebene zu vereinfachen.
+Alle Bereiche sind eigenständig nutzbar und können unabhängig voneinander gelesen werden.
 
 ## Worum es hier geht
 
@@ -140,21 +144,7 @@ Er beschreibt:
 - wie Repositories auf unterschiedlichen Plattformen organisiert sind,
 - welche Weiterentwicklungen geplant sind.
 
-Die Mitgestaltung bezieht sich auf Struktur, Technik und Metadaten,
-nicht auf konkrete Lehr- oder Lerninhalte.
-
-## Einstieg finden
-
-Je nach Interesse können Sie:
-
-- mit dem [Kontext](kontext.qmd) beginnen, um den Rahmen zu verstehen,
-- direkt den [Schnelleinstieg](schnelleinstieg.qmd) nutzen, um die Templates praktisch zu verwenden,
-- unter [Anpassen](anpassen.qmd) gezielt Änderungen vornehmen,
-- sich über [Bereitstellen](bereitstellen.qmd) mit Nutzungsszenarien vertraut machen,
-- in der [Referenz](referenz.qmd) gezielt Informationen nachschlagen,
-- oder sich unter [Mitgestalten](mitgestalten.qmd) an der Weiterentwicklung beteiligen.
-
-Alle Bereiche sind eigenständig nutzbar und können unabhängig voneinander gelesen werden.
+Die Mitgestaltung bezieht sich auf Struktur, Technik und Metadaten, nicht auf konkrete Lehr- oder Lerninhalte.
 
 
 ## Disclaimer: Einsatz von LLM {.appendix}

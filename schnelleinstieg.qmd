@@ -1,6 +1,6 @@
 ---
-title: "OER-Templates nutzen"
-subtitle: "Alles Wesentliche zum Erstellen, Anpassen, Anreichern und Ändern der Templates und der Nutzung und Bereitstellung der OER"
+title: "Schnelleinstieg"
+subtitle: "In wenigen Schritten zu eigenen OER"
 lang: de
 date: 2026-01-19
 date-modified: last-modified
@@ -25,7 +25,7 @@ Diese Seite ist noch im Aufbau. Inhalte und Struktur werden derzeit erarbeitet u
 
 :::
 
-## Schnelleinstieg
+## Vom Template zum Quarto-Dokument in vier Schritten 
 
 In diesem Schnelleinstieg lernen Sie Schritt für Schritt, wie Sie aus einem Template ein lokales Quarto-Projekt erstellen und rendern. Anschließend nehmen Sie eine kleine Änderung vor, um den grundlegenden Arbeitsablauf kennenzulernen.
 
@@ -138,7 +138,7 @@ Nach dem Rendern finden Sie das Ergebnis im Ordner `_site`.
 
 ![Screenshot der Ansicht der gerenderten HTML-Seite im Browser](img/screen_template_uebung.png)
 
-**Schritt 5: Erste sichtbare Änderung vornehmen**
+**Erste sichtbare Änderung vornehmen**
 
 Nehmen Sie kleine, gut sichtbare Änderungen vor, um zu verstehen, wie Quarto funktioniert. Geeignet sind zum Beispiel der Titel und der Untertitel der Website.
 
@@ -169,7 +169,7 @@ Zuweilen behält der Browser die Daten im Cache und die Änderungen nach `quarto
 :::
 
 
-**Nächste Schritte**
+**Weitere Schritte**
 
 Nach dem Schnellstart können Sie das Template auf drei Ebenen weiter bearbeiten. Für jede Ebene gibt es eigene Unterabschnitte.
 

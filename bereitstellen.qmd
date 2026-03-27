@@ -38,7 +38,7 @@ Der im [Schnelleinstieg](schnelleinstieg.qmd) beschriebene Workflow ist ausdrüc
 ## Nutzung in Lernmanagementsystemen {#sec-lms}
 
 
-## GitHub {#sec-github}
+## Auf GitHub publizieren {#sec-github}
 
 In diesem Abschnitt wird zwischen zwei Ebenen der Bereitstellung auf GitHub unterschieden:
 
@@ -98,7 +98,7 @@ Das Verzeichnis ist nun ein lokales Git-Repository, aber noch nicht mit GitHub v
 
 Aus Gründen der Datensparsamkeit sollten Sie einige lokale Dateien von der Synchronisation mit GitHub ausschließen. Dies erreichen Sie, indem Sie im lokalen Projektverzeichnis eine neue Datei mit dem Namen `.gitignore`anlegen. Übernehmen Sie folgende Angaben in die Datei:
 
-```{.text}
+``` bash
 _site/
 .quarto/
 .Rproj.user/
@@ -114,7 +114,7 @@ _quarto_internal_scss_error.scss
 .vscode/
 
 ```
-Damit sind die meisten Szenarien abgedeckt. Die genannten Dateien und Verzeichnisse werden nicht mit dem GitHub-Repository synchronisiert.
+Nach dem Speichern der Datei sind die meisten Szenarien abgedeckt. Die genannten Dateien und Verzeichnisse werden nicht mit dem GitHub-Repository synchronisiert.
 
 **Schritt 3: GitHub-Repository anlegen**
 
@@ -222,17 +222,7 @@ Ab jetzt existiert:
 
 ### Bereitstellung über GitHub Pages  {#sec-github-pages}
 
-**Offizielle Quarto-Dokumentation:**
-
--   [Quarto: Publishing mit GitHub Pages](https://quarto.org/docs/publishing/github-pages.html)
--   [Quarto: GitHub Actions](https://quarto.org/docs/publishing/github-actions.html)
--   [Quarto: Command Line Interface](https://quarto.org/docs/reference/command-line-interface.html)
-
-**Weiterführende Anleitung:**
-
--   [Mickaël Canouil: *Quarto – Publishing to GitHub Pages*](https://mickael.canouil.fr/posts/2024-12-30-quarto-github-pages/)
-
-**Die Schritte aus @sec-github-repo werden vorausgesetzt.**
+**Für die Veröffentlichung auf GitHub Pages werden die Schritte aus @sec-github-repo vorausgesetzt.**
 
 
 **Schritt 1: Einmalige Publikationsvorbereitung mit Quarto**
@@ -252,7 +242,7 @@ Je nach Umfang des Projekts kann der erste *deploy* einige Zeit in Anspruch nehm
 
 **Schritt 2: GitHub Pages auf Deployment über Actions einstellen**
 
-Öffnen Sie auf GitHub im Browser die Repository-Einstellungen:
+Öffnen Sie anschließend auf GitHub im Browser die Repository-Einstellungen:
 
 ![](img/screen_github_repo_settings.png)
 
@@ -375,9 +365,22 @@ jobs:
         uses: actions/deploy-pages@v4
 ```
 
-Nach erfolgreichem Abschluss ist die Website unter der von GitHub angezeigten Pages-URL erreichbar. Es empfiehlt sich, die Pages-URL in die Beschreibung des Repositories zu übernehmen. Dann ist sie schnell erreichbar.
+Nach erfolgreichem Abschluss ist die Website unter der von GitHub angezeigten Pages-URL erreichbar. Nach jeder Änderung oder Aktualisierung der Inhalte im Quarto-Projekt und der Übertragung (commit) in das GitHub-Repository wird die Seite neu generiert. Es empfiehlt sich, die Pages-URL in die Beschreibung des Repositories zu übernehmen. Dann ist sie schnell erreichbar.
 
-::: {.callout-tip title="GitHub Actions für Quarto mit Python, R oder Julia"}
+::: {.callout-tip title="Nützliche Links"}
+
+**Offizielle Quarto-Dokumentation:**
+
+-   [Quarto: Publishing mit GitHub Pages](https://quarto.org/docs/publishing/github-pages.html)
+-   [Quarto: GitHub Actions](https://quarto.org/docs/publishing/github-actions.html)
+-   [Quarto: Command Line Interface](https://quarto.org/docs/reference/command-line-interface.html)
+
+**Weiterführende Anleitung:**
+
+-   [Mickaël Canouil: *Quarto – Publishing to GitHub Pages*](https://mickael.canouil.fr/posts/2024-12-30-quarto-github-pages/)
+
+**GitHub Actions für Quarto mit Python, R oder Julia**
+
 Wenn Sie in Ihren OER ausführbaren Code integrieren wollen, muss die GitHub Action entsprechende Umgebungen laden. 
 
 Ausführliche Informationen und Vorlagen dazu bietet die [Quarto-Dokumentation unter *Executing Code*](https://quarto.org/docs/publishing/github-pages.html?utm_source=chatgpt.com#executing-code).

@@ -35,3 +35,5 @@ Inhalte und Struktur werden derzeit erarbeitet und werden sich ändern.
 ## Repositories
 
 ## Roadmap
+
+- Dark-Mode: Das Template-Branding um [Dark-/Ligh-Mode](https://quarto.org/docs/authoring/brand.html#light-and-dark-colors) erweitern.
