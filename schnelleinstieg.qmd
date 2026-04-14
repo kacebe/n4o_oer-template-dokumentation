@@ -21,11 +21,9 @@ number-sections: false
 
 Diese Seite ist noch im Aufbau. Inhalte und Struktur werden derzeit erarbeitet und werden sich ändern.
 
-**Den Link bitte noch nicht weitergeben. Die URL wird nach der Publikation eine andere sein.**
-
 :::
 
-## Vom Template zum Quarto-Dokument in vier Schritten 
+## Vom Template zum Quarto-Dokument in vier Schritten {#sec-vier-schritte}
 
 In diesem Schnelleinstieg lernen Sie Schritt für Schritt, wie Sie aus einem Template ein lokales Quarto-Projekt erstellen und rendern. Anschließend nehmen Sie eine kleine Änderung vor, um den grundlegenden Arbeitsablauf kennenzulernen.
 
@@ -181,7 +179,7 @@ Nach dem Schnellstart können Sie das Template auf drei Ebenen weiter bearbeiten
 
 Wenn Sie anschließend eine Veröffentlichung planen, ist der Abschnitt [Bereitstellung](#bereitstellung) relevant. Dort wird beschrieben, wie HTML-Ausgaben je nach Szenario bereitgestellt werden können, ohne dass eine öffentliche Online-Publikation zwingend erforderlich ist.
 
-## Projektstruktur
+## Projektstruktur {#sec-projektstruktur}
 
 Quarto bietet sehr umfangreiche Möglichkeiten zur Steuerung von Struktur, Gestaltung, Metadaten und Ausgabe. Wer diese Möglichkeiten vollständig ausschöpfen möchte, landet jedoch schnell bei sehr langen und unübersichtlichen Headern in einzelnen `.yml`- oder `.qmd`-Dateien.
 

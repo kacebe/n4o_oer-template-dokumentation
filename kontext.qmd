@@ -5,27 +5,64 @@ lang: de
 date: 2026-01-19
 date-modified: last-modified
 date-format: "DD.MM.YYYY"
-abstract: "Diese Website dokumentiert und erläutert Quarto-Templates zur Erstellung FAIRer Open Educational Resources.
-  Im Fokus stehen Struktur, Nutzung, Anpassung und Weiterentwicklung der Templates als technische Produktionsinfrastruktur."
+abstract: |
+  Dieser Abschnitt ordnet die Quarto-Templates im Kontext FAIRedelter Open Educational Resources ein.
+
+  In vielen Bereichen des Forschungsdatenmanagements und darüber hinaus entstehen umfangreiche offene Lehr- und Lernmaterialien. Diese liegen jedoch häufig in unterschiedlichen Formaten vor, sind nur eingeschränkt strukturiert und lassen sich auch nur begrenzt nachnutzen und weiterverarbeiten.
+
+  Die Templates setzen an dieser Stelle an. Sie bieten eine technische Grundlage, um Materialien strukturiert zu erstellen, Metadaten konsistent zu erfassen   und Inhalte in einem Format bereitzustellen, das sowohl für die unmittelbare Nutzung als auch für Weiterverarbeitung und Integration geeignet ist.
+
+  Auf diese Weise senken sie technische Einstiegshürden und unterstützen die Entwicklung FAIRer OER in bestehenden Arbeits- und Infrastrukturkontexten.
+
+  Die folgenden Abschnitte erläutern die Einordnung der Templates im Zusammenhang mit FAIRen OER, Quarto als Publikationsumgebung sowie bestehenden Initiativen im Forschungsdatenmanagement.
+
 keywords: OER, FAIR, Templates, Quarto
 toc: true
 toc-location: left
 number-sections: false
+bibliography: literatur.bib
 ---
 
-::: {.callout-warning}
+::: callout-warning
 ## Hinweis: Seite im Aufbau
 
-Diese Seite ist noch im Aufbau.
-Inhalte und Struktur werden derzeit erarbeitet und werden sich ändern.
-
-**Den Link bitte noch nicht weitergeben. Die URL wird nach der Publikation eine andere sein.**
+Diese Seite ist noch im Aufbau. Inhalte und Struktur werden derzeit erarbeitet und werden sich ändern.
 :::
 
-## FAIRe OER und Quarto
+## FAIRe OER und Quarto {#sec-faire-oer-quarto}
 
-## FDM-OER in der NFDI
+!["[OER is Sharing](https://www.flickr.com/photos/gforsythe/38088290601/)" von [Guilia Forsythe](https://www.flickr.com/photos/gforsythe/) ist lizensiert als [CC0 - public domain mark](https://creativecommons.org/publicdomain/zero/1.0/deed.de)](https://live.staticflickr.com/4485/38088290601_57cfe8d89f_c.jpg){fig-align="center"}
 
-## Verwandte Projekte
+Die grundlegenden Kriterien für Open Educational Resources (OER) sind international etabliert. Offene Lehr- und Lernmaterialien zeichnen sich durch ihre freie Zugänglichkeit, klare Lizenzierung sowie die Möglichkeit zur Weiterverwendung und Anpassung aus [@unesco2019].
 
-## Bereitstellungsszenarien
+Diese Eigenschaften werden häufig durch die sogenannten 5R-Kriterien beschrieben [@wiley2014]:
+
+- das Recht, Materialien zu behalten (retain),
+- zu nutzen (reuse),
+- zu verändern (revise),
+- zu kombinieren (remix) und
+- weiterzuverbreiten (redistribute)
+
+OER sind digitale Daten. Für ihre nachhaltige Nutzung ist daher nicht nur die 5R-Anforderungen entscheidend, sondern auch ihr technischer Aufbau. Mit den FAIR-Prinzipien haben sich anerkannte Vorgaben für den Umgang mit digitalen Ressourcen etabliert [@wilkinson2016]. Diese zielen darauf ab, Materialien auffindbar, zugänglich, interoperabel und nachnutzbar bereitzustellen.
+
+**Auf OER angewandt bedeutet dies, dass Inhalte nicht nur offen verfügbar, sondern auch strukturiert beschrieben, maschinenlesbar und in unterschiedlichen Kontexten anschlussfähig sein sollten.**
+
+Für die Umsetzung dieser Anforderungen ist das Format entscheidend. HTML bietet hierfür eine geeignete Grundlage. Es ist ein offenes, weit verbreitetes Format, das ohne spezielle Software genutzt werden kann, langfristig lesbar bleibt und sich flexibel in unterschiedliche Nutzungskontexte integrieren lässt.
+
+[Quarto](https://quarto.org/) nutzt diese Eigenschaften und erweitert sie um eine klare Trennung zwischen Inhalten, Metadaten und Darstellung. Aus strukturierten Quelltexten werden reproduzierbar HTML-Dokumente erzeugt, die sich anpassen und in unterschiedlichen Kontexten wiederverwenden lassen. Metadaten können systematisch erfasst und gemeinsam mit den Inhalten verwaltet werden, ohne die Struktur der Materialien zu verändern. Damit schließt Quarto an etablierte Ansätze reproduzierbarer, dynamischer Publikationsprozesse an [@piccolo2016].
+
+Die Templates greifen zudem etablierte Konzepte modularer Lehr- und Lernmaterialien auf, wie sie unter Begriffen wie *Learning Objects* oder *Edu-Bricks* diskutiert werden. Gemeint sind in sich geschlossene, klar strukturierte Einheiten, die unabhängig voneinander erstellt, mit Metadaten beschrieben und in unterschiedlichen Kontexten wiederverwendet werden können [@chiappe2015, @keßler2024].
+
+fig 1 aus: https://agile-giss.copernicus.org/articles/5/9/2024/agile-giss-5-9-2024.pdf
+
+## FDM-OER in der NFDI {#sec-fdm-oer-nfdi}
+
+OER dienen nicht nur im Forschungsdatenmanagement (FDM) dazu, Kenntnisse zu Datenstrukturen, Standards und Arbeitsprozessen zu vermitteln und unterstützen den Aufbau von Datenkompetenzen in unterschiedlichen Disziplinen. Für die Beschreibung dieser Kompetenzen liegen strukturierte Ansätze vor, etwa in Form von Lernzielmatrizen für das Forschungsdatenmanagement, die unterschiedliche Kompetenzbereiche und Niveaustufen systematisch erfassen [@fdm_lernzielmatrix2024].
+
+Mit der [Nationalen Forschungsdateninfrastruktur (NFDI)](https://www.nfdi.de) ist in Deutschland eine langfristig angelegte Struktur entstanden, die den Umgang mit Forschungsdaten systematisch organisiert. Qualifikation und Weiterbildung sind dabei als eigenständige Aufgabenbereiche verankert. Die Entwicklung und Bereitstellung von OER ist ein wesentlicher Bestandteil dieser Aktivitäten.
+
+Im Rahmen der NFDI sowie in angrenzenden Initiativen werden umfangreiche Materialien zu Forschungsdatenmanagement entwickelt. Dazu zählen unter anderem Aktivitäten in der [Sektion EduTrain der NFDI](https://www.nfdi.de/section-edutrain/), in einzelnen Konsortien, in der [Data Literacy Alliance (DALIA)](https://dalia.education/), in den [Datenkompetenzzentren](https://www.bmftr.bund.de/DE/Forschung/Wissenschaftssystem/Forschungsdaten/DatenkompetenzenInDerWissenschaft/datenkompetenzeninderwissenschaft_node.html) sowie auf Plattformen wie [forschungsdaten.info](https://forschungsdaten.info/) und [forschungsdaten.org](https://www.forschungsdaten.org).
+
+Parallel dazu entstehen Infrastrukturen, die sich gezielt mit der Erschließung und Auffindbarkeit von OER befassen. Dazu zählen insbesondere Initiativen zur Standardisierung und Aggregation von Metadaten, wie etwa der [Open Educational Resources Search Index (OERSI)](https://oersi.org/), der verteilte OER-Angebote über standardisierte Schnittstellen auffindbar macht.
+
+Aktuell wird im Rahmen der NFDI sowie in angrenzenden Initiativen intensiv an der Abstimmung von Metadatenschemata und kontrollierten Vokabularen gearbeitet. Vor diesem Hintergrund gewinnt die Fähigkeit, unterschiedliche Anforderungen parallel zu bedienen, an Bedeutung. Die hier dokumentierten Templates nutzen die in Quarto angelegte Trennung von Inhalten und Metadaten, um strukturierte Angaben einmal zu erfassen, um daraus verschiedene Metadatenschemata automatisiert ableiten zu können. Damit können Materialien konsistent beschrieben und in unterschiedliche Infrastrukturen und Nutzungskontexte integriert werden.

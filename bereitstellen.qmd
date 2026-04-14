@@ -18,6 +18,12 @@ toc-location: left
 number-sections: false
 ---
 
+::: callout-warning
+## Hinweis: Seite im Aufbau
+
+Diese Seite ist noch im Aufbau. Inhalte und Struktur werden derzeit erarbeitet und werden sich ändern.
+:::
+
 
 ## Lokale Nutzung ohne Veröffentlichung {#sec-lokal-nutzen}
 

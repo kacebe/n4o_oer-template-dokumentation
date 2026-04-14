@@ -14,15 +14,13 @@ website:
           - text: "FAIRe OER und Quarto"
             href: kontext.qmd
           - text: "FDM-OER in der NFDI"
-            href: kontext.qmd#fdm-oer-in-der-nfdi
-          - text: "Verwandte Projekte"
-            href: kontext.qmd#verwandte-projekte
+            href: kontext.qmd#sec-fdm-oer-nfdi
       - text: "Schnelleinstieg"
         menu:
-          - text: "Template nutzen"
-            href: schnelleinstieg.qmd
-          - text: "Templates im Detail"
-            href: schnelleinstieg.qmd
+          - text: "Vom Template zum Quarto-Dokument in vier Schritten"
+            href: schnelleinstieg.qmd#sec-vier-schritte
+          - text: "Projektstruktur"
+            href: schnelleinstieg.qmd#sec-projektstruktur
       - text: "Anpassen"
         menu:
           - text: "Design und Layout anpassen"
@@ -41,28 +39,28 @@ website:
             href: bereitstellen.qmd#sec-github-pages
           - text: "Weitere Git-basierte Plattformen"
             href: bereitstellen.qmd#sec-weitere-git-plattformen
-
-      - text: "Referenz"
-        menu:
-          - text: "Projektstruktur"
-            href: referenz.qmd
-          - text: "Konfiguration"
-            href: referenz.qmd#konfiguration
-          - text: "Begriffe"
-            href: referenz.qmd#begriffe
-          - text: "FAQ"
-            href: referenz.qmd#faq
-
       - text: "Mitgestalten"
         menu:
-          - text: "Beitragen"
-            href: mitgestalten.qmd
-          - text: "Seitentypen (HCRT)"
-            href: mitgestalten.qmd#seitentypen-hcrt
+          - text: "Eigene Templates als Bausteintypen (HCRT) entwickeln"
+            href: mitgestalten.qmd#sec-templates-bausteintypen
           - text: "Metadaten erweitern"
-            href: mitgestalten.qmd#metadaten-erweitern
+            href: mitgestalten.qmd#sec-metadaten-erweitern
           - text: "Repositories"
-            href: mitgestalten.qmd#repositories
+            href: mitgestalten.qmd#sec-repositories
           - text: "Roadmap"
-            href: mitgestalten.qmd#roadmap
+            href: mitgestalten.qmd#sec-roadmap
+
+
+
+#      - text: "Referenz"
+#        menu:
+#          - text: "Projektstruktur"
+#           href: referenz.qmd
+#          - text: "Konfiguration"
+#            href: referenz.qmd#konfiguration
+#          - text: "Begriffe"
+#            href: referenz.qmd#begriffe
+#          - text: "FAQ"
+#            href: referenz.qmd#faq
+
     

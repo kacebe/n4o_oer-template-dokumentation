@@ -19,21 +19,25 @@ number-sections: false
 Diese Seite ist noch im Aufbau.
 Inhalte und Struktur werden derzeit erarbeitet und werden sich ändern.
 
-**Den Link bitte noch nicht weitergeben. Die URL wird nach der Publikation eine andere sein.**
 :::
 
-## Beitragen
+## Eigene Templates als Bausteintypen entwickeln {#sec-templates-bausteintypen}
 
-### Eigene Templates
+- Entwicklung neuer Templates für bisher nicht abgedeckte Bausteintypen (HCRT)
+- Übertragung bestehender Materialien in strukturierte Template-Formate
+- Einbringen fachlicher Anforderungen aus der eigenen Praxis
 
-#### GitHub
+## Metadaten erweitern {#sec-metadaten-erweitern}
 
-## Seitentypen (HCRT)
+- Vorschläge für zusätzliche Metadatenfelder
+- Abstimmung mit bestehenden Standards
+- Erweiterung für spezifische Anwendungsfälle oder disziplinäre Kontexte (Kompetenzrahmen)
 
-## Metadaten erweitern
+## Repositories {#sec-repositories}
 
-## Repositories
+- Anpassen der Templates an andere Repositories (GitLab, Codeberg)
 
-## Roadmap
+## Roadmap {#sec-roadmap}
 
-- Dark-Mode: Das Template-Branding um [Dark-/Ligh-Mode](https://quarto.org/docs/authoring/brand.html#light-and-dark-colors) erweitern.
+- Dark-Mode: Das Template-Branding um [Dark-/Light-Mode](https://quarto.org/docs/authoring/brand.html#light-and-dark-colors) erweitern.
+- Skripte für Ableitung von spezifischen Metadaten-Files (e.g. OERSI)
