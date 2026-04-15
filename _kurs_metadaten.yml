@@ -2,8 +2,6 @@
 website:
   title: "Quarto-Templates für FAIRe OER"
   description: "Ein Angebot der Task Area 6 von NFDI4Objects für Praktiker:innen im Umgang mit materiellen Hinterlassenschaften der Menschheitsgeschichte"
-
-subtitle: "Kurs-Untertitel"
 abstract-title: |
   Zusammenfassung
 abstract: |
@@ -25,9 +23,9 @@ keywords:
   - Vorlagen
 
 # Technische Metadaten
-site-url: "https://kacebe.github.io/n4o_oer-template-dokumentation/"
-repo-url: "https://github.com/kacebe/n4o_oer-template-dokumentation/"
-data-url: "https://raw.githubusercontent.com/kacebe/n4o_oer-template-dokumentation/main/data/"
+site-url: "https://nfdi4objects.github.io/oer-template-dokumentation/"
+repo-url: "https://github.com/nfdi4objects/oer-template-dokumentation/"
+data-url: "https://raw.githubusercontent.com/nfdi4objects/oer-template-dokumentation/main/data/"
 
 # Rechtliche Metadaten
 copyright: "Kai-Christian Bruhn"

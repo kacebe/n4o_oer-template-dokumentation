@@ -5,8 +5,12 @@ lang: de
 date: 2026-01-19
 date-modified: last-modified
 date-format: "DD.MM.YYYY"
-abstract: "Diese Website dokumentiert und erläutert Quarto-Templates zur Erstellung FAIRer Open Educational Resources.
-  Im Fokus stehen Struktur, Nutzung, Anpassung und Weiterentwicklung der Templates als technische Produktionsinfrastruktur."
+abstract: |
+  Diese Seite zeigt, auf welchen Ebenen sich eine Mitarbeit an der Weiterentwicklung der Quarto-Templates für Interessierte möglich ist.
+
+  Die Templates werden als Bausteine verstanden, die klar definierten Ressourcentypen entsprechen und über standardisierte Metadaten beschrieben werden. 
+
+  Die folgenden Abschnitte benennen konkrete Ansatzpunkte, an denen Beiträge aus der Community eingebracht werden können, von der Entwicklung neuer Templates über die Erweiterung von Metadaten bis hin zur Zusammenarbeit in Repositories und der strategischen Weiterentwicklung des Gesamtansatzes.
 keywords: OER, FAIR, Templates, Quarto
 toc: true
 toc-location: left
