@@ -1,11 +1,8 @@
 # Quarto-Templates für FAIRe OER – Website
 
-Dieses Repository enthält das Quarto-Projekt für die Website
-**„Quarto-Templates für FAIRe OER“**.
+Dieses Repository enthält das Quarto-Projekt für die Website **„Quarto-Templates für FAIRe OER“**.
 
-Die Website dokumentiert und erläutert Quarto-Templates zur Erstellung
-FAIRer Open Educational Resources (OER).
-Das Repository selbst stellt **keine Templates** und **keine Lehr- oder Lernmaterialien** bereit.
+Die Website dokumentiert und erläutert Quarto-Templates zur Erstellung FAIRer Open Educational Resources (OER). Das Repository selbst stellt **keine Templates** und **keine Lehr- oder Lernmaterialien** bereit.
 
 ---
 
@@ -14,7 +11,7 @@ Das Repository selbst stellt **keine Templates** und **keine Lehr- oder Lernmate
 Dieses Repository dient ausschließlich der:
 
 - Entwicklung und Pflege der Website,
-- Dokumentation von Quarto-Templates,
+- Dokumentation von Quarto-Templates für FAIRe OER,
 - Beschreibung ihrer Nutzung, Anpassung und Weiterentwicklung,
 - Einordnung der Templates in fachliche, infrastrukturelle und institutionelle Kontexte.
 
@@ -32,8 +29,7 @@ Die Website behandelt:
 - Pflege und Erweiterung von Metadaten,
 - Weiterentwicklung von Seitentypen und Metadatenschemata,
 - Bereitstellungsszenarien für OER,
-- Einbettung in den Kontext von FAIRen OER,
-  Forschungsdatenmanagement und Infrastrukturarbeit.
+- Einbettung in den Kontext von FAIRen OER
 
 Die Website behandelt **nicht**:
 
@@ -46,11 +42,9 @@ Die Website behandelt **nicht**:
 
 ## Institutioneller Kontext
 
-Die Website ist ein Angebot der Task Area 6 von
-:contentReference[oaicite:0]{index=0}.
+Die Website ist ein Angebot der Hochschule Mainz als Beitrag zu den Arbeiten der Task Area 6 von [NFDI4Objects](https://www.nfdi4objects.net/areas/ta6/).
 
-Sie richtet sich an Praktiker:innen, die mit den materiellen Hinterlassenschaften
-der Menschheitsgeschichte arbeiten, insbesondere im Umfeld von:
+Sie richtet sich an Praktiker:innen, die mit den materiellen Hinterlassenschaften der Menschheitsgeschichte arbeiten, insbesondere im Umfeld von:
 
 - Archäologie
 - Denkmalpflege
@@ -60,53 +54,8 @@ der Menschheitsgeschichte arbeiten, insbesondere im Umfeld von:
 
 ---
 
-## Technische Basis
-
-- Quarto (Website-Projekt)
-- Markdown / Quarto Markdown
-- Git-basierte Versionsverwaltung
-
-Das Projekt ist plattformneutral und kann mit GitHub, GitLab oder Codeberg
-entwickelt und betrieben werden.
-
----
-
-## Projektstruktur
-
-Das Repository folgt einer bewusst reduzierten Struktur:
-
-- eine Seite pro Hauptnavigationspunkt,
-- Unterthemen als Anker innerhalb der jeweiligen Seite,
-- klare Trennung zwischen Kontext, Nutzung, Referenz und Mitgestaltung.
-
-Diese Struktur dient der langfristigen Wartbarkeit
-und der klaren Nutzerführung.
-
----
-
-## Weiterentwicklung und Beiträge
-
-Beiträge zu diesem Repository betreffen ausschließlich:
-
-- Inhalte der Website,
-- Struktur und Navigation,
-- Präzisierung der Dokumentation,
-- technische Verbesserung des Quarto-Projekts.
-
-Beiträge zu den Templates selbst erfolgen in den jeweiligen
-Template-Repositories.
-
----
-
 ## Lizenz
 
-Die Lizenzierung der Inhalte und des Quarto-Projekts
-ist in der entsprechenden Lizenzdatei dokumentiert.
-Bitte beachten Sie diese Angaben bei Nachnutzung.
+Alle sind herzlich eingeladen, die Quarto-Templates und die zugehörige Copyleft-Lizenz ([CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)) zu nutzen, um ihr Wissen und Expertise in die Verbesserung und Aktualisierung einzubringen.
 
----
-
-## Hinweis
-
-Wenn Sie auf der Suche nach konkreten Quarto-Templates sind,
-nutzen Sie bitte die in der Website verlinkten Template-Repositories.
+Wir freuen uns im Falle einer Überarbeitung über eine kurze Notiz – das ist aber selbstverständlich keine Pflicht.
