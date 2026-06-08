@@ -53,7 +53,7 @@ Für die Umsetzung dieser Anforderungen ist das Format entscheidend. HTML bietet
 
 Die Templates greifen zudem etablierte Konzepte modularer Lehr- und Lernmaterialien auf, wie sie unter Begriffen wie *Learning Objects* oder *Edu-Bricks* diskutiert werden. Gemeint sind in sich geschlossene, klar strukturierte Einheiten, die unabhängig voneinander erstellt, mit Metadaten beschrieben und in unterschiedlichen Kontexten wiederverwendet werden können [@chiappe2015, @keßler2024].
 
-fig 1 aus: https://agile-giss.copernicus.org/articles/5/9/2024/agile-giss-5-9-2024.pdf
+!["Modularer Aufbau von digitalen Lehr- und Lernmaterialien " Fig. 1 aus: Keßler, Carsten, Albert Remke, Henryk Hodam, Fabian Przybylak, und Andreas Rienow. „OER4SDI: Open Educational Resources for Spatial Data Infrastructures“. AGILE: GIScience Series 5 (Mai 2024). [DOI: 10.5194/agile-giss-5-9-2024](https://doi.org/10.5194/agile-giss-5-9-2024), [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)](img/keszler_et-al_2024_fig1.png){fig-align="center"}
 
 ## FDM-OER in der NFDI {#sec-fdm-oer-nfdi}
 

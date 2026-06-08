@@ -396,6 +396,352 @@ Ausführliche Informationen und Vorlagen dazu bietet die [Quarto-Dokumentation u
 
 ## Bereitstellung über weitere Git-basierte Plattformen {#sec-weitere-git-plattformen}
 
+### Codeberg
+
+#### Einordnung
+
+[Codeberg](https://codeberg.org/) ist eine Alternative zu GitHub. Die Plattform basiert auf freier Software und wird von einer gemeinnützigen Organisation mit Sitz in Berlin betrieben. Damit bietet Codeberg eine Alternative zu kommerziellen Hosting-Plattformen.
+
+Für Projekte im Kontext von Open Science kann Codeberg deshalb interessant sein: Die Plattform verringert Abhängigkeiten von kommerziellen Diensten und passt gut zu Projekten, die freie Software und nachhaltige technische Infrastrukturen bevorzugen.
+
+Der grundsätzliche Unterschied zu der oben beschriebenen Bereitstellung über GitHub Pages liegt in der fehlenden Unterstützung durch Quarto. Für GitHub Pages stellt Quarto mit `quarto publish gh-pages` einen eigenen Veröffentlichungsbefehl bereit. Für Codeberg Pages steht dieser Befehl nicht zur Verfügung.
+
+Die Veröffentlichung auf Codeberg wird deshalb über Forgejo Actions eingerichtet. Ein Workflow rendert das Quarto-Projekt mit `quarto render` und übergibt den erzeugten Ausgabeordner `_site/` an Codeberg Pages. Die dafür nötigen Schritte werden in der Datei `.forgejo/workflows/publish.yml` festgelegt.
+
+#### Voraussetzungen
+
+Für die Veröffentlichung auf Codeberg benötigen Sie einen Codeberg-Account und ein Repository für Ihr Quarto-Projekt. Wesentliche Voraussetzung ist, dass das Projekt lokal fehlerfrei gerendert wird. Prüfen Sie dies vor der Einrichtung des Codeberg-Workflows mit:
+
+```bash
+quarto render
+```
+
+Damit Sie das lokale Quarto-Projekt mit dem Repository auf Codeberg verbinden können, muss Git auf dem lokalen Rechner eingerichtet sein. Wenn Sie die Verbindung über SSH herstellen, müssen Sie außerdem einen SSH-Schlüssel in Ihrem Codeberg-Account hinterlegen und den SSH-Fingerprint von Codeberg prüfen. Codeberg [beschreibt dieses Vorgehen in der Dokumentation](https://docs.codeberg.org/security/ssh-key/) zu SSH-Schlüsseln und zur Prüfung des SSH-Fingerprints.
+
+#### URLs, Branches und Ausgabeordner
+
+Für die Veröffentlichung über Codeberg Pages sind drei Angaben wichtig:
+
+1. die Adresse des Repositories,
+2. die spätere Adresse der Website und
+3. der Ausgabeordner des Quarto-Projekts.
+
+Das Quarto-Projekt liegt in einem Codeberg-Repository. Die Repository-Adresse folgt diesem Muster:
+
+`https://codeberg.org/benutzername/repositoryname`
+
+Codeberg kennt neben persönlichen Accounts auch Organisationen. Liegt das Repository in einer Organisation, verwenden Sie statt des Benutzernamens den Namen der Organisation:
+
+`https://codeberg.org/organisationsname/repositoryname`
+
+Die veröffentlichte Website ist später unter einer Codeberg-Pages-Adresse erreichbar. Für ein Projekt-Repository folgt die Adresse diesem Muster:
+
+`https://benutzername.codeberg.page/repositoryname/`
+
+Bei einem Repository in einer Organisation verwenden Sie entsprechend den Organisationsnamen:
+
+`https://organisationsname.codeberg.page/repositoryname/`
+
+Der Workflow wird im Arbeitsbranch des Repositories eingerichtet. In der Regel ist dies der Branch `main`.
+
+Der Ausgabeordner wird in `_quarto.yml` unter `project` mit `output-dir` festgelegt:
+
+```yaml
+project:
+  type: website
+  output-dir: _site
+  ```
+
+Im Workflow muss derselbe Ausgabeordner angegeben werden, der in `_quarto.yml` unter `output-dir` festgelegt ist. Im Beispiel ist dies `_site/`.
+
+**Codeberg Actions aktivieren**
+
+Damit der Workflow ausgeführt werden kann, müssen Actions für das Repository aktiviert sein. Öffnen Sie dazu auf Codeberg die Einstellungen des Repositories und suchen Sie den Bereich `Units` > `Overview` bzw. `Einheiten` > `Übersicht`. Aktivieren Sie dort `Actions`.
+
+![](img/screen_codeberg_actions1.png "Screenshot"){fig-alt="Screenshot der Codeberg-Einstellungen für die Aktivierung der Actions"}
+
+Prüfen Sie anschließend unter `Actions` > `Runners`, ob ein Runner verfügbar ist. Für die hier gezeigten Workflows wird der Runner `codeberg-small` verwendet.
+
+![](img/screen_codeberg_runners.png "Screenshot"){fig-alt=""}
+
+#### Deployment mit Forgejo Actions
+
+Für den automatisierten Workflow müssen Forgejo Actions im Repository verfügbar sein. Der Workflow wird im Repository als Datei `.forgejo/workflows/publish.yml` gespeichert. Er rendert das Projekt und übergibt den erzeugten Ordner `_site/` an Codeberg Pages.
+
+Falls das Projekt ausführbaren Code enthält, müssen die entsprechenden Laufzeitumgebungen im Workflow eingerichtet werden. Das betrifft vor allem R, Python oder Julia. Die passenden Varianten der Workflow-Datei werden im Folgenden gezeigt.
+
+**Neues Repository anlegen**
+
+Initialisieren Sie zunächst im Projektordner ein lokales Git-Repository. Der Branch wird auf `main` gesetzt. Danach werden alle Dateien zum ersten Commit hinzugefügt.
+
+```bash
+git init
+git branch -M main
+git add .
+git status
+git commit -m "Initial commit"
+```
+
+Verbinden Sie anschließend das lokale Repository mit dem zuvor auf Codeberg angelegten Repository. Ersetzen Sie `<owner>` durch den Namen Ihres Accounts oder Ihrer Organisation und `<repo>` durch den Repositorynamen.
+
+```bash
+git remote add origin git@codeberg.org:<owner>/<repo>.git
+git remote -v
+```
+
+Übertragen Sie den lokalen Branch main nach Codeberg. Mit `-u` wird `origin main` als Standardziel für spätere Push- und Pull-Befehle gesetzt.
+
+```bash
+git push -u origin main
+```
+
+Legen Sie danach im Repository die Workflow-Datei an:
+
+```bash
+.forgejo/workflows/publish.yml
+```
+
+Diese Datei enthält die Schritte, mit denen Forgejo Actions das Quarto-Projekt rendert und den Ausgabeordner an Codeberg Pages übergibt.
 
 
+::: {.panel-tabset}
+
+##### Nur Quarto
+
+Diese Variante eignet sich für Quarto-Websites ohne ausführbaren R-, Python- oder Julia-Code. Der Workflow installiert Quarto, rendert das Projekt und veröffentlicht den Ausgabeordner mit Codeberg Pages.
+
+Kopieren Sie folgenden Inhalt in die Datei `.forgejo/workflows/publish.yml`:
+
+```yaml
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  publish:
+    runs-on: codeberg-small
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install Quarto
+        run: |
+          wget https://github.com/quarto-dev/quarto-cli/releases/download/v1.9.38/quarto-1.9.38-linux-amd64.deb
+          sudo dpkg -i quarto-1.9.38-linux-amd64.deb
+
+      - name: Render Quarto website
+        run: quarto render
+
+      - name: Publish to Codeberg Pages
+        uses: https://codeberg.org/git-pages/action@v2
+        with:
+          site: "https://owner.codeberg.page/repo/"
+          token: ${{ forge.token }}
+          source: _site/
+```
+
+Ersetzen Sie `owner` durch den Namen des Accounts oder der Organisation. Ersetzen Sie `repo` durch den Namen des Repositories.
+
+Die Angabe bei `source` muss mit dem Ausgabeordner übereinstimmen, der in `_quarto.yml` mit `output-dir` festgelegt ist. Im Beispiel ist dies `_site/`.
+
+Die Quarto-Version wird im Installationsschritt festgelegt. Prüfen Sie bei Bedarf auf der Quarto-Downloadseite, ob eine neuere Version verfügbar ist. Für reproduzierbare Builds kann es sinnvoll sein, eine feste Version beizubehalten.
+
+##### Quarto mit R
+
+Diese Variante eignet sich für Quarto-Websites mit ausführbarem R-Code. Der Workflow installiert R, installiert bei Bedarf R-Pakete, rendert das Projekt und veröffentlicht den Ausgabeordner mit Codeberg Pages.
+
+Kopieren Sie folgenden Inhalt in die Datei `.forgejo/workflows/publish.yml`:
+
+```yaml
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  publish:
+    runs-on: codeberg-small
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install Quarto
+        run: |
+          wget https://github.com/quarto-dev/quarto-cli/releases/download/v1.9.38/quarto-1.9.38-linux-amd64.deb
+          sudo dpkg -i quarto-1.9.38-linux-amd64.deb
+
+      - name: Install R
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y r-base
+
+      - name: Install R packages
+        run: |
+          sudo Rscript -e 'install.packages(c("knitr"), repos = "https://cloud.r-project.org")'
+
+      - name: Render Quarto website
+        run: quarto render
+
+      - name: Publish to Codeberg Pages
+        uses: https://codeberg.org/git-pages/action@v2
+        with:
+          site: "https://owner.codeberg.page/repo/"
+          token: ${{ forge.token }}
+          source: _site/
+```
+
+Ersetzen Sie `owner` durch den Namen des Accounts oder der Organisation. Ersetzen Sie `repo` durch den Namen des Repositories.
+
+Ergänzen Sie im Schritt `Install R packages` alle R-Pakete, die Ihr Quarto-Projekt beim Rendern benötigt. Für R-Codeblöcke in Quarto wird mindestens `knitr` benötigt. Weitere Pakete hängen vom konkreten Projekt ab und können in der entsprechenden Anweisung in der `publish.yml` nach `"knitr"` mit Kommata getrennt einfach ergänzt werden.
+
+Die Angabe bei `source` muss mit dem Ausgabeordner übereinstimmen, der in `_quarto.yml` unter `output-dir` festgelegt ist. Im Beispiel ist dies `_site/`.
+
+##### Quarto mit Python
+
+Diese Variante eignet sich für Quarto-Websites mit ausführbarem Python-Code. Der Workflow installiert Python, installiert bei Bedarf Python-Pakete, rendert das Projekt und veröffentlicht den Ausgabeordner mit Codeberg Pages.
+
+Kopieren Sie folgenden Inhalt in die Datei `.forgejo/workflows/publish.yml`:
+
+```yaml
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  publish:
+    runs-on: codeberg-small
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install Quarto
+        run: |
+          wget https://github.com/quarto-dev/quarto-cli/releases/download/v1.9.38/quarto-1.9.38-linux-amd64.deb
+          sudo dpkg -i quarto-1.9.38-linux-amd64.deb
+
+      - name: Install Python
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y python3 python3-pip python3-venv
+
+      - name: Install Python packages
+        run: |
+          python3 -m venv .venv
+          . .venv/bin/activate
+          python -m pip install --upgrade pip
+          python -m pip install jupyter
+
+          if [ -f requirements.txt ]; then
+            python -m pip install -r requirements.txt
+          fi
+
+      - name: Render Quarto website
+        run: |
+          . .venv/bin/activate
+          quarto render
+
+      - name: Publish to Codeberg Pages
+        uses: https://codeberg.org/git-pages/action@v2
+        with:
+          site: "https://owner.codeberg.page/repo/"
+          token: ${{ forge.token }}
+          source: _site/
+```
+
+Ersetzen Sie `owner` durch den Namen des Accounts oder der Organisation. Ersetzen Sie `repo` durch den Namen des Repositories.
+
+Legen Sie bei Bedarf im Hauptverzeichnis des Repositories eine Datei `requirements.txt` an. Sie liegt auf derselben Ebene wie `_quarto.yml`. Tragen Sie dort alle Python-Pakete ein, die Ihr Quarto-Projekt beim Rendern benötigt.
+
+Für Python-Codeblöcke in Quarto wird mindestens `jupyter` benötigt. Dieses Paket wird im Workflow bereits unabhängig von `requirements.txt` installiert. In `requirements.txt` müssen Sie deshalb nur die zusätzlichen Pakete eintragen, die in Ihrem Projekt verwendet werden.
+
+Eine einfache `requirements.txt` kann zum Beispiel so aussehen:
+
+```text
+pandas
+matplotlib
+plotly
+```
+
+Der Workflow prüft, ob die Datei `requirements.txt` vorhanden ist. Wenn die Datei existiert, installiert er die darin aufgeführten Pakete vor dem Rendern der Website.
+
+Die Angabe bei `source` muss mit dem Ausgabeordner übereinstimmen, der in `_quarto.yml` unter `output-dir` festgelegt ist. Im Beispiel ist dies `_site/`.
+
+##### Quarto mit Julia
+
+Diese Variante eignet sich für Quarto-Websites mit ausführbarem Julia-Code. Der Workflow installiert Julia, installiert bei Bedarf Julia-Pakete, rendert das Projekt und veröffentlicht den Ausgabeordner mit Codeberg Pages.
+
+Damit Quarto die Julia-Engine verwendet, muss in `_quarto.yml` oder im YAML-Header der betreffenden `.qmd`-Datei `engine: julia` gesetzt sein.
+
+Kopieren Sie folgenden Inhalt in die Datei `.forgejo/workflows/publish.yml`:
+
+```yaml
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  publish:
+    runs-on: codeberg-small
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install Quarto
+        run: |
+          wget https://github.com/quarto-dev/quarto-cli/releases/download/v1.9.38/quarto-1.9.38-linux-amd64.deb
+          sudo dpkg -i quarto-1.9.38-linux-amd64.deb
+
+      - name: Install Julia
+        uses: julia-actions/setup-julia@v3
+        with:
+          version: "1"
+
+      - name: Install Julia packages
+        run: |
+          julia --project=. -e 'using Pkg; Pkg.instantiate()'
+
+      - name: Render Quarto website
+        run: quarto render
+
+      - name: Publish to Codeberg Pages
+        uses: https://codeberg.org/git-pages/action@v2
+        with:
+          site: "https://owner.codeberg.page/repo/"
+          token: ${{ forge.token }}
+          source: _site/
+```
+
+Ersetzen Sie `owner` durch den Namen des Accounts oder der Organisation. Ersetzen Sie `repo` durch den Namen des Repositories.
+
+Legen Sie bei Bedarf im Hauptverzeichnis des Repositories eine Julia-Projektumgebung an. Die Dateien `Project.toml` und, wenn vorhanden, `Manifest.toml` liegen auf derselben Ebene wie `_quarto.yml`. Tragen Sie dort alle Julia-Pakete ein, die Ihr Quarto-Projekt beim Rendern benötigt.
+
+Der Schritt `Install Julia packages` aktiviert die Projektumgebung im Hauptverzeichnis und installiert die darin festgelegten Pakete. Wenn keine `Project.toml` vorhanden ist, löschen Sie diesen Schritt vollständig aus der Workflow-Datei.
+
+Die Angabe bei `source` muss mit dem Ausgabeordner übereinstimmen, der in `_quarto.yml` unter `output-dir` festgelegt ist. Im Beispiel ist dies `_site/`.
+
+
+:::
+
+Nachdem Sie die Datei `.forgejo/workflows/publish.yml` entsprechend den Anforderungen Ihres Projekts ergänzt haben, übertragen Sie die Änderungen in das Codeberg-Repository:
+
+```bash
+git add .
+git commit -m "Add CI workflow"
+git push
+```
+
+#### Veröffentlichung prüfen
+
+Nach dem Push startet Forgejo Actions den Workflow automatisch. Öffnen Sie die Actions-Übersicht des Repositories:
+
+`https://codeberg.org/owner/repo/actions`
+
+Prüfen Sie dort, ob der Workflow erfolgreich abgeschlossen wurde. Wenn der Workflow erfolgreich war, rufen Sie die veröffentlichte Website im Browser auf:
+
+`https://owner.codeberg.page/repo/`
+
+Falls die Website nicht erreichbar ist oder nicht korrekt dargestellt wird, prüfen Sie den Workflow-Log in Codeberg. 
 
